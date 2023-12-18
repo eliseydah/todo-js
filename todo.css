@@ -1,35 +1,41 @@
 h1 {
     font-size: 100px;
     color: rgb(230, 214, 187);
-    font-style: oblique;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    width: 100px;
-    margin-left: auto;
-    margin-right: auto;
+    font-weight: lighter;
+    width: 200px;
+
+    margin: 0px auto;
 }
 
 .main-content {
-
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin-left: auto;
     margin-right: auto;
-    position: relative;
-    font-size: 30px;
-    padding: 10px;
+    /* position: relative; */
+    /* font-size: 30px; */
+    width: 600px;
+    height: 60px;
+    /* border: rgb(225, 209, 188) 1px solid;  */
+    box-shadow: 1px 1px 10px rgb(221, 215, 215);
+    ;
+    /* padding: 10px; */
 
 }
 
+form {
+    display: flex;
+    align-items: center;
+    margin: 0;
+}
+
 input {
-    /* border: none; */
+    border: none;
+    font-size: 24px;
 }
 
 ::placeholder {
     color: rgb(221, 215, 215);
-}
-
-.main-content {
-    width: 400px;
-    height: 50px;
-    border: rgb(225, 209, 188) 1px solid;
-    box-shadow: 1px 1px 10px rgb(221, 215, 215);
-    ;
+    font-style: italic;
 }
