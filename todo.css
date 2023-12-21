@@ -3,7 +3,6 @@ h1 {
     color: rgb(230, 214, 187);
     font-weight: lighter;
     width: 200px;
-
     margin: 0px auto;
 }
 
@@ -24,15 +23,30 @@ h1 {
 
 }
 
+.action-list-button {
+    visibility: hidden;
+}
+
 form {
-    display: flex;
-    align-items: center;
+    /* display: flex;
+    align-items: center; */
     margin: 0;
+    width: 100%;
+    /* height: 100%; */
 }
 
 input {
     border: none;
     font-size: 24px;
+    height: 100%;
+    width: 100%;
+}
+
+input:active,
+input:hover,
+input:focus {
+    outline: 0;
+    outline-offset: 0;
 }
 
 ::placeholder {

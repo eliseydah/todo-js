@@ -8,13 +8,24 @@
 <body>
     <h1>todos</h1>
     <div class="main-content">
+        <button class="action-list-button" type="button"></button>
+
         <form class="todo-form" action="">
             <input class="todo-form-input" type="text" placeholder="What needs to be done?" required>
         </form>
     </div>
+    <template id="todo-template">
+        <div class="todo-cell">
+            <input type="checkbox" name="completed" id="completed-field">
+            <p class="todo-text"></p>
+            <button class="" type="button"></button>
+        </div>
+    </template>
 </body>
 <footer>
 
 </footer>
+<script src="todo.js"></script>
+
 
 </html>
