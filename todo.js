@@ -1,6 +1,6 @@
 let todoLine = document.querySelector('.todo-form');
 let todoMessage = document.querySelector('#todo-template').content;
-let container = document.querySelector('.main-content');
+let container = document.querySelector('.cell-content');
 let newMessageTemplate = todoMessage.querySelector('.todo-cell');
 let newTodoText = todoLine.querySelector('.todo-form-input');
 

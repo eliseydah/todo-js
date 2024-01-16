@@ -14,11 +14,17 @@
             <input class="todo-form-input" type="text" placeholder="What needs to be done?" required>
         </form>
     </div>
+    <div class="cell-content">
+    </div>
     <template id="todo-template">
         <div class="todo-cell">
-            <input type="checkbox" name="completed" id="completed-field">
-            <p class="todo-text"></p>
-            <button class="todo-delete-button" type="button"></button>
+            <div class="line-left">
+                <input class="todo-checkbox" type="checkbox" name="completed" id="completed-field">
+                <p class="todo-text"></p>
+            </div>
+            <div class="line-right">
+                <button class="todo-delete-button" type="button">&#x2715</button>
+            </div>
         </div>
     </template>
 </body>
