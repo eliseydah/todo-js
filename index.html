@@ -32,19 +32,23 @@
     </template>
     <div class="panel">
         <div class="counter">
+            <span id="elementCounter">0</span>
             item left
         </div>
         <div class="multi-buttons">
 
-            <input class="action-button" id="radio-1" type="radio" name="button-type" value="all" checked>
+            <input class="all-button" id="radio-1" type="radio" name="button-type" value="all" checked>
             <label for="radio-1"> All </label>
-            <input class="action-button" id="radio-2" type="radio" name="button-type" value="active">
+            <input class="active-button" id="radio-2" type="radio" name="button-type" value="active">
             <label for="radio-2">Active</label>
-            <input class="action-button" id="radio-3" type="radio" name="button-type" value="completed">
+            <input class="completed-button" id="radio-3" type="radio" name="button-type" value="completed">
             <label for="radio-3">Completed</label>
         </div>
         <div class="clear-completed">
-            <button class="clear-completed-button" type="button"> clear completed</button>
+            <button class="clear-completed-button" type="button">
+                <span id="clearElementCounter">0</span>
+                clear completed</button>
+
         </div>
     </div>
 </body>

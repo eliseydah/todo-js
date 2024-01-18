@@ -176,3 +176,11 @@ input:focus {
     border: 1px solid #f2e9e9;
     border-radius: 6px;
 }
+
+.hidden {
+    display: none;
+}
+
+.counter {
+    margin-left: 10px;
+}
