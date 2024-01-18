@@ -46,6 +46,23 @@ body {
     align-items: center;
 }
 
+.panel {
+    display: flex;
+    flex-direction: row;
+    color: rgb(171, 167, 167);
+    align-items: center;
+    justify-content: space-between;
+    margin-left: auto;
+    margin-right: auto;
+    width: 600px;
+    height: 60px;
+    border: rgb(229, 226, 221) 0.5px solid;
+    box-shadow: 10px px 10px rgb(221, 215, 215);
+}
+
+
+
+
 .action-list-button {
     visibility: hidden;
 }
@@ -74,7 +91,14 @@ label {
     border: 0;
     color: rgb(210, 116, 147);
     background-color: white;
+    margin-right: 10px;
 
+}
+
+.clear-completed-button {
+    border: 0;
+    color: rgb(171, 167, 167);
+    background-color: white;
 }
 
 form {
@@ -109,7 +133,7 @@ input:focus {
     /* <--скрываем дефолтный чекбокс */
 }
 
-label span {
+.line-left label span {
     /* <-- стилизируем новый */
     height: 12px;
     width: 12px;
@@ -130,4 +154,25 @@ label span {
     left: 2px;
     font-size: 20px;
     color: rgb(141, 235, 199);
+}
+
+.multi-buttons input[type=radio] {
+    display: none;
+}
+
+.multi-buttons label {
+
+    padding: 5px;
+
+}
+
+.multi-buttons input[type=radio]:checked+label {
+    border: 1px solid #ecc1c1;
+    border-radius: 6px;
+
+}
+
+.multi-buttons label:hover {
+    border: 1px solid #f2e9e9;
+    border-radius: 6px;
 }
