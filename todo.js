@@ -94,6 +94,19 @@ allButton.addEventListener('change', function (evt) {
     }
 
 })
+let clearCompletedButton = document.querySelector('.clear-completed-button');
+clearCompletedButton.addEventListener('click', function (evt) {
+    evt.preventDefault()
+    clearCounter = 0;
+    document.getElementById('clearElementCounter').textContent = clearCounter;
+    let clearCompletedArray = document.querySelectorAll('.line-through');
+    for (let i = 0; i < clearCompletedArray.length; i++) {
+        let clearCompletedElement = clearCompletedArray[i];
+        clearCompletedElement.remove();
+
+    }
+})
+
 
 
 console.log('hhhh')
