@@ -1,10 +1,61 @@
 <html>
-    <head>  <title>Hello World Page</title></head>
-  <body>
-    <h1>Hello, World!</h1>
-    <p>Let's learn Git together.</p>
-  </body>
-  <footer>
-    
-  </footer>
+
+<head>
+    <title>Hello World Page</title>
+    <link href="todo.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <h1>todos</h1>
+    <div class="main-content">
+        <button class="action-list-button" type="button"></button>
+
+        <form class="todo-form" action="">
+            <input class="todo-form-input" type="text" placeholder="What needs to be done?" required>
+        </form>
+    </div>
+    <div class="cell-content">
+    </div>
+    <template id="todo-template">
+        <div class="todo-cell">
+            <div class="line-left">
+                <label>
+                    <input class="todo-checkbox" type="checkbox" name="completed" id="completed-field">
+                    <span></span>
+                </label>
+                <p class="todo-text"></p>
+            </div>
+            <div class="line-right">
+                <button class="todo-delete-button" type="button">&#x2715</button>
+            </div>
+        </div>
+    </template>
+    <div class="panel">
+        <div class="counter">
+            <span id="elementCounter">0</span>
+            item left
+        </div>
+        <div class="multi-buttons">
+
+            <input class="all-button" id="radio-1" type="radio" name="button-type" value="all" checked>
+            <label for="radio-1"> All </label>
+            <input class="active-button" id="radio-2" type="radio" name="button-type" value="active">
+            <label for="radio-2">Active</label>
+            <input class="completed-button" id="radio-3" type="radio" name="button-type" value="completed">
+            <label for="radio-3">Completed</label>
+        </div>
+        <div class="clear-completed">
+            <button class="clear-completed-button" type="button">
+                <span id="clearElementCounter">0</span>
+                clear completed</button>
+
+        </div>
+    </div>
+</body>
+<footer>
+
+</footer>
+<script src="todo.js"></script>
+
+
 </html>
