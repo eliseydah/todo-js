@@ -92,7 +92,16 @@ label {
     color: rgb(210, 116, 147);
     background-color: white;
     margin-right: 10px;
+    opacity: 0;
 
+}
+
+.todo-cell:hover .todo-delete-button {
+    opacity: 1;
+}
+
+.invisible-button {
+    opacity: 0;
 }
 
 .clear-completed-button {

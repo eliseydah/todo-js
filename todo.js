@@ -3,8 +3,39 @@ let todoMessage = document.querySelector('#todo-template').content;
 let container = document.querySelector('.cell-content');
 let newMessageTemplate = todoMessage.querySelector('.todo-cell');
 let newTodoText = todoLine.querySelector('.todo-form-input');
-let counter = 0;
-let clearCounter = 0;
+
+function refreshCompletedCounter() {
+    let completedCounterArray = document.querySelectorAll('div.line-through');
+    let completedCounter = completedCounterArray.length;
+    document.getElementById('clearElementCounter').textContent = completedCounter;
+    if (completedCounter === 0) {
+        clearCompletedButton.classList.add('invisible-button')
+    } else {
+        clearCompletedButton.classList.remove('invisible-button')
+    }
+}
+
+function refreshAllCounter() {
+    let counterArray = document.querySelectorAll('.todo-cell:not(div.line-through)')
+    let counter = counterArray.length;
+    document.getElementById('elementCounter').textContent = counter;
+
+}
+function allVisible() {
+    let allVision = document.querySelectorAll('.hidden');
+    for (let i = 0; i < allVision.length; i++) {
+        let visionElement = allVision[i];
+        visionElement.classList.remove('hidden');
+    }
+
+}
+function invisible(elementName) {
+    for (let i = 0; i < elementName.length; i++) {
+        let oneComplete = elementName[i];
+        oneComplete.classList.add('hidden');
+    }
+
+}
 
 todoLine.addEventListener('submit', function (evt) {
     evt.preventDefault();
@@ -14,20 +45,26 @@ todoLine.addEventListener('submit', function (evt) {
     console.log(message);
     let messageContent = message.querySelector('p');
     messageContent.textContent = lineMessage;
+
+    let currentTime = new Date().toLocaleString();
+
+    message.setAttribute('data-creation-time', currentTime);
+
     let buttonDelete = message.querySelector('.todo-delete-button');
     buttonDelete.addEventListener('click', function (evt) {
         evt.preventDefault()
         message.remove();
-        clearCounter--;
-        document.getElementById('clearElementCounter').textContent = clearCounter;
-        counter--;
-        document.getElementById('elementCounter').textContent = counter;
+        refreshCompletedCounter();
+        refreshAllCounter();
 
+        let dataTime = message.getAttribute('data-creation-time')
+
+        console.log('Время создания элемента', dataTime);
     })
 
     container.appendChild(message);
-    counter++;
-    document.getElementById('elementCounter').textContent = counter;
+    refreshAllCounter();
+
 
     let checkThrough = message.querySelector('.todo-checkbox')
     let lineThrough = message.querySelector('.todo-text');
@@ -36,17 +73,18 @@ todoLine.addEventListener('submit', function (evt) {
         if (checkThrough.checked === true) {
             lineThrough.classList.add('line-through');
             message.classList.add('line-through')
-            counter--;
-            document.getElementById('elementCounter').textContent = counter;
-            clearCounter++;
-            document.getElementById('clearElementCounter').textContent = clearCounter;
+
+            refreshAllCounter();
+            refreshCompletedCounter();
+
         } else {
             lineThrough.classList.remove('line-through');
             message.classList.remove('line-through');
-            counter++;
-            document.getElementById('elementCounter').textContent = counter;
-            clearCounter--;
-            document.getElementById('clearElementCounter').textContent = clearCounter;
+
+            refreshAllCounter();
+            refreshCompletedCounter();
+
+
         }
     })
 
@@ -56,57 +94,38 @@ todoLine.addEventListener('submit', function (evt) {
 let activeButton = document.querySelector('.active-button');
 activeButton.addEventListener('change', function (evt) {
     evt.preventDefault();
-    let allVision = document.querySelectorAll('.hidden');
-    for (let i = 0; i < allVision.length; i++) {
-        let visionElement = allVision[i];
-        visionElement.classList.remove('hidden');
-    }
+    allVisible();
     let completedArray = document.querySelectorAll('.line-through');
-    for (let i = 0; i < completedArray.length; i++) {
-        let oneComplete = completedArray[i];
-        oneComplete.classList.add('hidden');
-    }
+    invisible(completedArray);
 
 })
 
 let completedButton = document.querySelector('.completed-button');
 completedButton.addEventListener('change', function (evt) {
     evt.preventDefault()
-    let allVision = document.querySelectorAll('.hidden');
-    for (let i = 0; i < allVision.length; i++) {
-        let visionElement = allVision[i];
-        visionElement.classList.remove('hidden');
-    }
+    allVisible();
     let notCompletedArray = document.querySelectorAll('.todo-cell:not(.line-through)');
-    for (let i = 0; i < notCompletedArray.length; i++) {
-        let oneNotCompleted = notCompletedArray[i];
-        oneNotCompleted.classList.add('hidden');
-    }
+    invisible(notCompletedArray);
 })
 
 let allButton = document.querySelector('.all-button');
 allButton.addEventListener('change', function (evt) {
     evt.preventDefault()
-    let clear = document.querySelectorAll('.hidden');
-    for (let i = 0; i < clear.length; i++) {
-        let clearElement = clear[i];
-        clearElement.classList.remove('hidden');
-    }
+    allVisible();
 
 })
 let clearCompletedButton = document.querySelector('.clear-completed-button');
 clearCompletedButton.addEventListener('click', function (evt) {
     evt.preventDefault()
-    clearCounter = 0;
-    document.getElementById('clearElementCounter').textContent = clearCounter;
+
     let clearCompletedArray = document.querySelectorAll('.line-through');
     for (let i = 0; i < clearCompletedArray.length; i++) {
         let clearCompletedElement = clearCompletedArray[i];
         clearCompletedElement.remove();
-
+        refreshCompletedCounter();
     }
 })
 
-
+refreshCompletedCounter()
 
 console.log('hhhh')
