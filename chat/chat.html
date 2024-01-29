@@ -8,8 +8,12 @@
 <body>
     <div class="chat">
         <div class="chat-content">
+            <div class="gondon">
+            </div>
 
         </div>
+
+    </div>
     </div>
     <div class="print-section">
         <select class="select-choice" name="author" id="author-select">
@@ -20,14 +24,15 @@
         <form class="message" action="">
             <input class="message-input" type="text" placeholder="Напишите что-нибудь" required>
         </form>
-        <button class="send-button" type="button"><span>Отправить</span></button>
+        <button class="send-button" type="button"><span class="paw"></span><span>Отправить</span></button>
     </div>
 
 
     <template id="message-template">
         <div class="chat-message" tabindex="0">
             <div class="top-message">
-                <span class="chat-message-name">x</span>
+                <span class="author-name">Daria</span>
+                <span class="time"> </span>
                 <button class="delete-button" type="button">&#x2715</button>
             </div>
             <div>
