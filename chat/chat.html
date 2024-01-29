@@ -7,11 +7,10 @@
 
 <body>
     <div class="chat">
+        <div></div>
         <div class="chat-content">
-            <div class="gondon">
-            </div>
-
         </div>
+        <div></div>
 
     </div>
     </div>
@@ -30,13 +29,16 @@
 
     <template id="message-template">
         <div class="chat-message" tabindex="0">
-            <div class="top-message">
-                <span class="author-name">Daria</span>
-                <span class="time"> </span>
-                <button class="delete-button" type="button">&#x2715</button>
-            </div>
-            <div>
-                <p class="chat-message-text"></p>
+            <div class="message-wrap">
+                <div class="top-message">
+                    <span class="author-name">Daria</span>
+                    <span class="time"> </span>
+                    <button class="delete-button" type="button">&#x2715</button>
+                </div>
+                <div>
+                    <p class="chat-message-text"></p>
+                </div>
+
             </div>
         </div>
     </template>
