@@ -7,7 +7,6 @@ body {
 .chat {
     display: grid;
     grid-template-columns: 1fr 3fr 1fr;
-    /* background-color: rgb(177, 212, 185); */
     background-image: url(https://png.pngtree.com/background/20210715/original/pngtree-hand-drawn-cute-seamless-cat-paw-background-picture-image_1282901.jpg);
     background-size: cover;
     background-repeat: no-repeat;
@@ -27,10 +26,7 @@ form {
     display: grid;
     padding: 10px 0px;
     box-sizing: border-box;
-    grid-template-columns: 1fr 2fr 1fr;
-    /* align-content: center;
-    justify-content: space-between;
-    align-items: center; */
+    grid-template-columns: 1fr 3fr;
     position: fixed;
 }
 
@@ -40,15 +36,17 @@ form {
     background-color: white;
 }
 
+.message {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}
+
 .message-input {
     border: none;
     border-radius: 15px;
-    width: 100%;
     height: 100%;
     font-size: 24px;
     padding: 10px 30px;
-    /* display: flex; */
-
 }
 
 input:active,
@@ -72,24 +70,11 @@ input:focus,
 
 }
 
-/* .send-button span { */
-/* font-size: 24px;
-} */
-
-
-
 .chat-message {
     color: rgb(255, 255, 255);
-
-    /* width: 40%; */
-    /* height: auto;
-    border-radius: 10px; */
     margin-bottom: 5px;
     display: grid;
-
-    /* margin-right: 30px; */
 }
-
 
 .screen-side .message-wrap {
     background-color: rgb(18, 36, 74);
@@ -128,7 +113,6 @@ input:focus,
 }
 
 .delete-button {
-    /* margin: 5px; */
     color: rgba(212, 25, 25, 0.81);
     border: 0;
     background-color: rgba(77, 119, 93, 0);

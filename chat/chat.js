@@ -9,11 +9,11 @@ function addZero(num) {
 }
 
 let sendButton = document.querySelector('.send-button');
-sendButton.addEventListener('click', function (evt) {
-    evt.preventDefault();
-    let forma = document.querySelector('.message');
-    forma.requestSubmit();
-})
+// sendButton.addEventListener('click', function (evt) {
+//     evt.preventDefault();
+//     let forma = document.querySelector('.message');
+//     forma.requestSubmit();
+// })
 
 // function submitForm(evt) {
 //     evt.preventDefault();
