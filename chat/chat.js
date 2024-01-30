@@ -8,7 +8,17 @@ function addZero(num) {
     return num < 10 ? "0" + num : num;
 }
 
+let sendButton = document.querySelector('.send-button');
+sendButton.addEventListener('click', function (evt) {
+    evt.preventDefault();
+    let forma = document.querySelector('.message');
+    forma.requestSubmit();
+})
 
+// function submitForm(evt) {
+//     evt.preventDefault();
+
+// }
 
 function authorChoice(message) {
     let selectAuthor = document.getElementById('author-select');

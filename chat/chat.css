@@ -25,6 +25,8 @@ form {
     width: 100%;
     height: 10%;
     display: grid;
+    padding: 10px 0px;
+    box-sizing: border-box;
     grid-template-columns: 1fr 2fr 1fr;
     /* align-content: center;
     justify-content: space-between;
@@ -49,6 +51,13 @@ form {
 
 }
 
+input:active,
+input:hover,
+input:focus,
+.select-choice {
+    outline: 0;
+    outline-offset: 0;
+}
 
 
 .send-button,
@@ -73,8 +82,8 @@ form {
     color: rgb(255, 255, 255);
 
     /* width: 40%; */
-    height: auto;
-    border-radius: 10px;
+    /* height: auto;
+    border-radius: 10px; */
     margin-bottom: 5px;
     display: grid;
 
@@ -90,8 +99,9 @@ form {
 
 
 .top-message {
-    display: flex;
-    justify-content: space-around;
+    display: grid;
+    grid-template-columns: 6fr 1fr 1fr;
+    padding-left: 10px;
 }
 
 .chat-message-name {
@@ -113,8 +123,12 @@ form {
     margin-bottom: 5px;
 }
 
+.author-name {
+    color: rgb(164, 206, 232);
+}
+
 .delete-button {
-    margin: 5px;
+    /* margin: 5px; */
     color: rgba(212, 25, 25, 0.81);
     border: 0;
     background-color: rgba(77, 119, 93, 0);
