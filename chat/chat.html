@@ -1,0 +1,49 @@
+<html>
+
+<head>
+    <title>Chat Page</title>
+    <link href="chat.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <div class="chat">
+        <div></div>
+        <div class="chat-content">
+        </div>
+        <div></div>
+
+    </div>
+    </div>
+    <div class="print-section">
+        <select class="select-choice" name="author" id="author-select">
+            <!-- <option value=""> Author</option> -->
+            <option class="Artem" value='Artem'>Artem</option>
+            <option class="Daria" value='Daria'>Daria</option>
+        </select>
+        <form class="message" action="">
+            <input class="message-input" type="text" placeholder="Напишите что-нибудь" required>
+            <button class="send-button">
+                <span class="paw"></span><span>Отправить</span></button>
+        </form>
+    </div>
+
+
+    <template id="message-template">
+        <div class="chat-message" tabindex="0">
+            <div class="message-wrap">
+                <div class="top-message">
+                    <span class="author-name">Daria</span>
+                    <span class="time"> </span>
+                    <button class="delete-button" type="button">&#x2715</button>
+                </div>
+                <div>
+                    <p class="chat-message-text"></p>
+                </div>
+
+            </div>
+        </div>
+    </template>
+    <script src="chat.js"></script>
+</body>
+
+</html>
