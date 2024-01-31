@@ -1,0 +1,113 @@
+body {
+    background-color: rgb(2, 21, 5);
+    background-image: url(https://images.pexels.com/photos/1072179/pexels-photo-1072179.jpeg?auto=compress&cs=tinysrgb&h=627&fit=crop&w=1200);
+    background-size: cover;
+    width: 100%;
+    margin: 0;
+}
+
+.top {
+    margin: 0;
+    height: 100px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 10%;
+    align-items: center;
+    justify-items: center;
+    background-image: url(https://images.pexels.com/photos/1072179/pexels-photo-1072179.jpeg?auto=compress&cs=tinysrgb&h=627&fit=crop&w=1200);
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 20px 10px;
+    box-sizing: border-box;
+    /* background-color: rgba(167, 230, 222, 0.844); */
+    /* position: fixed; */
+}
+
+.button-theme-choice,
+.filter-choice,
+.add-wishes,
+select {
+    border: 0;
+    background-color: rgba(16, 42, 22);
+}
+
+.color-button {
+    border: 0;
+    width: 15px;
+    height: 15px;
+    background-color: blue;
+}
+
+input:active,
+input:hover,
+input:focus,
+.filter-choice,
+select {
+    outline: 0;
+    outline-offset: 0;
+}
+
+.main-content {
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    height: 90%;
+    background-color: white;
+
+    box-shadow: 1px 1px 10px rgba(128, 128, 128, 0.761);
+}
+
+
+.buttons-form-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+/* .create-element-form, */
+.inscription,
+.theme-choice,
+.filter-choice,
+.add-wishes {
+    /* padding: 20px 30px; */
+    width: 100%;
+    height: 100%;
+    background-color: rgba(113, 187, 187, 0.203);
+    border-radius: 10px;
+    color: rgba(255, 255, 255, 0.554);
+}
+
+.theme-choice {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+/* .wishlist-create-form {
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+    position: absolute;
+
+} */
+
+.create-element-form {
+    display: grid;
+    gap: 10px;
+    border: solid rgb(143, 140, 140) 3px;
+    position: relative;
+    left: 20%;
+    top: 20%;
+    padding: 20px;
+    width: 50%;
+    padding: 20px;
+    visibility: hidden;
+
+}

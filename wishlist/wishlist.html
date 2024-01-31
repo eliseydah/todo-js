@@ -1,0 +1,64 @@
+<html>
+
+<head>
+    <title>Chat Page</title>
+    <link href="wishlist.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+
+    <header class="top">
+        <div class="inscription"> &#x270E; MyWishlist</div>
+        <div class="theme-choice">
+            <div class="color-choice"> Design choice
+            </div>
+            <div class="buttons">
+                <button class="color-button rose"></button>
+                <button class="color-button blue"></button>
+                <button class="color-button green"></button>
+                <button class="color-button beige"></button>
+                <button class="color-button aqua"></button>
+                <button class="color-button yellow"></button>
+                <!-- <button class="color-button"></button>
+            <button class="color-button"></button> -->
+            </div>
+        </div>
+        <select class="filter-choice" name="filter" id="filter-select">
+            <option value=""> Filter</option>
+            <option class="filter-price-1" value='filter-price-1'>filter-price - 1 </option>
+            <option class="filter-price-2" value='filter-price-2'>filter-price-2</option>
+            <option class="filter-price-3" value="filter-price-3">filter-price-3</option>
+        </select>
+        <button class="add-wishes"> + Add wishes
+        </button>
+
+    </header>
+    <main>
+        <div class="main-content">
+            <!-- <div class="wishlist-create-form"> -->
+            <form class="create-element-form" action="">
+                <label for="name"> Write a title </label>
+                <input class="title-input" type="text" id="name" placeholder="Напишите название" required>
+                <label for="link">Add a link</label>
+                <input class="link-input" type="text" id="link" placeholder="Add a link" required>
+                <label for="description">Print a description</label>
+                <input class="description-input" type="text" id="description" placeholder="Print a description"
+                    required>
+                <span> Add a picture</span>
+                <input type="file" />
+                <div class="buttons-form-container">
+                    <button class="delete-button" type="button">&#x2715</button>
+                    <button class="send-button">
+                        <span>Отправить</span></button>
+                </div>
+            </form>
+            <!-- </div> -->
+        </div>
+    </main>
+
+
+
+
+</body>
+
+</html>
