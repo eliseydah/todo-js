@@ -17,7 +17,7 @@
                 <button class="color-button blue"></button>
                 <button class="color-button green"></button>
                 <button class="color-button beige"></button>
-                <button class="color-button aqua"></button>
+                <button class="color-button brown"></button>
                 <button class="color-button yellow"></button>
                 <!-- <button class="color-button"></button>
             <button class="color-button"></button> -->
@@ -35,15 +35,23 @@
     </header>
     <main>
         <div class="main-content">
+            <div class="container">
+
+            </div>
             <!-- <div class="wishlist-create-form"> -->
-            <form class="create-element-form" action="">
+            <form class="create-element-form unvisible" action="">
                 <label for="name"> Write a title </label>
                 <input class="title-input" type="text" id="name" placeholder="Напишите название" required>
+                <select class="category-choice" name="filter" id="filter-select">
+                    <option value=""> Add a category </option>
+                    <option class="category-1" value='category-1'>Category 1 </option>
+                    <option class="category-2" value='category-2'>Category 2</option>
+                    <option class="category-3" value="category-3">Category 3</option>
+                </select>
                 <label for="link">Add a link</label>
-                <input class="link-input" type="text" id="link" placeholder="Add a link" required>
+                <input class="link-input" type="text" id="link" placeholder="Add a link">
                 <label for="description">Print a description</label>
-                <input class="description-input" type="text" id="description" placeholder="Print a description"
-                    required>
+                <input class="description-input" type="text" id="description" placeholder="Print a description">
                 <span> Add a picture</span>
                 <input type="file" />
                 <div class="buttons-form-container">
@@ -53,11 +61,28 @@
                 </div>
             </form>
             <!-- </div> -->
+
         </div>
+
     </main>
+    <template id="wish-template">
+        <div class="wish-container" tabindex="0">
+            <div class="wish-wrap">
+                <div class="top-message">
+                    <p class="wish-name"></p>
+                    <div class="wish-link"></div>
+                    <p class="wish-category"> </p>
+                    <p class="wish-description"></p>
+                    <button class="wish-delete-button" type="button">&#x2715</button>
+                </div>
+                <div>
+                    <p class="wish-text"></p>
+                </div>
 
-
-
+            </div>
+        </div>
+    </template>
+    <script src="wishlist.js"></script>
 
 </body>
 
