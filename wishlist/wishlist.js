@@ -35,10 +35,22 @@ function categoryChoice(wishElement) {
     let choice = selectCategory.value;
     console.log(choice);
     wishElement.querySelector('.wish-category').textContent = choice;
+    if (choice === 'category-1') {
+        wishElement.classList.add('cat-1')
+    }
+    if (choice === 'category-2') {
+        wishElement.classList.add('cat-2')
+    }
+    if (choice === 'category-3') {
+        wishElement.classList.add('cat-3')
+    }
 
 }
 
+let filterButton = document.querySelector('.filter-choice');
+filterButton.addEventListener('change', function (evt) {
 
+})
 
 newWish.addEventListener('submit', function (evt) {
     evt.preventDefault();
