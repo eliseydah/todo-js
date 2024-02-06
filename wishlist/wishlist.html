@@ -24,7 +24,7 @@
             </div>
         </div>
         <select class="filter-choice" name="filter" id="filter-price-select">
-            <option value=""> Filter</option>
+            <option class="filter" value="filter"> Filter</option>
             <option class="filter-price-1" value='filter-price-1'>filter-price - 1 </option>
             <option class="filter-price-2" value='filter-price-2'>filter-price-2</option>
             <option class="filter-price-3" value="filter-price-3">filter-price-3</option>
@@ -40,20 +40,31 @@
             </div>
             <!-- <div class="wishlist-create-form"> -->
             <form class="create-element-form unvisible" action="">
-                <label for="name"> Write a title </label>
-                <input class="title-input" type="text" id="name" placeholder="Напишите название" required>
-                <select class="category-choice" name="filter" id="filter-select">
-                    <option value=""> Add a category </option>
-                    <option class="category-1" value='category-1'>Category 1 </option>
-                    <option class="category-2" value='category-2'>Category 2</option>
-                    <option class="category-3" value='category-3'>Category 3</option>
-                </select>
-                <label for="link">Add a link</label>
-                <input class="link-input" type="text" id="link" placeholder="Add a link">
-                <label for="description">Print a description</label>
-                <input class="description-input" type="text" id="description" placeholder="Print a description">
-                <span> Add a picture</span>
-                <input type="file" />
+                <div class="form-wrap">
+                    <label for="name"> Write a title </label>
+                    <input class="title-input" type="text" id="name" placeholder="Напишите название" required>
+                </div>
+                <div class="form-wrap">
+                    <label for="filter-select">Choose a category</label>
+                    <select class="category-choice" name="filter" id="filter-select">
+                        <option value=""> Add a category </option>
+                        <option class="category-1" value='category-1'>Category 1 </option>
+                        <option class="category-2" value='category-2'>Category 2</option>
+                        <option class="category-3" value='category-3'>Category 3</option>
+                    </select>
+                </div>
+                <div class="form-wrap">
+                    <label for="link">Add a link</label>
+                    <input class="link-input" type="text" id="link" placeholder="Add a link">
+                </div>
+                <div class="form-wrap">
+                    <label for="description">Print a description</label>
+                    <input class="description-input" type="text" id="description" placeholder="Print a description">
+                </div>
+                <div class="form-wrap">
+                    <span> Add a picture</span>
+                    <input type="file" />
+                </div>
                 <div class="buttons-form-container">
                     <button class="delete-button" type="button">&#x2715</button>
                     <button class="send-button">
@@ -73,10 +84,9 @@
                     <div class="wish-link"></div>
                     <p class="wish-category"> </p>
                     <p class="wish-description"></p>
-                    <button class="wish-delete-button" type="button">&#x2715</button>
-                </div>
-                <div>
-                    <p class="wish-text"></p>
+                    <div class="button-wrap">
+                        <button class="wish-delete-button" type="button">&#x2715</button>
+                    </div>
                 </div>
 
             </div>

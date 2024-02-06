@@ -78,6 +78,7 @@ select {
     margin-left: auto;
     margin-right: auto;
     width: 70%;
+    margin-top: 20px;
     /* height: 90%;
     background-color: rgba(255, 255, 255, 0.067);
     box-shadow: 1px 1px 10px rgba(128, 128, 128, 0.761);
@@ -137,20 +138,23 @@ select {
 .create-element-form {
     display: grid;
     gap: 10px;
-    border: solid rgb(143, 140, 140) 3px;
+    border: solid rgb(11, 15, 12) 3px;
     position: absolute;
-    left: 20%;
+    left: 30%;
     top: 20%;
     padding: 20px;
-    width: 50%;
+    width: 30%;
+    height: 40%;
     padding: 20px;
-    background-color: white;
+    background-color: rgb(47, 73, 53);
+    opacity: 0.6;
+    color: white;
 
 }
 
 .wish-container {
     color: white;
-    background-color: rgba(255, 255, 255, 0.188);
+    background-color: rgba(255, 255, 255, 0.315);
     border-radius: 10px;
     width: 30%;
     /* height: 300px; */
@@ -171,5 +175,61 @@ select {
 }
 
 .wish-name {
-    font-size: larger;
+    font-size: 32px;
+}
+
+.cat-1 .wish-category {
+    background-color: rgba(34, 139, 34, 0.246);
+    border-radius: 5px;
+
+}
+
+.cat-2 .wish-category {
+    background-color: rgba(255, 217, 0, 0.263);
+    border-radius: 5px;
+}
+
+.cat-3 .wish-category {
+    background-color: rgba(235, 77, 77, 0.257);
+    border-radius: 5px;
+}
+
+p {
+    margin: 0;
+    padding: 10px 5px 5px 0px;
+}
+
+.top-message {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+
+.wish-category {
+    padding: 0px 5px;
+}
+
+.wish-wrap {
+    width: 100%;
+}
+
+.button-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 100%;
+}
+
+.wish-delete-button {
+    padding: 10px;
+    font-size: 24px;
+    color: rgba(212, 25, 25, 0.595);
+    border: 0;
+    background-color: rgba(252, 252, 252, 0);
+}
+
+.form-wrap {
+    display: flex;
+    flex-direction: column;
 }
