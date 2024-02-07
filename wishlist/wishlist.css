@@ -23,15 +23,9 @@ body {
     /* position: fixed; */
 }
 
-.button-theme-choice,
-.filter-choice,
-.add-wishes {
+.button-theme-choice {
     border: 0;
     /* background-color: rgba(16, 42, 22); */
-}
-
-select.filter-choice {
-    border: 0;
 }
 
 .color-button {
@@ -68,7 +62,6 @@ select.filter-choice {
 input:active,
 input:hover,
 input:focus,
-.filter-choice,
 select {
     outline: 0;
     outline-offset: 0;
@@ -94,9 +87,7 @@ select {
 }
 
 /* .create-element-form, */
-.theme-choice,
-.filter-choice,
-.add-wishes {
+.theme-choice {
     /* padding: 20px 30px; */
     width: 100%;
     height: 100%;
@@ -135,7 +126,7 @@ select {
 
 } */
 
-.create-element-form {
+/* .create-element-form {
     display: grid;
     gap: 10px;
     border: solid rgb(11, 15, 12) 3px;
@@ -150,7 +141,7 @@ select {
     opacity: 0.6;
     color: white;
 
-}
+} */
 
 .wish-container {
     color: white;

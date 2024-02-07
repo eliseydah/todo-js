@@ -6,17 +6,17 @@ let newWishTemplate = wishTemplate.querySelector('.wish-container');
 let title = newWish.querySelector('.title-input');
 let link = newWish.querySelector('.link-input');
 let description = newWish.querySelector('.description-input');
-
+const exampleModal = new bootstrap.Modal(document.getElementById('exampleModal'))
 
 
 let allForm = document.querySelector('.create-element-form');
 
-let addWishesButton = document.querySelector('.add-wishes')
-addWishesButton.addEventListener('click', function (evt) {
-    evt.preventDefault();
-    allForm.classList.remove('unvisible');
+// let addWishesButton = document.querySelector('.add-wishes')
+// addWishesButton.addEventListener('click', function (evt) {
+//     evt.preventDefault();
+//     allForm.classList.remove('unvisible');
 
-})
+// })
 
 // let createWishButton = document.querySelector('.send-button');
 // createWishButton.addEventListener('click', function (evt) {
@@ -24,11 +24,11 @@ addWishesButton.addEventListener('click', function (evt) {
 //     allForm.classList.add('unvisible');
 // })
 
-let deleteButton = document.querySelector('.delete-button');
-deleteButton.addEventListener('click', function (evt) {
-    evt.preventDefault();
-    allForm.classList.add('unvisible');
-})
+// let deleteButton = document.querySelector('.delete-button');
+// deleteButton.addEventListener('click', function (evt) {
+//     evt.preventDefault();
+//     allForm.classList.add('unvisible');
+// })
 
 function categoryChoice(wishElement) {
     let selectCategory = document.getElementById('filter-select');
@@ -67,8 +67,11 @@ filterButton.addEventListener('change', function (evt) {
     let category3Array = document.querySelectorAll('.cat-3');
     let priceSelect = document.getElementById('filter-price-select');
     let priceChoice = priceSelect.value;
+
+    // refactor: switch
     if (priceChoice === 'filter') {
         let allVisibleArray = document.querySelectorAll('.wish-container')
+        // refactor: refreshArray([], allVisibleArray)
         for (let i = 0; i < allVisibleArray.length; i++) {
             allVisibleArray[i].classList.remove('unvisible');
         }
@@ -135,5 +138,5 @@ newWish.addEventListener('submit', function (evt) {
     title.value = '';
     link.value = '';
     description.value = '';
-    allForm.classList.add('unvisible');
+    exampleModal.hide()
 })
