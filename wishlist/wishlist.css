@@ -1,6 +1,6 @@
 body {
     background-color: rgb(2, 21, 5);
-    background-image: url(https://images.pexels.com/photos/1072179/pexels-photo-1072179.jpeg?auto=compress&cs=tinysrgb&h=627&fit=crop&w=1200);
+
     background-size: cover;
     width: 100%;
     margin: 0;
@@ -32,31 +32,37 @@ body {
     border: 0;
     width: 15px;
     height: 15px;
-    background-color: rgb(0, 102, 255);
+    /* background-color: rgb(0, 102, 255); */
 }
 
 .rose {
-    background-color: pink;
+    /* background-color: pink; */
+    background-image: url(https://img2.akspic.ru/crops/8/7/7/3/6/163778/163778-pashalnoe_yajco-kulinariya-rozovyj-blyuda-bulyzhnik-2560x1440.jpg);
 }
 
 .blue {
-    background-color: rgb(61, 162, 216);
+    /* background-color: rgb(61, 162, 216); */
+    background-image: url(https://img1.akspic.ru/crops/8/5/8/5/7/175858/175858-oblako-atmosfera-poslesvechenie-prirodnyj_landshaft-solnechnyj_svet-2560x1440.jpg);
 }
 
 .green {
-    background-color: rgb(7, 43, 7);
+    /* background-color: rgb(7, 43, 7); */
+    background-image: url(https://images.pexels.com/photos/1072179/pexels-photo-1072179.jpeg?auto=compress&cs=tinysrgb&h=627&fit=crop&w=1200);
 }
 
 .beige {
-    background-color: beige;
+    /* background-color: beige; */
+    background-image: url(https://img3.akspic.ru/crops/3/3/1/7/87133/87133-rozovyj-gora-vecher-orientir-tsvetok-2560x1440.jpg);
 }
 
 .brown {
-    background-color: rgb(46, 24, 24);
+    /* background-color: rgb(46, 24, 24); */
+    background-image: url(https://img2.akspic.ru/crops/5/5/5/1/4/141555/141555-nebo-sumrak-solnce-zolotoj_chas-voshod_solnca-2560x1440.jpg);
 }
 
 .yellow {
-    background-color: yellow;
+    /* background-color: yellow; */
+    background-image: url(https://img2.akspic.ru/crops/1/2/5/1/4/141521/141521-utro-zakat-priroda-voshod_solnca-prirodnyj_landshaft-2560x1440.jpg);
 }
 
 input:active,
@@ -161,7 +167,7 @@ select {
     flex-wrap: wrap;
 }
 
-.unvisible {
+div.unvisible {
     display: none;
 }
 

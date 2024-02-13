@@ -11,6 +11,45 @@ const exampleModal = new bootstrap.Modal(document.getElementById('exampleModal')
 
 let allForm = document.querySelector('.create-element-form');
 
+let mainColor = document.querySelector('body');
+let roseButton = document.querySelector('.rose')
+let blueButton = document.querySelector('.blue')
+let greenButton = document.querySelector('#green')
+let beigeButton = document.querySelector('.beige')
+let brownButton = document.querySelector('.brown')
+let yellowButton = document.querySelector('.yellow')
+
+
+roseButton.addEventListener('click', function (evt) {
+    evt.preventDefault();
+    changeColor('rose')
+})
+blueButton.addEventListener('click', function (evt) {
+    evt.preventDefault();
+    changeColor('blue')
+})
+beigeButton.addEventListener('click', function (evt) {
+    evt.preventDefault();
+    changeColor('beige')
+})
+brownButton.addEventListener('click', function (evt) {
+    evt.preventDefault();
+    changeColor('brown')
+})
+yellowButton.addEventListener('click', function (evt) {
+    evt.preventDefault();
+    changeColor('yellow');
+})
+greenButton.addEventListener('click', function (evt) {
+    evt.preventDefault();
+    changeColor('green')
+})
+
+function changeColor(buttonClass) {
+    mainColor.className = " ";
+    mainColor.classList.add(buttonClass);
+
+}
 // let addWishesButton = document.querySelector('.add-wishes')
 // addWishesButton.addEventListener('click', function (evt) {
 //     evt.preventDefault();
@@ -67,51 +106,64 @@ filterButton.addEventListener('change', function (evt) {
     let category3Array = document.querySelectorAll('.cat-3');
     let priceSelect = document.getElementById('filter-price-select');
     let priceChoice = priceSelect.value;
-
-    // refactor: switch
-    if (priceChoice === 'filter') {
-        let allVisibleArray = document.querySelectorAll('.wish-container')
-        // refactor: refreshArray([], allVisibleArray)
-        for (let i = 0; i < allVisibleArray.length; i++) {
-            allVisibleArray[i].classList.remove('unvisible');
-        }
-    }
-    if (priceChoice === 'filter-price-1') {
-        let newCat1Array = document.querySelectorAll('.wish-container:not(.cat-1)');
-        let cat1Array = document.querySelectorAll('.cat-1');
-        console.log(newCat1Array)
-        refreshArray(newCat1Array, cat1Array);
-        // for (let i = 0; i < newCat1Array.length; i++) {
-        //     let oneHiddenElement = newCat1Array[i];
-        //     oneHiddenElement.classList.add('unvisible')
-        // }
-        // for (let i = 0; i < cat1Array.length; i++) {
-        //     cat1Array[i].classList.remove('unvisible');
-        // }
-
-    }
-    if (priceChoice === 'filter-price-2') {
-        let newCat2Array = document.querySelectorAll('.wish-container:not(.cat-2)');
-        console.log(newCat2Array)
-        let Cat2Array = document.querySelectorAll('.cat-2')
-        refreshArray(newCat2Array, category2Array);
-        // for (let i = 0; i < newCat2Array.length; i++) {
-        //     let oneHiddenElement = newCat2Array[i];
-        //     oneHiddenElement.classList.add('unvisible')
-        // }
-
-    }
-    if (priceChoice === 'filter-price-3') {
-        let newCat3Array = document.querySelectorAll('.wish-container:not(.cat-3)');
-        console.log(newCat3Array)
-        let cat3Array = document.querySelectorAll('.cat-3');
-        refreshArray(newCat3Array, cat3Array);
-        // for (let i = 0; i < newCat3Array.length; i++) {
-        //     let oneHiddenElement = newCat3Array[i];
-        //     oneHiddenElement.classList.add('unvisible')
-        // }
+    switch (priceChoice) {
+        case 'filter':
+            let allVisibleArray = document.querySelectorAll('.wish-container')
+            refreshArray([], allVisibleArray);
+            break;
+        case 'filter-price-1':
+            let newCat1Array = document.querySelectorAll('.wish-container:not(.cat-1)');
+            let cat1Array = document.querySelectorAll('.cat-1');
+            console.log(newCat1Array)
+            refreshArray(newCat1Array, cat1Array);
+            break;
+        case 'filter-price-2':
+            let newCat2Array = document.querySelectorAll('.wish-container:not(.cat-2)');
+            console.log(newCat2Array)
+            let Cat2Array = document.querySelectorAll('.cat-2')
+            refreshArray(newCat2Array, category2Array);
+            break;
+        case 'filter-price-3':
+            let newCat3Array = document.querySelectorAll('.wish-container:not(.cat-3)');
+            console.log(newCat3Array)
+            let cat3Array = document.querySelectorAll('.cat-3');
+            refreshArray(newCat3Array, cat3Array);
+        // default:
+        // let allVisibleArray = document.querySelectorAll('.wish-container')
+        // refreshArray([], allVisibleArray);
     }
 })
+// refactor: switch
+//     if (priceChoice === 'filter') {
+//         let allVisibleArray = document.querySelectorAll('.wish-container')
+//         // refactor: refreshArray([], allVisibleArray)
+//         for (let i = 0; i < allVisibleArray.length; i++) {
+//             allVisibleArray[i].classList.remove('unvisible');
+//         }
+//     }
+//     if (priceChoice === 'filter-price-1') {
+//         let newCat1Array = document.querySelectorAll('.wish-container:not(.cat-1)');
+//         let cat1Array = document.querySelectorAll('.cat-1');
+//         console.log(newCat1Array)
+//         refreshArray(newCat1Array, cat1Array);
+
+
+//     }
+//     if (priceChoice === 'filter-price-2') {
+//         let newCat2Array = document.querySelectorAll('.wish-container:not(.cat-2)');
+//         console.log(newCat2Array)
+//         let Cat2Array = document.querySelectorAll('.cat-2')
+//         refreshArray(newCat2Array, category2Array);
+
+//     }
+//     if (priceChoice === 'filter-price-3') {
+//         let newCat3Array = document.querySelectorAll('.wish-container:not(.cat-3)');
+//         console.log(newCat3Array)
+//         let cat3Array = document.querySelectorAll('.cat-3');
+//         refreshArray(newCat3Array, cat3Array);
+
+//     }
+// })
 
 newWish.addEventListener('submit', function (evt) {
     evt.preventDefault();
