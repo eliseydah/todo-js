@@ -171,6 +171,18 @@ div.unvisible {
     display: none;
 }
 
+.fetch {
+
+    width: 30%;
+}
+
+.input-and-button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+}
+
 .wish-name {
     font-size: 32px;
 }
@@ -191,6 +203,15 @@ div.unvisible {
     border-radius: 5px;
 }
 
+.wish-container.card-img-top {
+    width: 70%;
+    height: 70%;
+}
+
+.wish-container {
+    height: 300px;
+}
+
 p {
     margin: 0;
     padding: 10px 5px 5px 0px;
@@ -200,6 +221,7 @@ p {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -209,12 +231,15 @@ p {
 
 .wish-wrap {
     width: 100%;
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: space-between;
 }
 
 .button-wrap {
     display: flex;
-    flex-direction: column;
-    align-items: flex-end;
+    justify-content: space-between;
+    align-items: center;
     width: 100%;
 }
 

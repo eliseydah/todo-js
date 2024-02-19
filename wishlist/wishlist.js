@@ -50,24 +50,40 @@ function changeColor(buttonClass) {
     mainColor.classList.add(buttonClass);
 
 }
-// let addWishesButton = document.querySelector('.add-wishes')
-// addWishesButton.addEventListener('click', function (evt) {
-//     evt.preventDefault();
-//     allForm.classList.remove('unvisible');
+function addInfoInInput(data) {
+    let inputName = document.getElementById('name');
+    let inputDescription = document.getElementById('description');
+    inputName.value = data.title;
+    inputDescription.value = data.body;
+    console.log(inputName.value);
+    console.log(inputDescription.value);
+}
 
-// })
+function handleClick(event) {
+    event.preventDefault()
+    const newPost = {
+        title: 'foo',
+        body: 'bar',
+        userId: 1,
+    }
+    let userLink = document.getElementById('link');
+    let userLinkValue = userLink.value;
+    console.log(userLinkValue);
+    fetch(userLinkValue)
+        .then((response) => {
+            debugger
+            return response.json()
+        })
+        .then((data) => {
+            debugger
+            console.log(data)
+            addInfoInInput(data);
+            // {title: "foo", body: "bar", userId: 1, id: 101}
+        })
 
-// let createWishButton = document.querySelector('.send-button');
-// createWishButton.addEventListener('click', function (evt) {
-//     evt.preventDefault();
-//     allForm.classList.add('unvisible');
-// })
-
-// let deleteButton = document.querySelector('.delete-button');
-// deleteButton.addEventListener('click', function (evt) {
-//     evt.preventDefault();
-//     allForm.classList.add('unvisible');
-// })
+}
+let fetchButton = document.querySelector('.fetch');
+fetchButton.addEventListener('click', handleClick);
 
 function categoryChoice(wishElement) {
     let selectCategory = document.getElementById('filter-select');
@@ -174,8 +190,8 @@ newWish.addEventListener('submit', function (evt) {
 
     let wishTextContent = wishElement.querySelector('.wish-name');
     wishTextContent.textContent = textValue;
-    let linkContent = wishElement.querySelector('.wish-link');
-    linkContent.textContent = linkValue;
+    // let linkContent = wishElement.querySelector('.wish-link');
+    // linkContent.textContent = linkValue;
     categoryChoice(wishElement);
     let descriptionContent = wishElement.querySelector('.wish-description');
     descriptionContent.textContent = descriptionValue;

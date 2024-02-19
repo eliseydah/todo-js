@@ -35,6 +35,7 @@
             data-bs-target="#exampleModal"> + Add wishes
         </button>
 
+
     </header>
     <main>
         <!-- Button trigger modal -->
@@ -79,6 +80,14 @@
 
                             <form class="create-element-form" action="">
                                 <div class="form-wrap mb-3">
+                                    <label for="link" class="form-label">Add a link</label>
+                                    <div class="input-and-button">
+                                        <input class="link-input form-control" type="text" id="link"
+                                            placeholder="Add a link" />
+                                        <button class="fetch btn btn-primary"> For Fetch</button>
+                                    </div>
+                                </div>
+                                <div class="form-wrap mb-3">
                                     <label for="name" class="form-label"> Write a title </label>
                                     <input class="form-control title-input" type="text" id="name"
                                         placeholder="Напишите название" required>
@@ -92,11 +101,7 @@
                                         <option class="category-3" value='category-3'>Category 3</option>
                                     </select>
                                 </div>
-                                <div class="form-wrap mb-3">
-                                    <label for="link" class="form-label">Add a link</label>
-                                    <input class="link-input form-control" type="text" id="link"
-                                        placeholder="Add a link">
-                                </div>
+
                                 <div class="form-wrap mb-3">
                                     <label for="description" class="form-label">Print a description</label>
                                     <input class="description-input form-control" type="text" id="description"
@@ -124,14 +129,16 @@
     </main>
     <template id="wish-template">
         <div class="wish-container card" tabindex="0" style="width: 18rem;">
-            <img src="pic.jpg" class="card-img-top" alt="...">
+            <!-- <img src="pic.jpg" class="card-img-top" alt="..."> -->
             <div class="wish-wrap card-body">
                 <div class="top-message">
-                    <h5 class="wish-name card-title"></h5>
-                    <p class="wish-category"> </p>
-                    <p class="wish-description card-text"></p>
-                    <a href="#" class="wish-link btn btn-primary">Go somewhere</a>
+                    <div>
+                        <h5 class="wish-name card-title"></h5>
+                        <p class="wish-category"> </p>
+                        <p class="wish-description card-text"></p>
+                    </div>
                     <div class="button-wrap">
+                        <a href="#" class="wish-link btn btn-primary">Go somewhere</a>
                         <button class="wish-delete-button" type="button">&#x2715</button>
                     </div>
                 </div>
