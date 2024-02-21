@@ -5,20 +5,25 @@
     <link href="weather.css" rel="stylesheet" type="text/css">
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         type="text/css"> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
 </head>
 
-<body>
+<body class="default-image">
     <div class="container">
         <div class="city-input">
             <input type="text" class="city-value" placeholder="Enter Location">
-            <button class="button"></button>
+            <button class="button"><i class="bi bi-search"></i></button>
         </div>
-        <div class="display-weather">
-            <h1 class="temperature">----°C</h1>
-            <p class="humidity"></p>
-            <p class="description">---</p>
-            <p class="pressure"></p>
-            <p class="wind"></p>
+        <div class="display-weather hidden">
+            <h3 class=""><i class="bi bi-thermometer-half"></i><span class="temperature"></span> °C</h3>
+            <p class=""> <i class="bi bi-droplet"></i> <span class="humidity"></span></p>
+            <p class="description"></p>
+            <p class=""> <i class="bi bi-chevron-compact-down"></i> <span class="pressure"></span> </p>
+            <p class=""><i class="bi bi-wind"></i> <span class="wind"></span> </p>
+            <div class="sun-info">
+                <p class=""> <i class="bi bi-sunrise"></i> <span class="sunrise"></span></p>
+                <p class=""><i class="bi bi-sunset"></i> <span class="sunset"></span></p>
+            </div>
         </div>
     </div>
     <script src="weather.js"></script>
