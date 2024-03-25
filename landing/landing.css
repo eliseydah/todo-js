@@ -1,42 +1,40 @@
 header {
-    width: 1487px;
+    /* width: 1487px;
     height: 719px;
     top: 56px;
-    left: -50px;
+    left: -50px; */
     box-sizing: border-box;
     margin-bottom: 150px;
+}
+
+body {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .logo {
     width: 160px;
     height: 41px;
-    top: 56px;
-    left: 191px;
+    /* top: 56px;
+    left: 191px; */
 }
 
 .element {
-    width: 131.58px;
+    /* width: 131.58px;
     height: 115px;
     top: 160px;
-    left: -50px;
+    left: -50px; */
     opacity: 0.3px;
 
 }
 
-.illustration {
-    width: 693px;
-    height: 598px;
-    top: 177px;
-    left: 744px;
-}
-
 .header-text {
-    width: 445px;
+    /* width: 445px; */
     /* height: 338px; */
-    top: 283px;
-    left: 190px;
+    /* top: 283px;
+    left: 190px; */
     border-radius: 55px;
-
 }
 
 .container-navigation {
@@ -46,9 +44,9 @@ header {
     justify-content: space-between;
     align-items: baseline;
     /* width: 545px; */
-    height: 23px;
+    /* height: 23px;
     top: 70px;
-    left: 863px;
+    left: 863px; */
     font-family: Mulish;
     font-size: 18px;
     font-weight: 400;
@@ -74,30 +72,13 @@ li {
 .navigation-list {
     display: flex;
     justify-content: space-around;
-    width: 545px;
-    height: 23px;
-    top: 70px;
-    left: 863px;
-
-
 }
 
-.five-el {
-    width: 76px;
-    height: 23px;
-    top: 70px;
-    left: 1332px;
-    opacity: 0.5px;
-    font-family: Mulish;
-    font-size: 18px;
-    font-weight: 400;
-    line-height: 23px;
-    letter-spacing: 0em;
-    text-align: left;
+.navigation-list a {
     color: rgba(31, 21, 52, 0.4);
 }
 
-.el {
+.navigation-element {
     font-family: Mulish;
     font-size: 18px;
     font-weight: 400;
@@ -112,9 +93,12 @@ li {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-around;
-    /* margin: 0px 100px; */
+    justify-content: space-between;
 
+}
+
+p {
+    color: rgba(31, 21, 52, 0.4);
 }
 
 h2 {
@@ -132,8 +116,10 @@ h4 {
     border: 0;
     border-radius: 55px;
     padding: 15px 30px;
-    Width: 200px;
-    Height: 60px;
+    /* Width: 200px;
+    Height: 60px; */
+    padding: 30px 100px;
+    cursor: pointer;
 }
 
 .wrap-section {
@@ -204,7 +190,7 @@ h4 {
 
 .service-element {
     /* width: 350px; */
-    height: 354px;
+    /* height: 354px; */
     border-radius: 20px;
     display: flex;
     flex-direction: column;
@@ -216,6 +202,11 @@ h4 {
     /* margin: 20px 0px 0px 50px; */
 }
 
+.service-element a {
+    color: rgb(69, 143, 246);
+
+}
+
 .learn-more-button {
     background-color: white;
     color: rgb(69, 143, 246);
@@ -223,8 +214,10 @@ h4 {
     border-radius: 55px;
     padding: 15px 30px;
     border: solid 2px rgb(69, 143, 246);
-    Width: 200px;
-    Height: 60px;
+    /* Width: 200px;
+    Height: 60px; */
+    padding: 30px 100px;
+    cursor: pointer;
 }
 
 .learn-more-button-wrap {
@@ -276,6 +269,18 @@ h4 {
     width: 350px;
 }
 
+.wrap-rewiew p {
+    color: white;
+}
+
+footer p {
+    color: white;
+}
+
+.round {
+    border-radius: 100%;
+}
+
 .wrap-rewiew {
     display: flex;
     flex-direction: row;
@@ -316,7 +321,7 @@ a {
     text-decoration: none;
 }
 
-ul {
+ul:first-of-type {
     font-weight: bolder;
     font-size: larger;
 }
@@ -327,25 +332,35 @@ ul {
     gap: 20px;
 }
 
-.circle {
+.logo {
     width: 50px;
     height: 50px;
     border-radius: 100%;
-
+    gap: 20px;
     background-color: white;
 
 }
 
-.circle span {
+.logo span {
     margin-left: auto;
     margin-right: auto;
     color: rgb(90, 151, 242);
     font-size: 32px;
 }
 
+.blue {
+    background-color: rgb(90, 151, 242);
+}
+
+.blue span {
+    /* margin-left: auto;
+    margin-right: auto; */
+    color: white;
+    font-size: 32px;
+}
+
 .wrap-footer div {
     display: flex;
     align-items: center;
-    align-content: center;
-    gap: 10px;
+    align-content: center
 }
