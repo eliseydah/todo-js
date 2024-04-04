@@ -7,11 +7,21 @@ let crossLine = ref('line-through')
 const newTodo = ref('')
 const todos = ref([])
 const hideCompleted = ref(false);
+let todobuttonfilter = ref('All');
 
 const filteredTodos = computed(() => {
-  return hideCompleted.value
-    ? todos.value.filter((t) => !t.done)
-    : todos.value
+  if (todobuttonfilter.value === "All") {
+
+    return todos.value
+
+  }
+  if (todobuttonfilter.value === "Active") {
+    return todos.value.filter((t) => !t.done)
+  }
+  if (todobuttonfilter.value === "Completed") {
+    return todos.value.filter((t) => t.done)
+  }
+
 })
 
 function addTodo() {
@@ -48,13 +58,16 @@ function removeTodo(todo) {
     </div>
 
     <div class="multi-buttons">
-      <input class="all-button" id="radio-1" type="radio" name="button-type" value="all" checked>
+      <input class="all-button" id="radio-1" type="radio" name="button-type" value="all" checked
+        @change="todobuttonfilter = 'All'">
       <label for="radio-1"> All </label>
-      <input class="active-button" id="radio-2" type="radio" name="button-type" value="active">
+      <input class="active-button" id="radio-2" type="radio" name="button-type" value="active"
+        @change="todobuttonfilter = 'Active'">
       <label for="radio-2">Active</label>
-      <input class="completed-button" id="radio-3" type="radio" name="button-type" value="completed">
+      <input class="completed-button" id="radio-3" type="radio" name="button-type" value="completed"
+        @click="todobuttonfilter = 'Completed'">
       <label for="radio-3">Completed</label>
-      <button @click="hideCompleted = !hideCompleted">
+      <button>
         {{ hideCompleted ? 'Show all' : 'Hide completed' }}
       </button>
     </div>
