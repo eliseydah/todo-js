@@ -3,18 +3,13 @@ import { ref, computed } from 'vue';
 let color = ref('red')
 const name = ref('Dasha')
 let id = 0;
-let crossLine = ref('line-through')
 const newTodo = ref('')
 const todos = ref([])
-const hideCompleted = ref(false);
 let todobuttonfilter = ref('All');
-let completedCounter = ref(0);
 
 const filteredTodos = computed(function () {
   if (todobuttonfilter.value === "All") {
-
     return todos.value
-
   }
   if (todobuttonfilter.value === "Active") {
     return todos.value.filter((t) => !t.done)
@@ -25,8 +20,12 @@ const filteredTodos = computed(function () {
 
 })
 const counter = computed(function () {
-  return todos.value.length
+  return todos.value.filter((t) => !t.done).length
 })
+const completedCounter = computed(function () {
+  return todos.value.filter((t) => t.done).length
+})
+
 function addTodo() {
   todos.value.push({ id: id++, text: newTodo.value, done: false })
   newTodo.value = ''
@@ -48,10 +47,12 @@ function removeTodo(todo) {
   </div>
 
   <div class="panel" v-for="todo in filteredTodos" :key="todo.id">
-    <input type="checkbox" v-model="todo.done">
-    <span :class="{ done: todo.done }">{{ todo.text }}</span>
-    <!-- {{ todo.text }} -->
-    <button @click="removeTodo(todo)">X</button>
+    <label>
+      <input type="checkbox" class="todo-checkbox" v-model="todo.done">
+      <span></span>
+    </label>
+    <p :class="{ done: todo.done }">{{ todo.text }}</p>
+    <button class="todo-delete-button" @click="removeTodo(todo)">X</button>
   </div>
 
   <div class="panel">
@@ -70,15 +71,13 @@ function removeTodo(todo) {
       <input class="completed-button" id="radio-3" type="radio" name="button-type" value="completed"
         @click="todobuttonfilter = 'Completed'">
       <label for="radio-3">Completed</label>
-      <button>
-        {{ hideCompleted ? 'Show all' : 'Hide completed' }}
-      </button>
+
     </div>
 
 
     <div class="clear-completed">
       <button class="clear-completed-button" type="button">
-        <span id="clearElementCounter">0</span>
+        <span id="clearElementCounter">{{ completedCounter }}</span>
         clear completed</button>
 
     </div>
@@ -152,11 +151,24 @@ input:focus {
   display: none;
 }
 
+.todo-delete-button {
+  font-size: 20px;
+  padding-right: 10px;
+  border: 0;
+  color: rgb(210, 116, 147);
+  background-color: white;
+  margin-right: 10px;
+  opacity: 0;
+}
+
+.panel:hover .todo-delete-button {
+  opacity: 1;
+}
+
 .panel label span {
   height: 12px;
   width: 12px;
   border: 1px solid rgb(67, 216, 159);
-  ;
   border-radius: 100%;
   display: inline-block;
   position: relative;
@@ -177,5 +189,32 @@ input:focus {
 .line-through {
   text-decoration: line-through;
   color: rgb(184, 180, 180);
+}
+
+.clear-completed-button {
+  border: 0;
+  color: rgb(171, 167, 167);
+  background-color: white;
+}
+
+.multi-buttons input[type=radio] {
+  display: none;
+}
+
+.multi-buttons label {
+
+  padding: 5px;
+
+}
+
+.multi-buttons input[type=radio]:checked+label {
+  border: 1px solid #ecc1c1;
+  border-radius: 6px;
+
+}
+
+.multi-buttons label:hover {
+  border: 1px solid #f2e9e9;
+  border-radius: 6px;
 }
 </style>
