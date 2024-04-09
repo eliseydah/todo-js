@@ -8,8 +8,9 @@ const newTodo = ref('')
 const todos = ref([])
 const hideCompleted = ref(false);
 let todobuttonfilter = ref('All');
+let completedCounter = ref(0);
 
-const filteredTodos = computed(() => {
+const filteredTodos = computed(function () {
   if (todobuttonfilter.value === "All") {
 
     return todos.value
@@ -23,7 +24,9 @@ const filteredTodos = computed(() => {
   }
 
 })
-
+const counter = computed(function () {
+  return todos.value.length
+})
 function addTodo() {
   todos.value.push({ id: id++, text: newTodo.value, done: false })
   newTodo.value = ''
@@ -53,7 +56,7 @@ function removeTodo(todo) {
 
   <div class="panel">
     <div class="counter">
-      <span id="elementCounter">0</span>
+      <span id="elementCounter">{{ counter }}</span>
       item left
     </div>
 
