@@ -37,8 +37,6 @@ function removeTodo(todo) {
 </script>
 
 <template>
-  <div :class='color'> hello {{ name }}
-  </div>
   <h1>todos</h1>
   <div class="main-content">
     <form class="todo-form" @submit.prevent="addTodo" action="">
