@@ -1,17 +1,9 @@
 <script setup>
 import { onMounted, ref, computed } from 'vue';
-let cityName = ref('');
-let temp = ref('');
-let desc = ref('');
-let wind = ref('');
-let humidity = ref('');
-let pressure = ref('');
-let sunrise = ref('');
-let sunset = ref('');
-let weatherCard = ref('');
-let mainPicture = ref('default-image');
+let weather = ref({});
 let mainContentDisplay = ref('hidden');
-
+let mainPicture = ref('default-image');
+let cityName = ref('');
 
 function convertUnixTimestamp(timestamp) {
   // Создание объекта Date, используя timestamp (в миллисекундах)
@@ -30,46 +22,43 @@ function convertUnixTimestamp(timestamp) {
 
 
 function addInfoInInput(data) {
-  temp.value = Math.round(data.main.temp);
-  desc.value = data.weather[0].main;
-  wind.value = data.wind.speed + " m/s";
-  humidity.value = data.main.humidity + " %";
-  pressure.value = Math.round(data.main.pressure * 0.750062) + " mm/Hg";
+  weather.value.temp = Math.round(data.main.temp);
+  weather.value.desc = data.weather[0].main;
+  weather.value.wind = data.wind.speed + " m/s";
+  weather.value.humidity = data.main.humidity + " %";
+  weather.value.pressure = Math.round(data.main.pressure * 0.750062) + " mm/Hg";
   let sunriseTime = data.sys.sunrise;
-  sunrise.value = convertUnixTimestamp(sunriseTime);
+  weather.value.sunrise = convertUnixTimestamp(sunriseTime);
   let sunsetTime = data.sys.sunset;
-  sunset.value = convertUnixTimestamp(sunsetTime);
-  console.log(desc.value);
-  console.log(temp.value);
-  console.log(wind.value);
-  console.log(sunset.value);
-  weatherCard.value = data.weather[0].main;
-  console.log(weatherCard);
-  switch (weatherCard.value) {
+  weather.value.sunset = convertUnixTimestamp(sunsetTime);
+
+  weather.value.weatherCard = data.weather[0].main;
+
+  switch (weather.value.weatherCard) {
     case 'Clouds':
       mainPicture.value = 'clouds';
-      // mainContainer.classList.add('clouds'); всунуть динамический класс 
+
       break
     case 'Clear':
       mainPicture.value = 'clear';
-      // mainContainer.className = "";
-      // mainContainer.classList.add('clear');
 
       break
     case 'Snow':
       mainPicture.value = 'snow';
-      // mainContainer.className = "";
-      // mainContainer.classList.add('snow');
-
       break
+
+    case 'Rain':
+      mainPicture.value = 'rain';
+      break
+
     default:
       mainPicture.value = 'default-image';
-    //     mainContainer.classList.add('default-image');
+
   }
 }
 
 function weatherInfo() {
-  // create reactive class
+
   mainContentDisplay.value = 'display-weather';
   console.log(mainContentDisplay.value)
   fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName.value}&units=metric&appid=8698a1225dd8dbde8eb62a37a25c278e`)
@@ -98,14 +87,15 @@ function weatherInfo() {
         <button @click="weatherInfo" class="button"><i class="bi bi-search"></i></button>
       </div>
       <div :class="mainContentDisplay">
-        <h3 class=""><i class="bi bi-thermometer-half"></i>{{ temp }}<span class="temperature"></span> °C</h3>
-        <p class=""> <i class="bi bi-droplet"></i> {{ humidity }}<span class="humidity"></span></p>
-        <p class="description">{{ desc }}</p>
-        <p class=""> <i class="bi bi-chevron-compact-down"></i> {{ pressure }}<span class="pressure"> </span> </p>
-        <p class=""><i class="bi bi-wind"></i> {{ wind }}<span class="wind"></span> </p>
+        <h3 class=""><i class="bi bi-thermometer-half"></i>{{ weather.temp }}<span class="temperature"></span> °C</h3>
+        <p class=""> <i class="bi bi-droplet"></i> {{ weather.humidity }}<span class="humidity"></span></p>
+        <p class="description">{{ weather.desc }}</p>
+        <p class=""> <i class="bi bi-chevron-compact-down"></i> {{ weather.pressure }}<span class="pressure"> </span>
+        </p>
+        <p class=""><i class="bi bi-wind"></i> {{ weather.wind }}<span class="wind"></span> </p>
         <div class="sun-info">
-          <p class=""> <i class="bi bi-sunrise"></i> {{ sunrise }}<span class="sunrise"></span></p>
-          <p class=""><i class="bi bi-sunset"></i> {{ sunset }}<span class="sunset"></span></p>
+          <p class=""> <i class="bi bi-sunrise"></i> {{ weather.sunrise }}<span class="sunrise"></span></p>
+          <p class=""><i class="bi bi-sunset"></i> {{ weather.sunset }}<span class="sunset"></span></p>
         </div>
       </div>
     </div>
@@ -156,6 +146,11 @@ div.hidden {
 
 .clear {
   background-image: url(https://img2.akspic.ru/crops/9/6/4/0/40469/40469-zakat-atmosfera-rassvet-solnce-poslesvechenie-3840x2160.jpg);
+  background-size: cover;
+}
+
+.rain {
+  background-image: url(https://media.istockphoto.com/id/1429701799/photo/raindrops-on-asphalt-rain-rainy-weather-downpour.jpg?s=612x612&w=0&k=20&c=w3lp5jGXo71lNrZeg9iWX1Gv8gSEz8fjHtvpneEjdyw=);
   background-size: cover;
 }
 
