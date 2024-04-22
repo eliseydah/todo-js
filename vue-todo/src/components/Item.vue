@@ -1,5 +1,11 @@
 <script setup>
-let todo = { text: 'example text', done: true }
+defineProps(['todo']);
+const emit = defineEmits(['remove-item'])
+
+function onButtonClick() {
+    emit('remove-item');
+}
+
 </script>
 <template>
     <div class="panel">
@@ -8,7 +14,7 @@ let todo = { text: 'example text', done: true }
             <span></span>
         </label>
         <p :class="{ done: todo.done }">{{ todo.text }}</p>
-        <button class="todo-delete-button">X</button>
+        <button @click="onButtonClick" class="todo-delete-button">X</button>
         <!-- @click="removeTodo(todo)" -->
     </div>
 </template>

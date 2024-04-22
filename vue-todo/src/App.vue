@@ -33,7 +33,7 @@ function addTodo() {
 }
 
 function removeTodo(todo) {
-  todos.value = todos.value.filter((t) => t !== todo)
+  todos.value = todos.value.filter((t) => t !== todo);
 }
 </script>
 
@@ -46,7 +46,7 @@ function removeTodo(todo) {
   </div>
 
 
-  <Item v-for="todo in filteredTodos" :key="todo.id" />
+  <Item v-for="todo in filteredTodos" :key="todo.id" :todo="todo" @remove-item="removeTodo(todo)" />
 
   <div class="panel">
     <div class="counter">
