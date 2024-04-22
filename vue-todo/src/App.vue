@@ -1,6 +1,7 @@
 <script setup>
 import { ref, computed } from 'vue';
-import Item from './components/Item.vue'
+import Item from './components/Item.vue';
+import Counter from './components/icons/Counter.vue';
 let color = ref('red')
 const name = ref('Dasha')
 let id = 0;
@@ -31,7 +32,9 @@ function addTodo() {
   todos.value.push({ id: id++, text: newTodo.value, done: false })
   newTodo.value = ''
 }
-
+function removeCompletedTodo(todo) {
+  return todos.value = todos.value.filter((t) => !t.done)
+}
 function removeTodo(todo) {
   todos.value = todos.value.filter((t) => t !== todo);
 }
@@ -49,11 +52,7 @@ function removeTodo(todo) {
   <Item v-for="todo in filteredTodos" :key="todo.id" :todo="todo" @remove-item="removeTodo(todo)" />
 
   <div class="panel">
-    <div class="counter">
-      <span id="elementCounter">{{ counter }}</span>
-      item left
-    </div>
-
+    <Counter :counter="counter" :completedCounter="completedCounter" @remove-completed="removeCompletedTodo(todo)" />
     <div class="multi-buttons">
       <input class="all-button" id="radio-1" type="radio" name="button-type" value="all" checked
         @change="todobuttonfilter = 'All'">
@@ -66,15 +65,15 @@ function removeTodo(todo) {
       <label for="radio-3">Completed</label>
 
     </div>
+    <!-- <Counter :completedCounter="completedCounter" /> -->
 
-
-    <div class="clear-completed">
+    <!-- <div class="clear-completed">
       <button class="clear-completed-button" type="button">
         <span id="clearElementCounter">{{ completedCounter }}</span>
-        clear completed</button>
+        clear completed</button> -->
 
-    </div>
   </div>
+  <!-- </div> -->
 </template>
 
 <style scoped>
