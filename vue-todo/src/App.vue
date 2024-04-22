@@ -1,5 +1,6 @@
 <script setup>
 import { ref, computed } from 'vue';
+import Item from './components/Item.vue'
 let color = ref('red')
 const name = ref('Dasha')
 let id = 0;
@@ -44,14 +45,8 @@ function removeTodo(todo) {
     </form>
   </div>
 
-  <div class="panel" v-for="todo in filteredTodos" :key="todo.id">
-    <label>
-      <input type="checkbox" class="todo-checkbox" v-model="todo.done">
-      <span></span>
-    </label>
-    <p :class="{ done: todo.done }">{{ todo.text }}</p>
-    <button class="todo-delete-button" @click="removeTodo(todo)">X</button>
-  </div>
+
+  <Item v-for="todo in filteredTodos" :key="todo.id" />
 
   <div class="panel">
     <div class="counter">
