@@ -2,6 +2,8 @@
 import { ref, computed } from 'vue';
 import Item from './components/Item.vue';
 import Counter from './components/icons/Counter.vue';
+import CompletedCounter from './components/icons/CompletedCounter.vue';
+import Radiobuttons from './components/icons/Radiobuttons.vue';
 let color = ref('red')
 const name = ref('Dasha')
 let id = 0;
@@ -52,7 +54,7 @@ function removeTodo(todo) {
   <Item v-for="todo in filteredTodos" :key="todo.id" :todo="todo" @remove-item="removeTodo(todo)" />
 
   <div class="panel">
-    <Counter :counter="counter" :completedCounter="completedCounter" @remove-completed="removeCompletedTodo(todo)" />
+    <Counter :counter="counter" />
     <div class="multi-buttons">
       <input class="all-button" id="radio-1" type="radio" name="button-type" value="all" checked
         @change="todobuttonfilter = 'All'">
@@ -65,6 +67,7 @@ function removeTodo(todo) {
       <label for="radio-3">Completed</label>
 
     </div>
+    <CompletedCounter :completedCounter="completedCounter" @remove-completed="removeCompletedTodo(todo)" />
     <!-- <Counter :completedCounter="completedCounter" /> -->
 
     <!-- <div class="clear-completed">
