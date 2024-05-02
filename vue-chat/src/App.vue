@@ -1,36 +1,18 @@
 <script setup>
 import { ref } from 'vue';
 import Message from './message.vue';
+import MainForm from './MainForm.vue'
 
 let id = 0;
-let newMessage = ref('');
-const messages = ref([]);
-let selected = ref('Artem');
 
-function addZero(num) {
-  return num < 10 ? "0" + num : num;
-}
-function messageTime() {
-  let currentTime = new Date()
-  let hours = currentTime.getHours();
-  var minutes = currentTime.getMinutes();
-  let newTime = addZero(hours) + ":" + addZero(minutes);
-  return newTime;
-}
-function sideChoise() {
-  if (selected.value === "Artem") {
-    return "left"
-  } else {
-    return "right"
-  }
-}
-//  selected.value === "Artem" ? "left" : "right",
-function addMessage() {
+const messages = ref([]);
+function addMessage(text, name, side, time) {
+  //данные в аргументы приходят из функции дочернего элемента. 
   messages.value.push({
-    id: id++, text: newMessage.value, name: selected.value,
-    side: sideChoise(), time: messageTime()
+    id: id++, text: text, name: name,
+    side: side, time: time
   })
-  newMessage.value = ''
+
 }
 function removeMessage(message) {
   messages.value = messages.value.filter((t) => t !== message)
@@ -44,34 +26,9 @@ function removeMessage(message) {
     <div class="chat">
       <Message v-for="message in messages" :key="message.id" :message="message"
         @remove-message="removeMessage(message)" />
-      <!-- <div class="chat-message">
-        <div :class="message.side" v-for="message in messages" :key="message.id">
-          <div class="top-message">
-            <span class="author-name"> {{ message.name }}
-            </span>
-            <span class="time"> {{ message.time }} </span>
-            <button class="delete-button" type="button" @click="removeMessage(message)">&#x2715</button>
-          </div>
-          <div>
-            <p class="chat-message-text"> {{ message.text }}</p>
-          </div>
-
-        </div> -->
-      <!-- </div> -->
 
     </div>
-    <div class="print-section">
-      <select v-model="selected" class="select-choice" name="author" id="author-select">
-        <option value='Artem' class="Artem">Artem</option>
-        <option value='Daria' class="Daria">Daria</option>
-      </select>
-      <form class="message" @submit.prevent="addMessage" action="">
-        <input v-model="newMessage" class="message-input" type="text" placeholder="Напишите что-нибудь" required>
-        <button class="send-button">
-          <span>Отправить</span></button>
-      </form>
-    </div>
-
+    <MainForm @create-message="addMessage" />
   </body>
 
 </template>
@@ -92,7 +49,7 @@ body {
   overflow-y: scroll;
 }
 
-form {
+/* form {
   margin: 0;
 }
 
@@ -138,7 +95,7 @@ input:focus,
   border: 0;
   font-size: 24px;
 
-}
+} */
 
 /* .chat-message {
   color: rgb(255, 255, 255);
