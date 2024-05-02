@@ -1,5 +1,7 @@
 <script setup>
 import { ref } from 'vue';
+import Message from './message.vue';
+
 let id = 0;
 let newMessage = ref('');
 const messages = ref([]);
@@ -15,12 +17,18 @@ function messageTime() {
   let newTime = addZero(hours) + ":" + addZero(minutes);
   return newTime;
 }
-
-
+function sideChoise() {
+  if (selected.value === "Artem") {
+    return "left"
+  } else {
+    return "right"
+  }
+}
+//  selected.value === "Artem" ? "left" : "right",
 function addMessage() {
   messages.value.push({
     id: id++, text: newMessage.value, name: selected.value,
-    side: selected.value === "Artem" ? "left" : "right", time: messageTime()
+    side: sideChoise(), time: messageTime()
   })
   newMessage.value = ''
 }
@@ -28,16 +36,15 @@ function removeMessage(message) {
   messages.value = messages.value.filter((t) => t !== message)
 }
 
-
-
-
 </script>
 
 <template>
 
   <body>
     <div class="chat">
-      <div class="chat-message">
+      <Message v-for="message in messages" :key="message.id" :message="message"
+        @remove-message="removeMessage(message)" />
+      <!-- <div class="chat-message">
         <div :class="message.side" v-for="message in messages" :key="message.id">
           <div class="top-message">
             <span class="author-name"> {{ message.name }}
@@ -49,8 +56,8 @@ function removeMessage(message) {
             <p class="chat-message-text"> {{ message.text }}</p>
           </div>
 
-        </div>
-      </div>
+        </div> -->
+      <!-- </div> -->
 
     </div>
     <div class="print-section">
@@ -133,13 +140,13 @@ input:focus,
 
 }
 
-.chat-message {
+/* .chat-message {
   color: rgb(255, 255, 255);
   display: flex;
   flex-direction: column;
   gap: 10px;
 
-}
+/* } */
 
 .right {
   display: grid;
@@ -160,19 +167,19 @@ input:focus,
   margin-left: 20px;
 }
 
-.top-message {
+/* .top-message {
   display: grid;
   grid-template-columns: 6fr 1fr 1fr;
   padding-left: 10px;
-}
+} */
 
-.chat-message-name {
+/* .chat-message-name {
   margin-left: 20px;
-}
+} */
 
 
 
-.chat-message-text {
+/* .chat-message-text {
   font-size: larger;
   margin-left: 10px;
   margin-top: 0;
@@ -181,9 +188,9 @@ input:focus,
 
 .author-name {
   color: rgb(164, 206, 232);
-}
+}  */
 
-.delete-button {
+/* .delete-button {
   color: rgba(212, 25, 25, 0.81);
   border: 0;
   background-color: rgba(77, 119, 93, 0);
@@ -196,5 +203,5 @@ input:focus,
 
 .left:hover .delete-button {
   opacity: 1;
-}
+} */
 </style>
