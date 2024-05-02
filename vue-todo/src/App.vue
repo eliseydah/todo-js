@@ -1,11 +1,17 @@
 <script setup>
 import { ref, computed } from 'vue';
-let color = ref('red')
-const name = ref('Dasha')
+import Item from './components/Item.vue';
+import Counter from './components/icons/Counter.vue';
+import CompletedCounter from './components/icons/CompletedCounter.vue';
+import Radiobuttons from './components/icons/Radiobuttons.vue';
 let id = 0;
 const newTodo = ref('')
 const todos = ref([])
 let todobuttonfilter = ref('All');
+
+function changeValue(value) {
+  todobuttonfilter.value = value;
+}
 
 const filteredTodos = computed(function () {
   if (todobuttonfilter.value === "All") {
@@ -30,9 +36,11 @@ function addTodo() {
   todos.value.push({ id: id++, text: newTodo.value, done: false })
   newTodo.value = ''
 }
-
+function removeCompletedTodo(todo) {
+  return todos.value = todos.value.filter((t) => !t.done)
+}
 function removeTodo(todo) {
-  todos.value = todos.value.filter((t) => t !== todo)
+  todos.value = todos.value.filter((t) => t !== todo);
 }
 </script>
 
@@ -44,42 +52,18 @@ function removeTodo(todo) {
     </form>
   </div>
 
-  <div class="panel" v-for="todo in filteredTodos" :key="todo.id">
-    <label>
-      <input type="checkbox" class="todo-checkbox" v-model="todo.done">
-      <span></span>
-    </label>
-    <p :class="{ done: todo.done }">{{ todo.text }}</p>
-    <button class="todo-delete-button" @click="removeTodo(todo)">X</button>
-  </div>
+
+  <Item v-for="todo in filteredTodos" :key="todo.id" :todo="todo" @remove-item="removeTodo(todo)" />
 
   <div class="panel">
-    <div class="counter">
-      <span id="elementCounter">{{ counter }}</span>
-      item left
-    </div>
+    <Counter :counter="counter" />
 
-    <div class="multi-buttons">
-      <input class="all-button" id="radio-1" type="radio" name="button-type" value="all" checked
-        @change="todobuttonfilter = 'All'">
-      <label for="radio-1"> All </label>
-      <input class="active-button" id="radio-2" type="radio" name="button-type" value="active"
-        @change="todobuttonfilter = 'Active'">
-      <label for="radio-2">Active</label>
-      <input class="completed-button" id="radio-3" type="radio" name="button-type" value="completed"
-        @click="todobuttonfilter = 'Completed'">
-      <label for="radio-3">Completed</label>
+    <Radiobuttons @filter-todo="changeValue" />
 
-    </div>
+    <CompletedCounter :completedCounter="completedCounter" @remove-completed="removeCompletedTodo(todo)" />
 
-
-    <div class="clear-completed">
-      <button class="clear-completed-button" type="button">
-        <span id="clearElementCounter">{{ completedCounter }}</span>
-        clear completed</button>
-
-    </div>
   </div>
+
 </template>
 
 <style scoped>
@@ -143,76 +127,5 @@ input:focus {
   height: 60px;
   border: rgb(229, 226, 221) 0.5px solid;
   box-shadow: 10px px 10px rgb(221, 215, 215);
-}
-
-.todo-checkbox {
-  display: none;
-}
-
-.todo-delete-button {
-  font-size: 20px;
-  padding-right: 10px;
-  border: 0;
-  color: rgb(210, 116, 147);
-  background-color: white;
-  margin-right: 10px;
-  opacity: 0;
-}
-
-.panel:hover .todo-delete-button {
-  opacity: 1;
-}
-
-.panel label span {
-  height: 12px;
-  width: 12px;
-  border: 1px solid rgb(67, 216, 159);
-  border-radius: 100%;
-  display: inline-block;
-  position: relative;
-  background-color: #FFF;
-  padding: 3px;
-}
-
-[type=checkbox]:checked+span:before {
-  /* <-- ставим иконку, когда чекбокс включен  */
-  content: '\2713';
-  position: absolute;
-  top: -5px;
-  left: 2px;
-  font-size: 20px;
-  color: rgb(141, 235, 199);
-}
-
-.line-through {
-  text-decoration: line-through;
-  color: rgb(184, 180, 180);
-}
-
-.clear-completed-button {
-  border: 0;
-  color: rgb(171, 167, 167);
-  background-color: white;
-}
-
-.multi-buttons input[type=radio] {
-  display: none;
-}
-
-.multi-buttons label {
-
-  padding: 5px;
-
-}
-
-.multi-buttons input[type=radio]:checked+label {
-  border: 1px solid #ecc1c1;
-  border-radius: 6px;
-
-}
-
-.multi-buttons label:hover {
-  border: 1px solid #f2e9e9;
-  border-radius: 6px;
 }
 </style>
