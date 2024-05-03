@@ -1,5 +1,6 @@
 <script setup>
 import { onMounted, ref, computed } from 'vue';
+import WishItem from './WishItem.vue';
 let mainPicture = ref('green');
 function changeColor(buttonClass) {
   return mainPicture.value = buttonClass
@@ -161,11 +162,12 @@ function handleClick(event) {
         </div>
       </div>
       <div class="container">
+        <WishItem v-for="wish in filteredWishes" :wish="wish" :key="wish.id" @remove-wish="removeWish(wish)" />
         <!-- <template id="wish-template"> -->
-        <div class="wish-container card" tabindex="0" style="width: 18rem;" v-for="wish in filteredWishes"
-          :key="wish.id">
-          <!-- <img src="pic.jpg" class="card-img-top" alt="..."> -->
-          <div class="wish-wrap card-body">
+        <!-- <div class="wish-container card" tabindex="0" style="width: 18rem;" v-for="wish in filteredWishes"
+          :key="wish.id"> -->
+        <!-- <img src="pic.jpg" class="card-img-top" alt="..."> -->
+        <!-- <div class="wish-wrap card-body">
             <div class="top-message">
               <div>
                 <h5 class="wish-name card-title">{{ wish.name }}</h5>
@@ -178,8 +180,8 @@ function handleClick(event) {
               </div>
             </div>
 
-          </div>
-        </div>
+          </div> -->
+        <!-- </div> -->
       </div>
       <!-- </template> -->
     </main>
