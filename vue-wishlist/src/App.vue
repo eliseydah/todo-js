@@ -2,7 +2,7 @@
 import { onMounted, ref, computed } from 'vue';
 import WishItem from './WishItem.vue';
 import BackgroundPicture from './BackgroundPicture.vue';
-
+import ModalButton from './ModalButton.vue';
 let mainPicture = ref('green');
 function changeColor(value) {
   return mainPicture.value = value
@@ -11,18 +11,18 @@ function changeColor(value) {
 onMounted(() => {
   const exampleModal = new bootstrap.Modal(document.getElementById('exampleModal'))
 })
-let wishDescription = ref('');
-let wishLink = ref('');
-let wishName = ref('');
+// let wishDescription = ref('');
+// let wishLink = ref('');
+// let wishName = ref('');
 let id = 0;
 const wishes = ref([]);
-let selected = ref('');
+// let selected = ref('');
 let selectedPrice = ref('filter');
 
-function addWish() {
+function addWish(description, name, link, category) {
   wishes.value.push({
-    id: id++, description: wishDescription.value, name: wishName.value, link: wishLink.value,
-    category: selected.value
+    id: id++, description: description, name: name, link: link,
+    category: category
 
   })
   wishDescription.value = '';
@@ -48,30 +48,30 @@ const filteredWishes = computed(function () {
   }
 })
 
-function addInfoInInput(data) {
-  wishName.value = data.title;
-  wishDescription.value = data.body;
+// function addInfoInInput(data) {
+//   wishName.value = data.title;
+//   wishDescription.value = data.body;
 
-}
+// }
 
-function handleClick(event) {
-  event.preventDefault()
+// function handleClick(event) {
+//   event.preventDefault()
 
 
 
-  fetch(wishLink.value)
-    .then((response) => {
+//   fetch(wishLink.value)
+//     .then((response) => {
 
-      return response.json()
-    })
-    .then((data) => {
+//       return response.json()
+//     })
+//     .then((data) => {
 
-      console.log(data)
-      addInfoInInput(data);
-      // {title: "foo", body: "bar", userId: 1, id: 101}
-    })
+//       console.log(data)
+//       addInfoInInput(data);
+//       // {title: "foo", body: "bar", userId: 1, id: 101}
+//     })
 
-}
+// }
 </script>
 
 <template>
@@ -108,7 +108,7 @@ function handleClick(event) {
     <main>
       <div class="main-content">
 
-
+        <ModalButton @form-input="addWish" />
 
         <!-- 
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
