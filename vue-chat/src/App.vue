@@ -49,62 +49,6 @@ body {
   overflow-y: scroll;
 }
 
-/* form {
-  margin: 0;
-}
-
-.print-section {
-  background-color: rgb(18, 36, 74);
-  width: 100%;
-  height: 10%;
-  display: grid;
-  padding: 10px 0px;
-  box-sizing: border-box;
-  grid-template-columns: 1fr 3fr;
-  position: fixed;
-}
-
-.message {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-}
-
-.message-input {
-  border: none;
-  border-radius: 15px;
-  font-size: 24px;
-  padding: 0px 20px;
-}
-
-input:active,
-input:hover,
-input:focus,
-.select-choice {
-  outline: 0;
-  outline-offset: 0;
-}
-
-
-.send-button,
-.select-choice {
-  padding: 10px 10px;
-  margin: 0px 20px;
-  color: rgb(255, 255, 255);
-  background-color: rgb(2, 16, 40);
-  border-radius: 15px;
-  border: 0;
-  font-size: 24px;
-
-} */
-
-/* .chat-message {
-  color: rgb(255, 255, 255);
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-
-/* } */
-
 .right {
   display: grid;
   justify-self: right;
@@ -123,42 +67,4 @@ input:focus,
   width: 20vw;
   margin-left: 20px;
 }
-
-/* .top-message {
-  display: grid;
-  grid-template-columns: 6fr 1fr 1fr;
-  padding-left: 10px;
-} */
-
-/* .chat-message-name {
-  margin-left: 20px;
-} */
-
-
-
-/* .chat-message-text {
-  font-size: larger;
-  margin-left: 10px;
-  margin-top: 0;
-  margin-bottom: 5px;
-}
-
-.author-name {
-  color: rgb(164, 206, 232);
-}  */
-
-/* .delete-button {
-  color: rgba(212, 25, 25, 0.81);
-  border: 0;
-  background-color: rgba(77, 119, 93, 0);
-  opacity: 0;
-}
-
-.right:hover .delete-button {
-  opacity: 1;
-}
-
-.left:hover .delete-button {
-  opacity: 1;
-} */
 </style>
