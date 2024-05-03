@@ -1,9 +1,11 @@
 <script setup>
 import { onMounted, ref, computed } from 'vue';
 import WishItem from './WishItem.vue';
+import BackgroundPicture from './BackgroundPicture.vue';
+
 let mainPicture = ref('green');
-function changeColor(buttonClass) {
-  return mainPicture.value = buttonClass
+function changeColor(value) {
+  return mainPicture.value = value
 }
 
 onMounted(() => {
@@ -80,14 +82,15 @@ function handleClick(event) {
       <div class="theme-choice">
         <div class="color-choice"> Design choice
         </div>
-        <div class="buttons">
+        <BackgroundPicture @picture-background="changeColor" />
+        <!-- <div class="buttons">
           <button class="color-button rose" @click="changeColor('rose')"></button>
           <button class="color-button blue" @click="changeColor('blue')"></button>
           <button class="color-button" id="green" @click="changeColor('green')"></button>
           <button class="color-button beige" @click="changeColor('beige')"></button>
           <button class="color-button brown" @click="changeColor('brown')"></button>
           <button class="color-button yellow" @click="changeColor('yellow')"></button>
-        </div>
+        </div> -->
       </div>
       <select v-model="selectedPrice" class="filter-choice form-select" name="filter" id="filter-price-select">
         <option @click="selectedPrice = 'filter'" class="filter" value="filter"> Filter</option>
@@ -107,7 +110,7 @@ function handleClick(event) {
 
 
 
-
+        <!-- 
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog">
             <div class="modal-content">
@@ -159,7 +162,7 @@ function handleClick(event) {
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
       <div class="container">
         <WishItem v-for="wish in filteredWishes" :wish="wish" :key="wish.id" @remove-wish="removeWish(wish)" />
@@ -209,7 +212,7 @@ body {
   box-sizing: border-box;
 }
 
-.button-theme-choice {
+/* .button-theme-choice {
   border: 0;
 }
 
@@ -218,35 +221,29 @@ body {
   width: 15px;
   height: 15px;
   /* background-color: rgb(0, 102, 255); */
-}
+/* } */
 
 .rose {
-  /* background-color: pink; */
   background-image: url(https://img2.akspic.ru/crops/8/7/7/3/6/163778/163778-pashalnoe_yajco-kulinariya-rozovyj-blyuda-bulyzhnik-2560x1440.jpg);
 }
 
 .blue {
-  /* background-color: rgb(61, 162, 216); */
   background-image: url(https://img1.akspic.ru/crops/8/5/8/5/7/175858/175858-oblako-atmosfera-poslesvechenie-prirodnyj_landshaft-solnechnyj_svet-2560x1440.jpg);
 }
 
 .green {
-  /* background-color: rgb(7, 43, 7); */
   background-image: url(https://images.pexels.com/photos/1072179/pexels-photo-1072179.jpeg?auto=compress&cs=tinysrgb&h=627&fit=crop&w=1200);
 }
 
 .beige {
-  /* background-color: beige; */
   background-image: url(https://img3.akspic.ru/crops/3/3/1/7/87133/87133-rozovyj-gora-vecher-orientir-tsvetok-2560x1440.jpg);
 }
 
 .brown {
-  /* background-color: rgb(46, 24, 24); */
   background-image: url(https://img2.akspic.ru/crops/5/5/5/1/4/141555/141555-nebo-sumrak-solnce-zolotoj_chas-voshod_solnca-2560x1440.jpg);
 }
 
 .yellow {
-  /* background-color: yellow; */
   background-image: url(https://img2.akspic.ru/crops/1/2/5/1/4/141521/141521-utro-zakat-priroda-voshod_solnca-prirodnyj_landshaft-2560x1440.jpg);
 }
 
