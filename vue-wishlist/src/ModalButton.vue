@@ -2,10 +2,6 @@
 import { ref } from 'vue';
 defineProps(['wish']);
 const emit = defineEmits(['form-input'])
-
-// function onButtonClick() {
-//     emit('for-fetch');
-// }
 let wishDescription = ref('');
 let wishLink = ref('');
 let wishName = ref('');

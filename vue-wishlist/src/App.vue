@@ -16,7 +16,6 @@ onMounted(() => {
 
 let id = 0;
 const wishes = ref([]);
-// let selectedPrice = ref('filter');
 
 function addWish(description, name, link, category) {
   wishes.value.push({
@@ -65,15 +64,7 @@ const filteredWishes = computed(function () {
 
       </div>
       <CategoryFilter @selected-value="huiChangeValue" />
-      <!-- <select v-model="selectedPrice" class="filter-choice form-select" name="filter" id="filter-price-select">
-        <option @click="selectedPrice = 'filter'" class="filter" value="filter"> Filter</option>
-        <option @click="selectedPrice = 'filter-price-1'" class="filter-price-1" value="filter-price-1">filter-price-1
-        </option>
-        <option @click="selectedPrice = 'filter-price-2'" class="filter-price-2" value="filter-price-2">filter-price-2
-        </option>
-        <option @click="selectedPrice = 'filter-price-3'" class="filter-price-3" value="filter-price-3">filter-price-3
-        </option>
-      </select> -->
+
       <button class="add-wishes btn btn-warning btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
         + Add wishes
       </button>
@@ -163,9 +154,9 @@ select {
   gap: 10px;
 }
 
-/* .create-element-form, */
+
 .theme-choice {
-  /* padding: 20px 30px; */
+
   width: 100%;
   height: 100%;
   background-color: rgba(113, 187, 187, 0.139);
@@ -195,7 +186,6 @@ select {
   background-color: rgba(255, 255, 255, 0.315);
   border-radius: 10px;
   width: 30%;
-  /* height: 300px; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -228,23 +218,6 @@ div.unvisible {
   font-size: 32px;
 }
 
-/* 
-.cat-1 .wish-category {
-  background-color: rgba(34, 139, 34, 0.246);
-  border-radius: 5px;
-
-}
-
-.cat-2 .wish-category {
-  background-color: rgba(255, 217, 0, 0.263);
-  border-radius: 5px;
-}
-
-.cat-3 .wish-category {
-  background-color: rgba(235, 77, 77, 0.257);
-  border-radius: 5px;
-} */
-
 .wish-container.card-img-top {
   width: 70%;
   height: 70%;
@@ -274,7 +247,7 @@ p {
 .wish-wrap {
   width: 100%;
   display: flex;
-  /* flex-direction: column; */
+
   justify-content: space-between;
 }
 
