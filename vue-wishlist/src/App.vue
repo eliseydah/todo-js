@@ -3,7 +3,9 @@ import { onMounted, ref, computed } from 'vue';
 import WishItem from './WishItem.vue';
 import BackgroundPicture from './BackgroundPicture.vue';
 import ModalButton from './ModalButton.vue';
+import CategoryFilter from './CategoryFilter.vue';
 let mainPicture = ref('green');
+let huivalue = ref('filter');
 function changeColor(value) {
   return mainPicture.value = value
 }
@@ -11,13 +13,10 @@ function changeColor(value) {
 onMounted(() => {
   const exampleModal = new bootstrap.Modal(document.getElementById('exampleModal'))
 })
-// let wishDescription = ref('');
-// let wishLink = ref('');
-// let wishName = ref('');
+
 let id = 0;
 const wishes = ref([]);
-// let selected = ref('');
-let selectedPrice = ref('filter');
+// let selectedPrice = ref('filter');
 
 function addWish(description, name, link, category) {
   wishes.value.push({
@@ -25,53 +24,33 @@ function addWish(description, name, link, category) {
     category: category
 
   })
-  wishDescription.value = '';
-  wishLink.value = '';
-  wishName.value = '';
+  description = '';
+  link = '';
+  name = '';
 
 }
 function removeWish(wish) {
   wishes.value = wishes.value.filter((t) => t !== wish)
 }
+
+function huiChangeValue(value) {
+  console.log(value)
+  return huivalue.value = value;
+}
 const filteredWishes = computed(function () {
-  if (selectedPrice.value === "filter") {
+  if (huivalue.value === "filter") {
     return wishes.value
   }
-  if (selectedPrice.value === "filter-price-1") {
+  if (huivalue.value === "filter-price-1") {
     return wishes.value.filter((t) => t.category === "category-1")
   }
-  if (selectedPrice.value === "filter-price-2") {
+  if (huivalue.value === "filter-price-2") {
     return wishes.value.filter((t) => t.category === "category-2")
   }
-  if (selectedPrice.value === "filter-price-3") {
-    return wishes.value.filter((t) => t.categor === "category-3")
+  if (huivalue.value === "filter-price-3") {
+    return wishes.value.filter((t) => t.category === "category-3")
   }
 })
-
-// function addInfoInInput(data) {
-//   wishName.value = data.title;
-//   wishDescription.value = data.body;
-
-// }
-
-// function handleClick(event) {
-//   event.preventDefault()
-
-
-
-//   fetch(wishLink.value)
-//     .then((response) => {
-
-//       return response.json()
-//     })
-//     .then((data) => {
-
-//       console.log(data)
-//       addInfoInInput(data);
-//       // {title: "foo", body: "bar", userId: 1, id: 101}
-//     })
-
-// }
 </script>
 
 <template>
@@ -83,16 +62,10 @@ const filteredWishes = computed(function () {
         <div class="color-choice"> Design choice
         </div>
         <BackgroundPicture @picture-background="changeColor" />
-        <!-- <div class="buttons">
-          <button class="color-button rose" @click="changeColor('rose')"></button>
-          <button class="color-button blue" @click="changeColor('blue')"></button>
-          <button class="color-button" id="green" @click="changeColor('green')"></button>
-          <button class="color-button beige" @click="changeColor('beige')"></button>
-          <button class="color-button brown" @click="changeColor('brown')"></button>
-          <button class="color-button yellow" @click="changeColor('yellow')"></button>
-        </div> -->
+
       </div>
-      <select v-model="selectedPrice" class="filter-choice form-select" name="filter" id="filter-price-select">
+      <CategoryFilter @selected-value="huiChangeValue" />
+      <!-- <select v-model="selectedPrice" class="filter-choice form-select" name="filter" id="filter-price-select">
         <option @click="selectedPrice = 'filter'" class="filter" value="filter"> Filter</option>
         <option @click="selectedPrice = 'filter-price-1'" class="filter-price-1" value="filter-price-1">filter-price-1
         </option>
@@ -100,7 +73,7 @@ const filteredWishes = computed(function () {
         </option>
         <option @click="selectedPrice = 'filter-price-3'" class="filter-price-3" value="filter-price-3">filter-price-3
         </option>
-      </select>
+      </select> -->
       <button class="add-wishes btn btn-warning btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
         + Add wishes
       </button>
@@ -110,83 +83,13 @@ const filteredWishes = computed(function () {
 
         <ModalButton @form-input="addWish" />
 
-        <!-- 
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
 
-                <form class="create-element-form" action="" @submit.prevent="addWish">
-                  <div class="form-wrap mb-3">
-                    <label for="link" class="form-label">Add a link</label>
-                    <div class="input-and-button">
-                      <input v-model="wishLink" class="link-input form-control" type="text" id="link"
-                        placeholder="Add a link" />
-                      <button @click="handleClick" class="fetch btn btn-primary"> For Fetch</button>
-                    </div>
-                  </div>
-                  <div class="form-wrap mb-3">
-                    <label for="name" class="form-label"> Write a title </label>
-                    <input v-model="wishName" class="form-control title-input" type="text" id="name"
-                      placeholder="Напишите название" required>
-                  </div>
-                  <div class="form-wrap mb-3">
-                    <label for="filter-select">Choose a category</label>
-                    <select v-model="selected" class="category-choice" name="filter" id="filter-select">
-                      <option value=""> Add a category </option>
-                      <option class="category-1" value='category-1'>Category 1 </option>
-                      <option class="category-2" value='category-2'>Category 2</option>
-                      <option class="category-3" value='category-3'>Category 3</option>
-                    </select>
-                  </div>
-
-                  <div class="form-wrap mb-3">
-                    <label for="description" class="form-label">Print a description</label>
-                    <input v-model="wishDescription" class="description-input form-control" type="text" id="description"
-                      placeholder="Print a description">
-                  </div>
-                  <div class="form-wrap">
-                    <span> Add a picture</span>
-                    <input type="file" />
-                  </div>
-                  <div class="buttons-form-container modal-footer">
-                    <button type="button" class="delete-button btn-close" data-bs-dismiss="modal"></button>
-                    <button class="send-button btn btn-primary">
-                      <span>Отправить</span></button>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div> -->
       </div>
       <div class="container">
         <WishItem v-for="wish in filteredWishes" :wish="wish" :key="wish.id" @remove-wish="removeWish(wish)" />
-        <!-- <template id="wish-template"> -->
-        <!-- <div class="wish-container card" tabindex="0" style="width: 18rem;" v-for="wish in filteredWishes"
-          :key="wish.id"> -->
-        <!-- <img src="pic.jpg" class="card-img-top" alt="..."> -->
-        <!-- <div class="wish-wrap card-body">
-            <div class="top-message">
-              <div>
-                <h5 class="wish-name card-title">{{ wish.name }}</h5>
-                <p class="wish-category"> {{ wish.category }}</p>
-                <p class="wish-description card-text">{{ wish.description }}</p>
-              </div>
-              <div class="button-wrap">
-                <a href="#" class="wish-link btn btn-primary">Go somewhere</a>
-                <button class="wish-delete-button" type="button" @click="removeWish(wish)">&#x2715</button>
-              </div>
-            </div>
 
-          </div> -->
-        <!-- </div> -->
       </div>
-      <!-- </template> -->
+
     </main>
   </body>
 </template>
@@ -211,17 +114,6 @@ body {
   padding: 20px 10px;
   box-sizing: border-box;
 }
-
-/* .button-theme-choice {
-  border: 0;
-}
-
-.color-button {
-  border: 0;
-  width: 15px;
-  height: 15px;
-  /* background-color: rgb(0, 102, 255); */
-/* } */
 
 .rose {
   background-image: url(https://img2.akspic.ru/crops/8/7/7/3/6/163778/163778-pashalnoe_yajco-kulinariya-rozovyj-blyuda-bulyzhnik-2560x1440.jpg);

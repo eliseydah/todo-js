@@ -12,6 +12,10 @@ let wishName = ref('');
 let selected = ref('');
 function onSubmit() {
     emit('form-input', wishDescription.value, wishName.value, wishLink.value, selected.value,)
+    wishLink.value = '';
+    wishName.value = '';
+    wishDescription.value = '';
+    selected.value = '';
 }
 function addInfoInInput(data) {
     wishName.value = data.title;
