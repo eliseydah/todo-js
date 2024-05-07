@@ -1,5 +1,11 @@
 <script setup>
 import { onMounted, ref, computed } from 'vue';
+import temperature from './temperature.vue';
+import humidity from './humidity.vue';
+import pressure from './pressure.vue';
+import description from './description.vue'
+import wind from './wind.vue'
+import sunInfo from './sunInfo.vue';
 let weather = ref({});
 let mainContentDisplay = ref('hidden');
 let mainPicture = ref('default-image');
@@ -87,16 +93,23 @@ function weatherInfo() {
         <button @click="weatherInfo" class="button"><i class="bi bi-search"></i></button>
       </div>
       <div :class="mainContentDisplay">
-        <h3 class=""><i class="bi bi-thermometer-half"></i>{{ weather.temp }}<span class="temperature"></span> °C</h3>
-        <p class=""> <i class="bi bi-droplet"></i> {{ weather.humidity }}<span class="humidity"></span></p>
-        <p class="description">{{ weather.desc }}</p>
-        <p class=""> <i class="bi bi-chevron-compact-down"></i> {{ weather.pressure }}<span class="pressure"> </span>
-        </p>
-        <p class=""><i class="bi bi-wind"></i> {{ weather.wind }}<span class="wind"></span> </p>
-        <div class="sun-info">
+        <temperature :temperature="weather.temp" />
+        <humidity :humidity="weather.humidity" />
+        <!-- <h3 class=""><i class="bi bi-thermometer-half"></i>{{ weather.temp }}<span class="temperature"></span> °C</h3> -->
+        <!-- <p class=""> <i class="bi bi-droplet"></i> {{ weather.humidity }}<span class="humidity"></span></p> -->
+        <!-- <p class="description">{{ weather.desc }}</p> -->
+        <!-- <p class=""> <i class="bi bi-chevron-compact-down"></i> {{ weather.pressure }}<span class="pressure"> </span>
+        </p> -->
+        <description :description="weather.desc" />
+        <pressure :pressure="weather.pressure" />
+        <wind :wind="weather.wind" />
+        <sunInfo :sunrise="weather.sunrise" :sunset="weather.sunset" />
+
+        <!-- <p class=""><i class="bi bi-wind"></i> {{ weather.wind }}<span class="wind"></span> </p> -->
+        <!-- <div class="sun-info">
           <p class=""> <i class="bi bi-sunrise"></i> {{ weather.sunrise }}<span class="sunrise"></span></p>
           <p class=""><i class="bi bi-sunset"></i> {{ weather.sunset }}<span class="sunset"></span></p>
-        </div>
+        </div> -->
       </div>
     </div>
   </body>
@@ -184,13 +197,13 @@ input {
   padding: 0;
 }
 
-.sun-info {
+/* .sun-info {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: space-between;
   gap: 20px;
-}
+} */
 
 .display-weather {
   display: flex;
