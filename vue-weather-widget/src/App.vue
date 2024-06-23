@@ -95,21 +95,10 @@ function weatherInfo() {
       <div :class="mainContentDisplay">
         <temperature :temperature="weather.temp" />
         <humidity :humidity="weather.humidity" />
-        <!-- <h3 class=""><i class="bi bi-thermometer-half"></i>{{ weather.temp }}<span class="temperature"></span> °C</h3> -->
-        <!-- <p class=""> <i class="bi bi-droplet"></i> {{ weather.humidity }}<span class="humidity"></span></p> -->
-        <!-- <p class="description">{{ weather.desc }}</p> -->
-        <!-- <p class=""> <i class="bi bi-chevron-compact-down"></i> {{ weather.pressure }}<span class="pressure"> </span>
-        </p> -->
         <description :description="weather.desc" />
         <pressure :pressure="weather.pressure" />
         <wind :wind="weather.wind" />
         <sunInfo :sunrise="weather.sunrise" :sunset="weather.sunset" />
-
-        <!-- <p class=""><i class="bi bi-wind"></i> {{ weather.wind }}<span class="wind"></span> </p> -->
-        <!-- <div class="sun-info">
-          <p class=""> <i class="bi bi-sunrise"></i> {{ weather.sunrise }}<span class="sunrise"></span></p>
-          <p class=""><i class="bi bi-sunset"></i> {{ weather.sunset }}<span class="sunset"></span></p>
-        </div> -->
       </div>
     </div>
   </body>
@@ -196,14 +185,6 @@ input {
   margin: 0;
   padding: 0;
 }
-
-/* .sun-info {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: space-between;
-  gap: 20px;
-} */
 
 .display-weather {
   display: flex;
