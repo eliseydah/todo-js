@@ -28,7 +28,7 @@ cd todo
 
 ### Usage
 After opening that page in the browser you can: 
-- Add a new task by typing in the input field and clicking the "Enter" button.
+- Add a new task by typing in the input field and pressing the "Enter" button.
 - Mark a task as completed by clicking on the circle icon.
 - Remove a task by clicking the cross icon next to it.
 - View the list of completed tasks by clicking the `Completed` button.
