@@ -24,11 +24,7 @@ git clone https://github.com/eliseydah/todo-js/tree/master/wishlist
 ```bash
 cd wishlist
 ```
-3. Open the file `App.vue`  
-
-4.  Run npm install to install dependencies
-
-5. Run npm run dev to start the development environment.
+3. Open the file `wishlist.html`  
 
 ### Usage
 
@@ -44,5 +40,7 @@ After opening the page in the browser, you can:
 - Click the button `Go Somewhere` to navigate to the webpage of the wish item. 
 
 ## File Structure 
-- App.vue — main file.
+- wishlist.html — main HTML file.
+- wishlist.css — styling for the application.
+- wishlist.js — JavaScript code implementing the app's functionality.
 

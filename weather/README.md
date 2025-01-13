@@ -24,7 +24,7 @@ git clone https://github.com/eliseydah/todo-js/tree/master/weather
 ```bash
 cd weather 
 ```
-3. Open the file `App.vue` in a browser 
+3. Open the file `weather.html` in a browser 
 
 
 ### Usage
