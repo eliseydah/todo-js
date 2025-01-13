@@ -18,17 +18,16 @@ This application includes:
 ### Setup 
 1. Clone the repository:
 ```bash 
-git clone https://github.com/eliseydah/todo-js/tree/master/wishlist
+git clone https://github.com/eliseydah/todo-js.git
 ```
 2. Go to the directory of the project: 
 ```bash
-cd wishlist
-```
-3. Open the file `App.vue`  
+cd vue-wishlist
+``` 
 
-4.  Run npm install to install dependencies
+3.  Run npm install to install dependencies
 
-5. Run npm run dev to start the development environment.
+4. Run npm run dev to start the development environment.
 
 ### Usage
 
