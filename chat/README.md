@@ -12,7 +12,7 @@ This application includes:
 ### Setup 
 1. Clone the repository:
 ```bash 
-git clone https://github.com/eliseydah/todo-js/tree/master/chat
+git clone https://github.com/eliseydah/todo-js.git
 ```
 2. Go to the directory of the project: 
 ```bash
