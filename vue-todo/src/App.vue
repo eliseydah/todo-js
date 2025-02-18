@@ -33,11 +33,9 @@ const completedCounter = computed(function () {
   return todos.value.filter((t) => t.completed).length
 })
 
-// add backend call here!
-// 1. Send POST to the server
-// 2. Re-fetch all todos
-function addTodo() {
-  todos.value.push({ id: id++, title: newTodo.value, completed: false })
+async function addTodo() {
+  await createTodo()
+  await fetchTodos()
   newTodo.value = ''
 }
 
@@ -60,6 +58,20 @@ async function fetchTodos() {
     todos.value = await response.json()
   } catch (err) {
     console.error('Todo fetching has failed, the server is not accessible!', err)
+  }
+}
+
+async function createTodo() {
+  try {
+    await fetch('http://localhost:3000/todos', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ title: newTodo.value, completed: false })
+    })
+  } catch (err) {
+    console.error('Add todo has failed!', err)
   }
 }
 
