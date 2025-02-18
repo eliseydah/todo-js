@@ -19,7 +19,7 @@ function completeTodo() {
       <input @change="completeTodo" type="checkbox" class="todo-checkbox" />
       <span></span>
     </label>
-    <p :class="{ completed: todo.completed }">{{ todo.title }}</p>
+    <p :class="{ completed: checkValue }">{{ todo.title }}</p>
     <button @click="onButtonClick" class="todo-delete-button">X</button>
     <!-- @click="removeTodo(todo)" -->
   </div>

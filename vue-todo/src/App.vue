@@ -37,10 +37,9 @@ async function addTodo() {
   await fetchTodos()
   newTodo.value = ''
 }
-function completedTodo(id, completed, checkValue) {
-  console.log('find completed todo')
-  console.log(checkValue.value)
-  console.log(id)
+async function completedTodo(id, completed, checkValue) {
+  await updateTodo(id, checkValue)
+  await fetchTodos()
 }
 async function removeCompletedTodo() {
   let completedTodos = todos.value.filter((t) => t.completed)
@@ -81,6 +80,19 @@ async function deleteTodo(id) {
     })
   } catch (err) {
     console.error('Todo remove has failed!', err)
+  }
+}
+async function updateTodo(id, checkValue) {
+  try {
+    await fetch(`http://localhost:3000/todos/${id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ completed: checkValue.value })
+    })
+  } catch (err) {
+    console.error('Todo update has failed!', err)
   }
 }
 async function createTodo() {
