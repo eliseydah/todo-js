@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import Item from './components/Item.vue'
 import Counter from './components/icons/Counter.vue'
 import CompletedCounter from './components/icons/CompletedCounter.vue'
@@ -33,16 +33,38 @@ const completedCounter = computed(function () {
   return todos.value.filter((t) => t.completed).length
 })
 
+// add backend call here!
+// 1. Send POST to the server
+// 2. Re-fetch all todos
 function addTodo() {
   todos.value.push({ id: id++, title: newTodo.value, completed: false })
   newTodo.value = ''
 }
+
 function removeCompletedTodo(todo) {
   return (todos.value = todos.value.filter((t) => !t.completed))
 }
+
+// add backend call here!
 function removeTodo(todo) {
   todos.value = todos.value.filter((t) => t !== todo)
 }
+
+// api calls
+async function fetchTodos() {
+  try {
+    const response = await fetch('http://localhost:3000/todos', {
+      method: 'GET'
+    })
+
+    todos.value = await response.json()
+  } catch (err) {
+    console.error('Todo fetching has failed, the server is not accessible!', err)
+  }
+}
+
+// fetch todo list from backend
+onMounted(fetchTodos)
 </script>
 
 <template>
