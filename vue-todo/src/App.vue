@@ -37,7 +37,11 @@ async function addTodo() {
   await fetchTodos()
   newTodo.value = ''
 }
-
+function completedTodo(id, completed, checkValue) {
+  console.log('find completed todo')
+  console.log(checkValue.value)
+  console.log(id)
+}
 async function removeCompletedTodo() {
   let completedTodos = todos.value.filter((t) => t.completed)
   await Promise.all(
@@ -111,7 +115,13 @@ onMounted(fetchTodos)
     </form>
   </div>
 
-  <Item v-for="todo in filteredTodos" :key="todo.id" :todo="todo" @remove-item="removeTodo(todo)" />
+  <Item
+    v-for="todo in filteredTodos"
+    :key="todo.id"
+    :todo="todo"
+    @remove-item="removeTodo(todo)"
+    @complete-todo="completedTodo"
+  />
 
   <div class="panel">
     <Counter :counter="counter" />

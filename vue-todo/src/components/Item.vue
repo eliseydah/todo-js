@@ -1,15 +1,22 @@
 <script setup>
-defineProps(['todo'])
-const emit = defineEmits(['remove-item'])
+import { ref } from 'vue'
+const props = defineProps(['todo'])
+const emit = defineEmits(['remove-item', 'complete-todo'])
 
 function onButtonClick() {
   emit('remove-item')
+}
+let checkValue = ref(false)
+function completeTodo() {
+  checkValue.value = !checkValue.value
+  emit('complete-todo', props.todo.id, props.todo.completed, checkValue)
 }
 </script>
 <template>
   <div class="panel">
     <label>
-      <input type="checkbox" class="todo-checkbox" v-model="todo.completed" />
+      <!-- v-model="todo.completed" -->
+      <input @change="completeTodo" type="checkbox" class="todo-checkbox" />
       <span></span>
     </label>
     <p :class="{ completed: todo.completed }">{{ todo.title }}</p>
