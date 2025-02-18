@@ -4,7 +4,6 @@ import Item from './components/Item.vue'
 import Counter from './components/icons/Counter.vue'
 import CompletedCounter from './components/icons/CompletedCounter.vue'
 import Radiobuttons from './components/icons/Radiobuttons.vue'
-let id = 0
 const newTodo = ref('')
 const todos = ref([])
 let todobuttonfilter = ref('All')
@@ -39,13 +38,21 @@ async function addTodo() {
   newTodo.value = ''
 }
 
-function removeCompletedTodo(todo) {
-  return (todos.value = todos.value.filter((t) => !t.completed))
+async function removeCompletedTodo() {
+  let completedTodos = todos.value.filter((t) => t.completed)
+  await Promise.all(
+    completedTodos.map(async (todo) => {
+      return deleteTodo(todo.id)
+    })
+  )
+  await fetchTodos()
 }
 
 // add backend call here!
-function removeTodo(todo) {
-  todos.value = todos.value.filter((t) => t !== todo)
+async function removeTodo(todo) {
+  console.log(todo)
+  await deleteTodo(todo.id)
+  await fetchTodos()
 }
 
 // api calls
@@ -60,7 +67,18 @@ async function fetchTodos() {
     console.error('Todo fetching has failed, the server is not accessible!', err)
   }
 }
-
+async function deleteTodo(id) {
+  try {
+    await fetch(`http://localhost:3000/todos/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+  } catch (err) {
+    console.error('Todo remove has failed!', err)
+  }
+}
 async function createTodo() {
   try {
     await fetch('http://localhost:3000/todos', {
