@@ -1,46 +1,47 @@
 <script setup>
-import { ref, computed } from 'vue';
-import Item from './components/Item.vue';
-import Counter from './components/icons/Counter.vue';
-import CompletedCounter from './components/icons/CompletedCounter.vue';
-import Radiobuttons from './components/icons/Radiobuttons.vue';
-let id = 0;
+import { ref, computed } from 'vue'
+import Item from './components/Item.vue'
+import Counter from './components/icons/Counter.vue'
+import CompletedCounter from './components/icons/CompletedCounter.vue'
+import Radiobuttons from './components/icons/Radiobuttons.vue'
+let id = 0
 const newTodo = ref('')
 const todos = ref([])
-let todobuttonfilter = ref('All');
+let todobuttonfilter = ref('All')
 
 function changeValue(value) {
-  todobuttonfilter.value = value;
+  todobuttonfilter.value = value
 }
 
 const filteredTodos = computed(function () {
-  if (todobuttonfilter.value === "All") {
+  if (todobuttonfilter.value === 'All') {
     return todos.value
   }
-  if (todobuttonfilter.value === "Active") {
-    return todos.value.filter((t) => !t.done)
+  if (todobuttonfilter.value === 'Active') {
+    return todos.value.filter((t) => !t.completed)
   }
-  if (todobuttonfilter.value === "Completed") {
-    return todos.value.filter((t) => t.done)
+  if (todobuttonfilter.value === 'Completed') {
+    return todos.value.filter((t) => t.completed)
   }
 
+  return []
 })
 const counter = computed(function () {
-  return todos.value.filter((t) => !t.done).length
+  return todos.value.filter((t) => !t.completed).length
 })
 const completedCounter = computed(function () {
-  return todos.value.filter((t) => t.done).length
+  return todos.value.filter((t) => t.completed).length
 })
 
 function addTodo() {
-  todos.value.push({ id: id++, text: newTodo.value, done: false })
+  todos.value.push({ id: id++, title: newTodo.value, completed: false })
   newTodo.value = ''
 }
 function removeCompletedTodo(todo) {
-  return todos.value = todos.value.filter((t) => !t.done)
+  return (todos.value = todos.value.filter((t) => !t.completed))
 }
 function removeTodo(todo) {
-  todos.value = todos.value.filter((t) => t !== todo);
+  todos.value = todos.value.filter((t) => t !== todo)
 }
 </script>
 
@@ -48,10 +49,15 @@ function removeTodo(todo) {
   <h1>todos</h1>
   <div class="main-content">
     <form class="todo-form" @submit.prevent="addTodo" action="">
-      <input v-model="newTodo" class="todo-form-input" type="text" placeholder="What needs to be done?" required>
+      <input
+        v-model="newTodo"
+        class="todo-form-input"
+        type="title"
+        placeholder="What needs to be completed?"
+        required
+      />
     </form>
   </div>
-
 
   <Item v-for="todo in filteredTodos" :key="todo.id" :todo="todo" @remove-item="removeTodo(todo)" />
 
@@ -60,14 +66,15 @@ function removeTodo(todo) {
 
     <Radiobuttons @filter-todo="changeValue" />
 
-    <CompletedCounter :completedCounter="completedCounter" @remove-completed="removeCompletedTodo(todo)" />
-
+    <CompletedCounter
+      :completedCounter="completedCounter"
+      @remove-completed="removeCompletedTodo(todo)"
+    />
   </div>
-
 </template>
 
 <style scoped>
-.done {
+.completed {
   text-decoration: line-through;
 }
 
@@ -106,7 +113,6 @@ h1 {
   width: 100%;
   padding: 0;
 }
-
 
 input:active,
 input:hover,
