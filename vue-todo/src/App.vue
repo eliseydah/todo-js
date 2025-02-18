@@ -37,8 +37,8 @@ async function addTodo() {
   await fetchTodos()
   newTodo.value = ''
 }
-async function completedTodo(id, completed, checkValue) {
-  await updateTodo(id, checkValue)
+async function onToggleTodo(id, completed) {
+  await updateTodo(id, !completed)
   await fetchTodos()
 }
 async function removeCompletedTodo() {
@@ -82,14 +82,14 @@ async function deleteTodo(id) {
     console.error('Todo remove has failed!', err)
   }
 }
-async function updateTodo(id, checkValue) {
+async function updateTodo(id, state) {
   try {
     await fetch(`http://localhost:3000/todos/${id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ completed: checkValue.value })
+      body: JSON.stringify({ completed: state })
     })
   } catch (err) {
     console.error('Todo update has failed!', err)
@@ -132,7 +132,7 @@ onMounted(fetchTodos)
     :key="todo.id"
     :todo="todo"
     @remove-item="removeTodo(todo)"
-    @complete-todo="completedTodo"
+    @toggle-todo="onToggleTodo"
   />
 
   <div class="panel">
