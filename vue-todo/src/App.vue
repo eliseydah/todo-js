@@ -1,73 +1,154 @@
 <script setup>
-import { ref, computed } from 'vue';
-import Item from './components/Item.vue';
-import Counter from './components/icons/Counter.vue';
-import CompletedCounter from './components/icons/CompletedCounter.vue';
-import Radiobuttons from './components/icons/Radiobuttons.vue';
-let id = 0;
+import { ref, computed, onMounted } from 'vue'
+import Item from './components/Item.vue'
+import Counter from './components/icons/Counter.vue'
+import CompletedCounter from './components/icons/CompletedCounter.vue'
+import Radiobuttons from './components/icons/Radiobuttons.vue'
 const newTodo = ref('')
 const todos = ref([])
-let todobuttonfilter = ref('All');
+let todobuttonfilter = ref('All')
 
 function changeValue(value) {
-  todobuttonfilter.value = value;
+  todobuttonfilter.value = value
 }
 
 const filteredTodos = computed(function () {
-  if (todobuttonfilter.value === "All") {
+  if (todobuttonfilter.value === 'All') {
     return todos.value
   }
-  if (todobuttonfilter.value === "Active") {
-    return todos.value.filter((t) => !t.done)
+  if (todobuttonfilter.value === 'Active') {
+    return todos.value.filter((t) => !t.completed)
   }
-  if (todobuttonfilter.value === "Completed") {
-    return todos.value.filter((t) => t.done)
+  if (todobuttonfilter.value === 'Completed') {
+    return todos.value.filter((t) => t.completed)
   }
 
+  return []
 })
 const counter = computed(function () {
-  return todos.value.filter((t) => !t.done).length
+  return todos.value.filter((t) => !t.completed).length
 })
 const completedCounter = computed(function () {
-  return todos.value.filter((t) => t.done).length
+  return todos.value.filter((t) => t.completed).length
 })
 
-function addTodo() {
-  todos.value.push({ id: id++, text: newTodo.value, done: false })
+async function addTodo() {
+  await createTodo()
+  await fetchTodos()
   newTodo.value = ''
 }
-function removeCompletedTodo(todo) {
-  return todos.value = todos.value.filter((t) => !t.done)
+async function onToggleTodo(id, completed) {
+  await updateTodo(id, !completed)
+  await fetchTodos()
 }
-function removeTodo(todo) {
-  todos.value = todos.value.filter((t) => t !== todo);
+async function removeCompletedTodo() {
+  let completedTodos = todos.value.filter((t) => t.completed)
+  await Promise.all(
+    completedTodos.map(async (todo) => {
+      return deleteTodo(todo.id)
+    })
+  )
+  await fetchTodos()
 }
+
+// add backend call here!
+async function removeTodo(todo) {
+  console.log(todo)
+  await deleteTodo(todo.id)
+  await fetchTodos()
+}
+
+// api calls
+async function fetchTodos() {
+  try {
+    const response = await fetch('http://localhost:3000/todos', {
+      method: 'GET'
+    })
+
+    todos.value = await response.json()
+  } catch (err) {
+    console.error('Todo fetching has failed, the server is not accessible!', err)
+  }
+}
+async function deleteTodo(id) {
+  try {
+    await fetch(`http://localhost:3000/todos/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+  } catch (err) {
+    console.error('Todo remove has failed!', err)
+  }
+}
+async function updateTodo(id, state) {
+  try {
+    await fetch(`http://localhost:3000/todos/${id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ completed: state })
+    })
+  } catch (err) {
+    console.error('Todo update has failed!', err)
+  }
+}
+async function createTodo() {
+  try {
+    await fetch('http://localhost:3000/todos', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ title: newTodo.value, completed: false })
+    })
+  } catch (err) {
+    console.error('Add todo has failed!', err)
+  }
+}
+
+// fetch todo list from backend
+onMounted(fetchTodos)
 </script>
 
 <template>
   <h1>todos</h1>
   <div class="main-content">
     <form class="todo-form" @submit.prevent="addTodo" action="">
-      <input v-model="newTodo" class="todo-form-input" type="text" placeholder="What needs to be done?" required>
+      <input
+        v-model="newTodo"
+        class="todo-form-input"
+        type="title"
+        placeholder="What needs to be completed?"
+        required
+      />
     </form>
   </div>
 
-
-  <Item v-for="todo in filteredTodos" :key="todo.id" :todo="todo" @remove-item="removeTodo(todo)" />
+  <Item
+    v-for="todo in filteredTodos"
+    :key="todo.id"
+    :todo="todo"
+    @remove-item="removeTodo(todo)"
+    @toggle-todo="onToggleTodo"
+  />
 
   <div class="panel">
     <Counter :counter="counter" />
 
     <Radiobuttons @filter-todo="changeValue" />
 
-    <CompletedCounter :completedCounter="completedCounter" @remove-completed="removeCompletedTodo(todo)" />
-
+    <CompletedCounter
+      :completedCounter="completedCounter"
+      @remove-completed="removeCompletedTodo(todo)"
+    />
   </div>
-
 </template>
 
 <style scoped>
-.done {
+.completed {
   text-decoration: line-through;
 }
 
@@ -106,7 +187,6 @@ h1 {
   width: 100%;
   padding: 0;
 }
-
 
 input:active,
 input:hover,

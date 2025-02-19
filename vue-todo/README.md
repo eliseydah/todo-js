@@ -1,11 +1,13 @@
 # To-do list
 
-A simple application for managing task lists. Allows you to add, delete and mark tasks as completed.
+This project is a **Todo List** application that includes both frontend and backend parts. 
+
+- **Frontend:** Built using **Vue** framework.
+- **Backend:** Uses **Express.js** to handle API requests, including adding, deleting, and retrieving tasks.
 
 ## Description 
     
   This application includes: 
-
 - Creation to-do items
 - Marking tasks as completed
 - Deleting to-do items
@@ -18,17 +20,29 @@ A simple application for managing task lists. Allows you to add, delete and mark
 ### Setup 
 1. Clone the repository:
 ```bash 
-git clone https://github.com/eliseydah/todo-js.git
+git clone https://github.com/eliseydah/vue-todo.git
 ```
+
 2. Go to the directory of the project: 
 ```bash
 cd vue-todo
 ```
-3. Open the file `App.vue`  
 
-4. Run `npm install` to install dependencies
+3. Run `npm install` to install frontend dependencies
 
-5. Run `npm run dev` to start the development environment.
+4. Run `npm run dev` to start the frontend development environment.
+
+### Backend Setup
+1. Navigate to the backend directory (if applicable):
+`cd backend`
+
+2. Make sure **Node.js** is installed. Then, install backend dependencies:
+
+`npm install`
+
+3. Run the Express server:
+`npm run server`
+
 
 ### Usage
 After opening that page in the browser you can: 
@@ -48,5 +62,7 @@ After opening that page in the browser you can:
 - CompletedCounter.vue — a component for completed tasks.
 - RadioButton.vue — a component with radio buttons.
 
-
+## Technologies Used
+- Frontend: Vue.js 
+- Backend: Node.js, Express.js
 
