@@ -22,45 +22,22 @@ function onButtonClick() {
                     <button class="wish-delete-button" type="button" @click="onButtonClick">&#x2715</button>
                 </div>
             </div>
-
         </div>
     </div>
 </template>
 
 <style>
-.wish-container.card-img-top {
-    /* width: 70%;
-    height: 70%; */
-}
+.card-body{
+  display: flex;
+  flex-direction: row;
 
+}
 .wish-container {
-    /* height: 300px; */
+  color: white;
+  background-color: rgba(255, 255, 255, 0.315);
+  border-radius: 10px;
+  width: 30%;
 }
-
-p {
-    /* margin: 0;
-    padding: 10px 5px 5px 0px; */
-}
-
-.top-message {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.wish-category {
-    padding: 0px 5px;
-}
-
-.wish-wrap {
-    width: 100%;
-    display: flex;
-    /* flex-direction: column; */
-    justify-content: space-between;
-}
-
 .button-wrap {
     display: flex;
     justify-content: space-between;
@@ -74,5 +51,11 @@ p {
     color: rgba(212, 25, 25, 0.595);
     border: 0;
     background-color: rgba(252, 252, 252, 0);
+}
+
+.top-message{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 </style>

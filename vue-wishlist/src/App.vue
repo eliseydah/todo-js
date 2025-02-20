@@ -5,7 +5,7 @@ import BackgroundPicture from "./BackgroundPicture.vue";
 import ModalButton from "./ModalButton.vue";
 import CategoryFilter from "./CategoryFilter.vue";
 let mainPicture = ref("green");
-let huivalue = ref("filter");
+let selectedvalue = ref("filter");
 function changeColor(value) {
   return (mainPicture.value = value);
 }
@@ -86,21 +86,21 @@ async function removeWish(wish) {
   await deleteWish(wish.id);
   await fetchWishes();
 }
-function huiChangeValue(value) {
+function selectedChangeValue(value) {
   console.log(value);
-  return (huivalue.value = value);
+  return (selectedvalue.value = value);
 }
 const filteredWishes = computed(function () {
-  if (huivalue.value === "filter") {
+  if (selectedvalue.value === "filter") {
     return wishes.value;
   }
-  if (huivalue.value === "filter-price-1") {
+  if (selectedvalue.value === "filter-price-1") {
     return wishes.value.filter((t) => t.category === "category-1");
   }
-  if (huivalue.value === "filter-price-2") {
+  if (selectedvalue.value === "filter-price-2") {
     return wishes.value.filter((t) => t.category === "category-2");
   }
-  if (huivalue.value === "filter-price-3") {
+  if (selectedvalue.value === "filter-price-3") {
     return wishes.value.filter((t) => t.category === "category-3");
   }
 });
@@ -114,7 +114,7 @@ const filteredWishes = computed(function () {
         <div class="color-choice">Design choice</div>
         <BackgroundPicture @picture-background="changeColor" />
       </div>
-      <CategoryFilter @selected-value="huiChangeValue" />
+      <CategoryFilter @selected-value="selectedChangeValue" />
 
       <button
         class="add-wishes btn btn-warning btn btn-primary"
@@ -143,16 +143,16 @@ const filteredWishes = computed(function () {
 <style scoped>
 body {
   background-color: rgb(2, 21, 5);
-  height: 853px;
-  background-size: cover;
-  width: 100%;
   margin: 0;
+  min-height: 100vh;
+  background-size: cover; /* Покрывает весь экран */
+  background-position: center; /* Центрирует */
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 .top {
   margin: 0;
-  height: 100px;
-  width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 10%;
@@ -193,19 +193,12 @@ select {
   outline-offset: 0;
 }
 
-.main-content {
+/* .main-content {
   margin-left: auto;
   margin-right: auto;
   width: 70%;
   margin-top: 20px;
-}
-
-.buttons-form-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  gap: 10px;
-}
+} */
 
 .theme-choice {
   width: 100%;
@@ -220,7 +213,7 @@ select {
   width: 100%;
   height: 100%;
   font-size: 40px;
-  padding-left: 30px;
+  padding-left: 1rem;
   color: rgba(255, 255, 255, 0.554);
 }
 
@@ -228,16 +221,6 @@ select {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-}
-
-.wish-container {
-  color: white;
-  background-color: rgba(255, 255, 255, 0.315);
-  border-radius: 10px;
-  width: 30%;
-  display: flex;
-  flex-direction: column;
   align-items: center;
 }
 
@@ -252,28 +235,12 @@ div.unvisible {
   display: none;
 }
 
-.fetch {
+/* .fetch {
   width: 30%;
-}
-
-.input-and-button {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 5px;
-}
+} */
 
 .wish-name {
   font-size: 32px;
-}
-
-.wish-container.card-img-top {
-  width: 70%;
-  height: 70%;
-}
-
-.wish-container {
-  height: 300px;
 }
 
 p {
@@ -281,42 +248,7 @@ p {
   padding: 10px 5px 5px 0px;
 }
 
-.top-message {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  justify-content: space-between;
-  align-items: center;
-}
-
 .wish-category {
   padding: 0px 5px;
-}
-
-.wish-wrap {
-  width: 100%;
-  display: flex;
-
-  justify-content: space-between;
-}
-
-.button-wrap {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-}
-
-.wish-delete-button {
-  padding: 10px;
-  font-size: 24px;
-  color: rgba(212, 25, 25, 0.595);
-  border: 0;
-  background-color: rgba(252, 252, 252, 0);
-}
-
-.form-wrap {
-  display: flex;
-  flex-direction: column;
 }
 </style>
