@@ -54,34 +54,15 @@ async function deleteWish(id) {
   }
 }
 onMounted(fetchWishes);
-// onMounted(() => {
-//   const exampleModal = new bootstrap.Modal(
-//     document.getElementById("exampleModal")
-//   );
-// });
 
 let id = 0;
 const wishes = ref([]);
 
-// function addWish(description, name, link, category) {
-//   wishes.value.push({
-//     id: id++,
-//     description: description,
-//     name: name,
-//     link: link,
-//     category: category,
-//   });
-//   description = "";
-//   link = "";
-//   name = "";
-// }
 async function addWish(description, name, link, category) {
   await createWish(description, name, link, category);
   await fetchWishes();
 }
-// function removeWish(wish) {
-//   wishes.value = wishes.value.filter((t) => t !== wish);
-// }
+
 async function removeWish(wish) {
   await deleteWish(wish.id);
   await fetchWishes();
@@ -145,8 +126,8 @@ body {
   background-color: rgb(2, 21, 5);
   margin: 0;
   min-height: 100vh;
-  background-size: cover; /* Покрывает весь экран */
-  background-position: center; /* Центрирует */
+  background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
@@ -193,13 +174,6 @@ select {
   outline-offset: 0;
 }
 
-/* .main-content {
-  margin-left: auto;
-  margin-right: auto;
-  width: 70%;
-  margin-top: 20px;
-} */
-
 .theme-choice {
   width: 100%;
   height: 100%;
@@ -234,10 +208,6 @@ select {
 div.unvisible {
   display: none;
 }
-
-/* .fetch {
-  width: 30%;
-} */
 
 .wish-name {
   font-size: 32px;

@@ -17,7 +17,21 @@ This project is a **Todo List** application that includes both frontend and back
 - A counter for completed tasks 
 - A counter for active tasks
 
-### Setup 
+### Setup backend 
+1. Clone the repository:
+```bash 
+git clone https://github.com/eliseydah/todo-express.git
+```
+2. Make sure **Node.js** is installed. Then, install backend dependencies:
+
+`npm install`
+
+3. Run the Express server:
+`npm start` 
+
+
+### Frontend Setup
+
 1. Clone the repository:
 ```bash 
 git clone https://github.com/eliseydah/vue-todo.git
@@ -32,16 +46,6 @@ cd vue-todo
 
 4. Run `npm run dev` to start the frontend development environment.
 
-### Backend Setup
-1. Navigate to the backend directory (if applicable):
-`cd backend`
-
-2. Make sure **Node.js** is installed. Then, install backend dependencies:
-
-`npm install`
-
-3. Run the Express server:
-`npm run server`
 
 
 ### Usage

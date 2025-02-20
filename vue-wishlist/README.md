@@ -2,6 +2,10 @@
 
 A simple application for creating a list of wishes. It allows you to create a wish card, describe a wish, upload a picture, add a link, and delete the wish card.
 
+This project is a **Wishlist** application that includes both frontend and backend parts. 
+- **Frontend:** Built using **Vue** framework.
+- **Backend:** Uses **Express.js** to handle API requests, including adding, deleting, and retrieving tasks.
+
 ## Description 
     
 This application includes:
@@ -15,7 +19,19 @@ This application includes:
 - A logo for this web page.
 - Cards with wishes. 
 
-### Setup 
+### Setup backend 
+1. Clone the repository:
+```bash 
+git clone https://github.com/eliseydah/todo-express.git
+```
+2. Make sure **Node.js** is installed. Then, install backend dependencies:
+
+`npm install`
+
+3. Run the Express server:
+`npm start` 
+
+### Setup Frontend 
 1. Clone the repository:
 ```bash 
 git clone https://github.com/eliseydah/todo-js.git

@@ -9,7 +9,6 @@ function onButtonClick() {
 </script>
 <template>
     <div class="wish-container card" tabindex="0" style="width: 18rem;">
-        <!-- <img src="pic.jpg" class="card-img-top" alt="..."> -->
         <div class="wish-wrap card-body">
             <div class="top-message">
                 <div>
