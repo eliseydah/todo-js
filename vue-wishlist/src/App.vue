@@ -1,86 +1,141 @@
 <script setup>
-import { onMounted, ref, computed } from 'vue';
-import WishItem from './WishItem.vue';
-import BackgroundPicture from './BackgroundPicture.vue';
-import ModalButton from './ModalButton.vue';
-import CategoryFilter from './CategoryFilter.vue';
-let mainPicture = ref('green');
-let huivalue = ref('filter');
+import { onMounted, ref, computed } from "vue";
+import WishItem from "./WishItem.vue";
+import BackgroundPicture from "./BackgroundPicture.vue";
+import ModalButton from "./ModalButton.vue";
+import CategoryFilter from "./CategoryFilter.vue";
+let mainPicture = ref("green");
+let huivalue = ref("filter");
 function changeColor(value) {
-  return mainPicture.value = value
+  return (mainPicture.value = value);
 }
+async function fetchWishes() {
+  try {
+    const response = await fetch("http://localhost:3000/wishes", {
+      method: "GET",
+    });
 
-onMounted(() => {
-  const exampleModal = new bootstrap.Modal(document.getElementById('exampleModal'))
-})
+    wishes.value = await response.json();
+  } catch (err) {
+    console.error(
+      "Wish fetching has failed, the server is not accessible!",
+      err
+    );
+  }
+}
+async function createWish(description, name, link, category) {
+  try {
+    await fetch("http://localhost:3000/wishes", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        title: name,
+        description: description,
+        link: link,
+        category: category,
+      }),
+    });
+  } catch (err) {
+    console.error("Add wish has failed!", err);
+  }
+}
+async function deleteWish(id) {
+  try {
+    await fetch(`http://localhost:3000/wishes/${id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+  } catch (err) {
+    console.error("Wish remove has failed!", err);
+  }
+}
+onMounted(fetchWishes);
+// onMounted(() => {
+//   const exampleModal = new bootstrap.Modal(
+//     document.getElementById("exampleModal")
+//   );
+// });
 
 let id = 0;
 const wishes = ref([]);
 
-function addWish(description, name, link, category) {
-  wishes.value.push({
-    id: id++, description: description, name: name, link: link,
-    category: category
-
-  })
-  description = '';
-  link = '';
-  name = '';
-
+// function addWish(description, name, link, category) {
+//   wishes.value.push({
+//     id: id++,
+//     description: description,
+//     name: name,
+//     link: link,
+//     category: category,
+//   });
+//   description = "";
+//   link = "";
+//   name = "";
+// }
+async function addWish(description, name, link, category) {
+  await createWish(description, name, link, category);
+  await fetchWishes();
 }
-function removeWish(wish) {
-  wishes.value = wishes.value.filter((t) => t !== wish)
+// function removeWish(wish) {
+//   wishes.value = wishes.value.filter((t) => t !== wish);
+// }
+async function removeWish(wish) {
+  await deleteWish(wish.id);
+  await fetchWishes();
 }
-
 function huiChangeValue(value) {
-  console.log(value)
-  return huivalue.value = value;
+  console.log(value);
+  return (huivalue.value = value);
 }
 const filteredWishes = computed(function () {
   if (huivalue.value === "filter") {
-    return wishes.value
+    return wishes.value;
   }
   if (huivalue.value === "filter-price-1") {
-    return wishes.value.filter((t) => t.category === "category-1")
+    return wishes.value.filter((t) => t.category === "category-1");
   }
   if (huivalue.value === "filter-price-2") {
-    return wishes.value.filter((t) => t.category === "category-2")
+    return wishes.value.filter((t) => t.category === "category-2");
   }
   if (huivalue.value === "filter-price-3") {
-    return wishes.value.filter((t) => t.category === "category-3")
+    return wishes.value.filter((t) => t.category === "category-3");
   }
-})
+});
 </script>
 
 <template>
-
   <body :class="mainPicture">
     <header class="top">
-      <div class="inscription"> &#x270E; MyWishlist</div>
+      <div class="inscription">&#x270E; MyWishlist</div>
       <div class="theme-choice">
-        <div class="color-choice"> Design choice
-        </div>
+        <div class="color-choice">Design choice</div>
         <BackgroundPicture @picture-background="changeColor" />
-
       </div>
       <CategoryFilter @selected-value="huiChangeValue" />
 
-      <button class="add-wishes btn btn-warning btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      <button
+        class="add-wishes btn btn-warning btn btn-primary"
+        data-bs-toggle="modal"
+        data-bs-target="#exampleModal"
+      >
         + Add wishes
       </button>
     </header>
     <main>
       <div class="main-content">
-
         <ModalButton @form-input="addWish" />
-
-
       </div>
       <div class="container">
-        <WishItem v-for="wish in filteredWishes" :wish="wish" :key="wish.id" @remove-wish="removeWish(wish)" />
-
+        <WishItem
+          v-for="wish in filteredWishes"
+          :wish="wish"
+          :key="wish.id"
+          @remove-wish="removeWish(wish)"
+        />
       </div>
-
     </main>
   </body>
 </template>
@@ -143,9 +198,7 @@ select {
   margin-right: auto;
   width: 70%;
   margin-top: 20px;
-
 }
-
 
 .buttons-form-container {
   display: flex;
@@ -154,9 +207,7 @@ select {
   gap: 10px;
 }
 
-
 .theme-choice {
-
   width: 100%;
   height: 100%;
   background-color: rgba(113, 187, 187, 0.139);
@@ -178,7 +229,6 @@ select {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
 }
 
 .wish-container {
@@ -203,7 +253,6 @@ div.unvisible {
 }
 
 .fetch {
-
   width: 30%;
 }
 

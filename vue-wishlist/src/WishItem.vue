@@ -13,12 +13,12 @@ function onButtonClick() {
         <div class="wish-wrap card-body">
             <div class="top-message">
                 <div>
-                    <h5 class="wish-name card-title">{{ wish.name }}</h5>
+                    <h5 class="wish-name card-title">{{ wish.title}}</h5>
                     <p class="wish-category"> {{ wish.category }}</p>
                     <p class="wish-description card-text">{{ wish.description }}</p>
                 </div>
                 <div class="button-wrap">
-                    <a href="#" class="wish-link btn btn-primary">Go somewhere</a>
+                    <a :href="wish.link" class="wish-link btn btn-primary">Go somewhere</a>
                     <button class="wish-delete-button" type="button" @click="onButtonClick">&#x2715</button>
                 </div>
             </div>
@@ -29,23 +29,23 @@ function onButtonClick() {
 
 <style>
 .wish-container.card-img-top {
-    width: 70%;
-    height: 70%;
+    /* width: 70%;
+    height: 70%; */
 }
 
 .wish-container {
-    height: 300px;
+    /* height: 300px; */
 }
 
 p {
-    margin: 0;
-    padding: 10px 5px 5px 0px;
+    /* margin: 0;
+    padding: 10px 5px 5px 0px; */
 }
 
 .top-message {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 1rem;
     justify-content: space-between;
     align-items: center;
 }
