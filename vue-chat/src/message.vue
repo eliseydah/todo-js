@@ -11,7 +11,7 @@ function onButtonClick() {
     <div class="chat-message">
         <div :class="message.side">
             <div class="top-message">
-                <span class="author-name"> {{ message.name }}
+                <span class="author-name"> {{ message.title}}
                 </span>
                 <span class="time"> {{ message.time }} </span>
                 <button class="delete-button" type="button" @click="onButtonClick(message)">&#x2715</button>

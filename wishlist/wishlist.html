@@ -81,7 +81,7 @@
                             <form class="create-element-form" action="">
                                 <div class="form-wrap mb-3">
                                     <label for="link" class="form-label">Add a link</label>
-                                    <div class="input-and-button">
+                                    <div class="input-and-button inpButt">
                                         <input class="link-input form-control" type="text" id="link"
                                             placeholder="Add a link" />
                                         <button class="fetch btn btn-primary"> For Fetch</button>
@@ -153,3 +153,10 @@
 </body>
 
 </html>
+<style scoped>
+    .input-and-button {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+</style>
