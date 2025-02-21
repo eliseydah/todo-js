@@ -1,36 +1,79 @@
 <script setup>
-import { ref } from 'vue';
-import Message from './message.vue';
-import MainForm from './MainForm.vue'
+import { ref, onMounted } from "vue";
+import Message from "./message.vue";
+import MainForm from "./MainForm.vue";
 
 let id = 0;
 
 const messages = ref([]);
-function addMessage(text, name, side, time) {
-  //данные в аргументы приходят из функции дочернего элемента. 
-  messages.value.push({
-    id: id++, text: text, name: name,
-    side: side, time: time
-  })
-
+async function addMessage(text, title, side, time) {
+  await createMessage(text, title, side, time);
+  await fetchChat();
 }
-function removeMessage(message) {
-  messages.value = messages.value.filter((t) => t !== message)
+async function fetchChat() {
+  try {
+    const response = await fetch("http://localhost:3000/chat", {
+      method: "GET",
+    });
+
+    messages.value = await response.json();
+  } catch (err) {
+    console.error(
+      "Chat fetching has failed, the server is not accessible!",
+      err
+    );
+  }
+}
+async function createMessage(text, title, side, time) {
+  try {
+    await fetch("http://localhost:3000/chat", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        text: text,
+        title: title,
+        side: side,
+        time: time,
+      }),
+    });
+  } catch (err) {
+    console.error("Add message has failed!", err);
+  }
+}
+async function deleteMessage(id) {
+  try {
+    await fetch(`http://localhost:3000/chat/${id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+  } catch (err) {
+    console.error("Message remove has failed!", err);
+  }
 }
 
+async function removeMessage(message) {
+  await deleteMessage(message.id);
+  await fetchChat();
+}
+onMounted(fetchChat);
 </script>
 
 <template>
-
   <body>
     <div class="chat">
-      <Message v-for="message in messages" :key="message.id" :message="message"
-        @remove-message="removeMessage(message)" />
-
+      <Message
+        v-for="message in messages"
+        :key="message.id"
+        :message="message"
+        @remove-message="removeMessage(message)"
+      />
     </div>
     <MainForm @create-message="addMessage" />
   </body>
-
 </template>
 
 <style>
@@ -38,7 +81,6 @@ body {
   height: 853px;
   width: 100%;
   margin: 0;
-
 }
 
 .chat {

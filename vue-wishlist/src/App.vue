@@ -55,7 +55,7 @@ async function deleteWish(id) {
 }
 onMounted(fetchWishes);
 
-let id = 0;
+// let id = 0;
 const wishes = ref([]);
 
 async function addWish(description, name, link, category) {
