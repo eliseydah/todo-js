@@ -1,33 +1,72 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+import { useState, useEffect } from "react";
+// import reactLogo from "./assets/react.svg";
+// import viteLogo from "/vite.svg";
+import TodoItem from "./TodoItem";
 import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0);
+  // const [count, setCount] = useState(0);
+  const [todos, setTodos] = useState([]); // ref([])
+  const [title, setTitle] = useState("");
+  const [completed, setCompleted] = useState(false);
+
+  async function fetchTodos() {
+    try {
+      const response = await fetch("http://localhost:3000/todos", {
+        method: "GET",
+      });
+
+      const todosJson = await response.json();
+      setTodos(todosJson);
+    } catch (err) {
+      console.error(
+        "Todo fetching has failed, the server is not accessible!",
+        err
+      );
+    }
+  }
+  async function createTodo() {
+    try {
+      await fetch("http://localhost:3000/todos", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ title, completed }),
+      });
+    } catch (err) {
+      console.error("Add todo has failed!", err);
+    }
+  }
+  async function addTodo() {
+    await createTodo();
+    await fetchTodos();
+    setTitle("");
+  }
+  useEffect(() => {
+    fetchTodos();
+  }, []);
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <h1>todos</h1>
+      <div class="main-content">
+        <form
+          class="todo-form"
+          onSubmit={(e) => {
+            e.preventDefault();
+            addTodo();
+          }}
+        >
+          <input
+            class="todo-form-input"
+            type="title"
+            placeholder="What needs to be completed?"
+            required
+          />
+        </form>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <TodoItem title={title} />
     </>
   );
 }
