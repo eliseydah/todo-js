@@ -50,23 +50,25 @@ function App() {
   return (
     <>
       <h1>todos</h1>
-      <div class="main-content">
+      <div className="main-content">
         <form
-          class="todo-form"
+          className="todo-form"
           onSubmit={(e) => {
             e.preventDefault();
             addTodo();
           }}
         >
           <input
-            class="todo-form-input"
+            className="todo-form-input"
             type="title"
             placeholder="What needs to be completed?"
             required
           />
         </form>
       </div>
-      <TodoItem title={title} />
+      {todos.map((item) => (
+        <TodoItem todo={item} key={item.id} />
+      ))}
     </>
   );
 }

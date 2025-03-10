@@ -6,7 +6,7 @@ const TodoItem = (props) => {
         <input type="checkbox" className="todo-checkbox" />
         <span></span>
       </label>
-      <p className="">Title</p>
+      <p className="">{props.todo.title}</p>
       <button className="todo-delete-button">X</button>
     </div>
   );
