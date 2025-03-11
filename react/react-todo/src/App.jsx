@@ -23,11 +23,13 @@ function App() {
     await fetchTodos();
     setTitle("");
   }
+
   async function removeTodo(todo) {
     console.log(todo);
     await deleteTodo(todo.id);
     await fetchTodos();
   }
+
   async function removeCompletedTodo() {
     const completedTodos = todos.filter((t) => t.completed);
     await Promise.all(
@@ -37,10 +39,12 @@ function App() {
     );
     await fetchTodos();
   }
+
   async function onToggleTodo(todo) {
     await updateTodo(todo.id, !todo.completed);
     await fetchTodos();
   }
+
   function reloadFilteredTodos() {
     if (buttonFilter === "All") {
       setFilteredTodos(todos);
