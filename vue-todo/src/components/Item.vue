@@ -12,13 +12,11 @@ function toggleTodo() {
 <template>
   <div class="panel">
     <label>
-      <!-- v-model="todo.completed" -->
       <input @change="toggleTodo" type="checkbox" class="todo-checkbox" :checked="todo.completed" />
       <span></span>
     </label>
     <p :class="{ completed: todo.completed }">{{ todo.title }}</p>
     <button @click="onButtonClick" class="todo-delete-button">X</button>
-    <!-- @click="removeTodo(todo)" -->
   </div>
 </template>
 <style scoped>
