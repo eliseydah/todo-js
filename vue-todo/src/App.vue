@@ -142,7 +142,7 @@ onMounted(fetchTodos)
 
     <CompletedCounter
       :completedCounter="completedCounter"
-      @remove-completed="removeCompletedTodo(todo)"
+      @remove-completed="removeCompletedTodo()"
     />
   </div>
 </template>
