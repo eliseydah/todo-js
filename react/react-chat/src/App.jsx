@@ -1,23 +1,20 @@
 import { useState, useEffect } from "react";
 import Message from "./message";
+import MainForm from "./MainForm";
 import { getChat, createMessage, deleteMessage } from "./api";
 import "./App.css";
 
 function App() {
   const [messages, setMessages] = useState([]);
-  const [text, setText] = useState("");
-  const [title, setTitle] = useState("");
-  const [side, setSide] = useState("");
-  const [time, setTime] = useState("");
+
   async function fetchMessages() {
     const result = await getChat();
 
     setMessages(result);
   }
-  async function addMessage() {
+  async function addMessage(text, title, side, time) {
     await createMessage(text, title, side, time);
     await fetchMessages();
-    setText("");
   }
   async function removeMessage(message) {
     console.log(message);
@@ -40,6 +37,7 @@ function App() {
           />
         ))}
       </div>
+      <MainForm addMessage={addMessage} />
     </div>
   );
 }

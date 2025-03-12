@@ -2,16 +2,18 @@ import "./Message.css";
 function Message(props) {
   return (
     <div className="chat-message">
-      <div className="message.side">
+      <div className={props.message.side}>
         <div className="top-message">
           <span className="author-name"> {props.message.title}</span>
           <span className="time"> {props.message.time} </span>
           <button
             className="delete-button"
             type="button"
-            onClick="onButtonClick(message)"
+            onClick={() => {
+              props.removeMessage(props.message);
+            }}
           >
-            &#x2715
+            X
           </button>
         </div>
         <div>
