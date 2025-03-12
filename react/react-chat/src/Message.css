@@ -14,10 +14,12 @@
     border-radius: 10px;
     align-self: end;
     width: 20vw;
+    padding: 10px 2px;
     margin-right: 40px;
 }
 
 .left {
+    padding: 10px 2px;
     display: grid;
     justify-self: left;
     background-color: rgb(18, 36, 74);
@@ -51,6 +53,8 @@
 
 .delete-button {
     color: rgba(212, 25, 25, 0.81);
+    font-weight: bold;
+    font-size: medium;
     border: 0;
     background-color: rgba(77, 119, 93, 0);
     opacity: 0;
