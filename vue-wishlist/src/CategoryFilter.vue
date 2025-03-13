@@ -9,7 +9,7 @@ function selectedChange() {
 </script>
 
 <template>
-    <select @change="selectedChange" v-model="selected" class="filter-choice form-select" name="filter"
+    <select @change=selectedChange" v-model="selected" class="filter-choice form-select" name="filter"
         id="filter-price-select">
         <option class="filter" value="filter"> Filter</option>
         <option class="filter-price-1" value="filter-price-1">filter-price-1

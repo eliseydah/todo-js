@@ -1,3 +1,4 @@
+import "./WishItem.css";
 function WishItem(props) {
   return (
     <div className="wish-container card" tabIndex="0">

@@ -49,6 +49,10 @@ function ModalButton(props) {
               onSubmit={(e) => {
                 e.preventDefault();
                 props.addWish(description, title, link, category);
+                setSelected("");
+                setWishLink("");
+                setWishName("");
+                setWishDescription("");
               }}
             >
               <div className="form-wrap mb-3">

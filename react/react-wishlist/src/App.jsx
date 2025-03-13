@@ -1,11 +1,14 @@
 import { useState, useEffect } from "react";
 import { fetchWishes, createWish, deleteWish } from "./api";
+import CategoryFilter from "./CategoryFilter";
 import ModalButton from "./ModalButton";
 import WishItem from "./WishItem";
 import "./App.css";
 
 function App() {
   const [wishes, setWishes] = useState([]);
+  const [filteredWishes, setFilteredWishes] = useState([]);
+  const [selected, setSelected] = useState("filter");
 
   async function getWishes() {
     const result = await fetchWishes();
@@ -20,6 +23,10 @@ function App() {
     await deleteWish(wish.id);
     await getWishes();
   }
+  function selectedChangeValue(value) {
+    console.log(value);
+    setSelected(value);
+  }
   // function selectedChangeValue(value) {
   //   console.log(value);
   //   return (selectedvalue.value = value);
@@ -27,6 +34,28 @@ function App() {
   useEffect(() => {
     getWishes();
   }, []);
+
+  useEffect(() => {
+    if (selected === "filter") {
+      return setFilteredWishes(wishes);
+    }
+    if (selected === "filter-price-1") {
+      return setFilteredWishes(
+        wishes.filter((t) => t.category === "category-1")
+      );
+    }
+    if (selected === "filter-price-2") {
+      return setFilteredWishes(
+        wishes.filter((t) => t.category === "category-2")
+      );
+    }
+    if (selected === "filter-price-3") {
+      return setFilteredWishes(
+        wishes.filter((t) => t.category === "category-3")
+      );
+    }
+  }, [selected, wishes]);
+
   return (
     <div className="mainPicture">
       <header className="top">
@@ -34,7 +63,7 @@ function App() {
         <div className="theme-choice">
           <div className="color-choice">Design choice</div>
         </div>
-
+        <CategoryFilter selectedChangeValue={selectedChangeValue} />
         <button
           className="add-wishes btn btn-warning btn btn-primary"
           data-bs-toggle="modal"
@@ -45,14 +74,10 @@ function App() {
       </header>
       <main>
         <div className="main-content">
-          <ModalButton
-            addWish={(description, title, link, category) => {
-              addWish(description, title, link, category);
-            }}
-          />
+          <ModalButton addWish={addWish} />
         </div>
         <div className="container">
-          {wishes.map((item) => (
+          {filteredWishes.map((item) => (
             <WishItem
               wish={item}
               key={item.id}
