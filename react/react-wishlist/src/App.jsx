@@ -3,13 +3,17 @@ import { fetchWishes, createWish, deleteWish } from "./api";
 import CategoryFilter from "./CategoryFilter";
 import ModalButton from "./ModalButton";
 import WishItem from "./WishItem";
+import BackgroundImage from "./BackgroundImage";
 import "./App.css";
 
 function App() {
   const [wishes, setWishes] = useState([]);
   const [filteredWishes, setFilteredWishes] = useState([]);
   const [selected, setSelected] = useState("filter");
-
+  const [backgroundImage, setImage] = useState("blue");
+  function changeColor(value) {
+    return setImage(value);
+  }
   async function getWishes() {
     const result = await fetchWishes();
     setWishes(result);
@@ -34,7 +38,10 @@ function App() {
   useEffect(() => {
     getWishes();
   }, []);
-
+  // useEffect(() => {
+  //   setPhoneImage({ changeColor });
+  // }
+  // ]);
   useEffect(() => {
     if (selected === "filter") {
       return setFilteredWishes(wishes);
@@ -57,11 +64,14 @@ function App() {
   }, [selected, wishes]);
 
   return (
-    <div className="mainPicture">
+    <div className={`root ${backgroundImage}`}>
+      {" "}
+      // root
       <header className="top">
         <div className="inscription">&#x270E; MyWishlist</div>
         <div className="theme-choice">
           <div className="color-choice">Design choice</div>
+          <BackgroundImage changeColor={changeColor} />
         </div>
         <CategoryFilter selectedChangeValue={selectedChangeValue} />
         <button
