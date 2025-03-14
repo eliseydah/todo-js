@@ -1,42 +1,48 @@
 import "./BackgroundImage.css";
-function BackgroundImage(props) {
+import { DesignContext } from "./contexts";
+import { useContext } from "react";
+
+function DesignPicker() {
+  // context is not really needed here, but it's an example of how to use it
+  const [, setDesign] = useContext(DesignContext);
+
   return (
     <div className="buttons">
       <button
         className="color-button rose"
         onClick={() => {
-          props.changeColor("rose");
+          setDesign("rose");
         }}
       ></button>
       <button
         className="color-button blue"
         onClick={() => {
-          props.changeColor("blue");
+          setDesign("blue");
         }}
       ></button>
       <button
         className="color-button"
         id="green"
         onClick={() => {
-          props.changeColor("green");
+          setDesign("green");
         }}
       ></button>
       <button
         className="color-button beige"
         onClick={() => {
-          props.changeColor("beige");
+          setDesign("beige");
         }}
       ></button>
       <button
         className="color-button brown"
         onClick={() => {
-          props.changeColor("brown");
+          setDesign("brown");
         }}
       ></button>
       <button
         className="color-button yellow"
         onClick={() => {
-          props.changeColor("yellow");
+          setDesign("yellow");
         }}
       ></button>
     </div>
