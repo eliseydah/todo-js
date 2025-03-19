@@ -48,4 +48,4 @@ function DesignPicker() {
     </div>
   );
 }
-export default BackgroundImage;
+export default DesignPicker;
