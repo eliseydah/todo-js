@@ -9,7 +9,7 @@ import Wind from "./Wind";
 import Description from "./Description";
 
 function App() {
-  const [cityName, setCityName] = useState(" ");
+  const [cityName, setCityName] = useState("");
   const [mainContentDisplay, setMainContentDisplay] = useState("hidden");
   const [temperature, setTemperature] = useState("");
   const [description, setDescription] = useState("");
@@ -45,30 +45,34 @@ function App() {
     setSunrise(convertUnixTimestamp(sunriseTime));
     let sunsetTime = data.sys.sunset;
     setSunset(convertUnixTimestamp(sunsetTime));
-    setWeatherCard(data.weather[0].main);
 
-    switch (weatherCard) {
-      case "Clouds":
-        setWeatherCard("clouds");
-        break;
-      case "Clear":
-        setWeatherCard("clear");
-        break;
+    console.log(data.weather[0].main);
+    setWeatherCard(`${data.weather[0].main}`);
+    console.log(setWeatherCard(data.weather[0].main));
 
-      case "Snow":
-        setWeatherCard("snow");
-        break;
+    // switch (weatherCard) {
+    //   case "Clouds":
+    //     setWeatherCard("clouds");
+    //     break;
+    //   case "Clear":
+    //     setWeatherCard("clear");
+    //     break;
 
-      case "Rain":
-        setWeatherCard("rain");
-        break;
+    //   case "Snow":
+    //     setWeatherCard("snow");
+    //     break;
 
-      default:
-        setWeatherCard("default-image");
-    }
+    //   case "Rain":
+    //     setWeatherCard("rain");
+    //     break;
+
+    //   default:
+    //     setWeatherCard("default-image");
+    // }
   }
 
-  function getWeatherInfo() {
+  function getWeatherInfo(event) {
+    event.preventDefault();
     setMainContentDisplay("display-weather");
     setCityName("");
 
@@ -92,17 +96,19 @@ function App() {
     <div className={`root ${weatherCard}`}>
       <div className="container">
         <div className="city-input">
-          <input
-            placeholder="Enter Location"
-            onChange={(e) => setCityName(e.target.value)}
-            type="text"
-            className="city-value"
-            value={cityName}
-            onSubmit={getWeatherInfo}
-          />
-          <button onClick={getWeatherInfo} className="button">
-            <i className="bi bi-search"></i>
-          </button>
+          <form className="city-input">
+            <input
+              placeholder="Enter Location"
+              onChange={(e) => setCityName(e.target.value)}
+              type="text"
+              className="city-value"
+              value={cityName}
+              onSubmit={getWeatherInfo}
+            />
+            <button onClick={getWeatherInfo} className="button">
+              <i className="bi bi-search"></i>
+            </button>
+          </form>
         </div>
         <div className={mainContentDisplay}>
           <Temperature temperature={temperature} />
