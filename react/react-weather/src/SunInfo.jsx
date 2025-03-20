@@ -1,3 +1,4 @@
+import "./SunInfo.css";
 function SunInfo(props) {
   return (
     <div className="sun-info">
