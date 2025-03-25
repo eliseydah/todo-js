@@ -3,6 +3,7 @@ import Header from "./Header";
 import "./App.css";
 import Home from "./Home";
 import Categories from "./Categories";
+import PlantsMenu from "./PlantsMenu";
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <Header />
       <Home />
       <Categories />
+      <PlantsMenu />
     </div>
   );
 }
