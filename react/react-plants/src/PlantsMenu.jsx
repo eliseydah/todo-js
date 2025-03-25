@@ -44,11 +44,13 @@ function PlantsMenu() {
       price: 45,
       image: "../images/sansevieria.jpeg",
       rating: 4.2,
+      toBuy: false,
+      toWishlist: false,
     },
   ];
   return (
     <div>
-      <h2>Plants Menu</h2>
+      <h2>Plants Catalogue</h2>
       <div className="plants-menu">
         {plants.map((plant, index) => (
           <PlantCard
@@ -58,6 +60,8 @@ function PlantsMenu() {
             price={plant.price}
             image={plant.image}
             rating={plant.rating}
+            toBuy={plant.toBuy}
+            toWishlist={plant.toWishlist}
           />
         ))}
       </div>

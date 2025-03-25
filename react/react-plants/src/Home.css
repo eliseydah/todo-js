@@ -14,8 +14,10 @@
     height: 100%;
     width: 100%;
     line-height: 2px;
+    font-size: 1.2rem;
+}
+.description {
     font-size: 2rem;
-    
 }
 h2{
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -23,17 +25,17 @@ h2{
     color: #4d4d4d;
     padding-bottom: 3px;
 }
-.catalogue-button{
+.catalogue-link{
     background-color: #d4e4d2;
     color: black;
     border: none;
-    padding: 1rem 2rem;
+    padding: 2rem 2rem;
     font-size: 1.5rem;
     font-family: 'Roboto', sans-serif;
     cursor: pointer;
     margin-top: 2rem;
     border-radius: 40px;
 }
-.catalogue-button:hover{
+.catalogue-link:hover{
     background-color: #9fb19c;
 }

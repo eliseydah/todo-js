@@ -1,11 +1,11 @@
 .item-container{ 
     display: flex;
     flex-direction: row;
-    gap: 1rem; 
+    gap: 2rem; 
     flex-wrap: wrap;
-    margin-top: 3rem;
+    margin-top: 5rem;
 align-items: center;
-justify-content: space-around;
+justify-content: space-between;
 
 }
 .category-button-container{

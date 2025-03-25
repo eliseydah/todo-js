@@ -6,10 +6,10 @@ function CategoryItem(props) {
           <img
             src={props.image}
             alt={props.name}
-            width="120px"
-            height="120px"
+            width="150px"
+            height="150px"
           />
-          <p>{props.title}</p>
+          <p className="plant-title">{props.title}</p>
         </div>
       </a>
     </div>

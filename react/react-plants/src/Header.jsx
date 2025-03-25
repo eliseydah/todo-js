@@ -8,7 +8,7 @@ function Header() {
       </div>
       <ul className="navigation-bar">
         <li>
-          <a href="">
+          <a href="/">
             <img
               src="../images/home.svg"
               alt="logo"
@@ -19,7 +19,7 @@ function Header() {
           </a>
         </li>
         <li>
-          <a href="">
+          <a href="/catalogue">
             <img
               src="../images/menu.svg"
               alt="logo"
