@@ -9,7 +9,7 @@ function CategoryItem(props) {
             width="120px"
             height="120px"
           />
-          <h3>{props.title}</h3>
+          <p>{props.title}</p>
         </div>
       </a>
     </div>

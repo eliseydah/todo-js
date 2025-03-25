@@ -32,4 +32,14 @@ a {
     flex-direction: row;
     align-items: center;
 }
-
+ul{
+    margin: 0;
+    padding: 0;
+}
+li{
+    box-sizing: content-box;
+    padding: 1.5rem 0.5rem;
+}
+li:hover{
+    background-color: #9fb19c;
+}

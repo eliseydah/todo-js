@@ -24,7 +24,7 @@ function Categories() {
         ))}
       </div>
       <div className="category-button-container">
-        <button className="category-button">View All Plants</button>
+        {/* <button className="category-button">View All Plants</button> */}
       </div>
     </div>
   );

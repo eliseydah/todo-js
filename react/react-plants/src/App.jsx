@@ -8,7 +8,6 @@ import PlantsMenu from "./PlantsMenu";
 function App() {
   return (
     <div className="root">
-      <Header />
       <Home />
       <Categories />
       <PlantsMenu />
