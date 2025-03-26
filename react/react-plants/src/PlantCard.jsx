@@ -11,6 +11,10 @@ function PlantCard(props) {
             width="250px"
             height="250px"
           />
+          <label className="custom-checkbox">
+            <input type="checkbox" className="checkbox" />
+            <span className="checkbox-icon"></span>
+          </label>
           <h3>{props.name}</h3>
           <p>Price: {props.price}$</p>
           <div className="icons">
