@@ -1,8 +1,9 @@
 import "./Header.css";
-// import { BasketContext } from "./contexts";
-// import { useContext } from "react";
+import { BasketContext } from "./contexts";
+import { useContext } from "react";
 function Header() {
-  // const [basket] = useContext(BasketContext);
+  const [basket] = useContext(BasketContext); // basketHook = [basket, setBasket]
+
   return (
     <header className="container">
       <div className="logo">
@@ -51,7 +52,7 @@ function Header() {
               height="25px"
               width="25px"
             />
-            <span>Basket</span>
+            <span>Basket {basket.length}</span>
           </a>
         </li>
       </ul>

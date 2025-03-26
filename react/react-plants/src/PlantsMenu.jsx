@@ -1,6 +1,21 @@
 import PlantCard from "./PlantCard";
 import "./PlantsMenu.css";
+import { BasketContext } from "./contexts";
+import { useContext } from "react";
 function PlantsMenu() {
+  const [basket, setBasket] = useContext(BasketContext);
+  function addToBasket(plant) {
+    setBasket([
+      ...basket,
+      {
+        name: plant.name,
+        price: plant.price,
+        image: plant.image,
+        rating: plant.rating,
+      },
+    ]);
+    console.log(basket);
+  }
   const plants = [
     {
       name: "Fikus Elastica",
@@ -62,6 +77,9 @@ function PlantsMenu() {
             rating={plant.rating}
             toBuy={plant.toBuy}
             toWishlist={plant.toWishlist}
+            addToBasket={() => {
+              addToBasket(plant);
+            }}
           />
         ))}
       </div>

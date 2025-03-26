@@ -1,10 +1,6 @@
 import "./PlantCard.css";
+
 function PlantCard(props) {
-  const toBuy = [];
-  function addToBasket(props) {
-    toBuy.push(props);
-    console.log(toBuy);
-  }
   return (
     <div>
       <a href={props.link}>
@@ -28,7 +24,7 @@ function PlantCard(props) {
               />
               <span> {props.rating} </span>
             </div>
-            <button onClick={addToBasket}>
+            <button onClick={props.addToBasket}>
               <img
                 src="../images/newBasket.svg"
                 alt="logo"

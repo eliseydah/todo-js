@@ -10,9 +10,9 @@ import Categories from "./Categories";
 import PlantsMenu from "./PlantsMenu";
 
 function App() {
-  const [basket, setBasket] = useState([]);
+  const basketHook = useState([]); // basketHook = [basket, setBasket]
   return (
-    <BasketContext.Provider value={{ basket, setBasket }}>
+    <BasketContext.Provider value={basketHook}>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
