@@ -1,5 +1,8 @@
 import "./Header.css";
+// import { BasketContext } from "./contexts";
+// import { useContext } from "react";
 function Header() {
+  // const [basket] = useContext(BasketContext);
   return (
     <header className="container">
       <div className="logo">
@@ -41,7 +44,7 @@ function Header() {
           </a>
         </li>
         <li>
-          <a href="">
+          <a href="/basket">
             <img
               src="../images/basket.svg"
               alt="logo"
