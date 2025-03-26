@@ -14,6 +14,7 @@ function App() {
   return (
     <BasketContext.Provider value={basketHook}>
       <BrowserRouter>
+        <Header />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/catalogue" element={<PlantsMenu />} />

@@ -1,5 +1,6 @@
 import "./Header.css";
 import { BasketContext } from "./contexts";
+import { Link } from "react-router";
 import { useContext } from "react";
 function Header() {
   const [basket] = useContext(BasketContext); // basketHook = [basket, setBasket]
@@ -12,7 +13,7 @@ function Header() {
       </div>
       <ul className="navigation-bar">
         <li>
-          <a href="/">
+          <Link to="/">
             <img
               src="../images/home.svg"
               alt="logo"
@@ -20,10 +21,10 @@ function Header() {
               width="25px"
             />
             <span>Home</span>
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="/catalogue">
+          <Link to="/catalogue">
             <img
               src="../images/menu.svg"
               alt="logo"
@@ -31,10 +32,10 @@ function Header() {
               width="25px"
             />
             <span>Catalogue</span>
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="">
+          <Link to="">
             <img
               src="../images/heart.svg"
               alt="logo"
@@ -42,10 +43,10 @@ function Header() {
               width="25px"
             />
             <span>Wishlist</span>
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="/basket">
+          <Link to="/basket">
             <img
               src="../images/basket.svg"
               alt="logo"
@@ -53,7 +54,7 @@ function Header() {
               width="25px"
             />
             <span>Basket {basket.length}</span>
-          </a>
+          </Link>
         </li>
       </ul>
     </header>
