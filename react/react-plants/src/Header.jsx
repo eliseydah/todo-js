@@ -35,7 +35,7 @@ function Header() {
           </Link>
         </li>
         <li>
-          <Link to="">
+          <Link to="/wishlist">
             <img
               src="../images/heart.svg"
               alt="logo"
@@ -53,7 +53,7 @@ function Header() {
               height="25px"
               width="25px"
             />
-            <span>Basket {basket.length}</span>
+            <span> Cart {basket.length}</span>
           </Link>
         </li>
       </ul>

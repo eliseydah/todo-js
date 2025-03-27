@@ -1,21 +1,5 @@
 import PlantCard from "./PlantCard";
-import "./PlantsMenu.css";
-import { BasketContext } from "./contexts";
-import { useContext } from "react";
-function PlantsMenu() {
-  const [basket, setBasket] = useContext(BasketContext);
-  function addToBasket(plant) {
-    setBasket([
-      ...basket,
-      {
-        name: plant.name,
-        price: plant.price,
-        image: plant.image,
-        rating: plant.rating,
-      },
-    ]);
-    console.log(basket);
-  }
+function PlantsWishlist() {
   const plants = [
     {
       name: "Fikus Elastica",
@@ -74,11 +58,15 @@ function PlantsMenu() {
       id: 8,
     },
   ];
+  const wishArray = plants.filter((item) => {
+    return item.id.toString() === window.localStorage.getItem(`${item.name}`);
+  });
+  console.log(wishArray);
   return (
     <div>
-      <h2>Plants Catalogue</h2>
+      <h2>Wishlist</h2>
       <div className="plants-menu">
-        {plants.map((plant) => (
+        {wishArray.map((plant) => (
           <PlantCard
             key={plant.id}
             link="#"
@@ -89,13 +77,10 @@ function PlantsMenu() {
             rating={plant.rating}
             toBuy={plant.toBuy}
             toWishlist={plant.toWishlist}
-            addToBasket={() => {
-              addToBasket(plant);
-            }}
           />
         ))}
       </div>
     </div>
   );
 }
-export default PlantsMenu;
+export default PlantsWishlist;

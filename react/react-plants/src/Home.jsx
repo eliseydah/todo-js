@@ -7,7 +7,9 @@ function Home() {
   // const handleClick = () => {
   //   navigate("/catalogue");
   // };
-
+  window.localStorage.setItem("name", "Дока Дог");
+  const name = window.localStorage.getItem("name");
+  console.log(name);
   return (
     <div className="home-container">
       <div className="intro">

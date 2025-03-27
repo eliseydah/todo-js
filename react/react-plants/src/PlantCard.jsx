@@ -1,6 +1,23 @@
 import "./PlantCard.css";
-
+import { useState } from "react";
 function PlantCard(props) {
+  const [wishlist, addToWishlist] = useState();
+  let checkboxClass = "checkbox";
+
+  function toWishlist() {
+    if (wishlist) {
+      addToWishlist(false);
+      window.localStorage.removeItem(`${props.name}`);
+      checkboxClass = "checkbox:checked::after";
+    } else {
+      addToWishlist(true);
+      window.localStorage.setItem(`${props.name}`, `${props.id}`);
+      checkboxClass = "checkbox::after";
+    }
+    console.log("added to Wislist");
+    console.log(wishlist);
+    console.log(window.localStorage.getItem(`${props.name}`));
+  }
   return (
     <div>
       <a href={props.link}>
@@ -12,7 +29,11 @@ function PlantCard(props) {
             height="250px"
           />
           <label className="custom-checkbox">
-            <input type="checkbox" className="checkbox" />
+            <input
+              type="checkbox"
+              className={checkboxClass}
+              onChange={toWishlist}
+            />
             <span className="checkbox-icon"></span>
           </label>
           <h3>{props.name}</h3>

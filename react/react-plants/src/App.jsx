@@ -6,8 +6,8 @@ import "./App.css";
 import Home from "./Home";
 import PlantsBasket from "./PlantsBasket";
 import { BasketContext } from "./contexts";
-import Categories from "./Categories";
 import PlantsMenu from "./PlantsMenu";
+import PlantsWishlist from "./PlantsWishlist";
 
 function App() {
   const basketHook = useState([]); // basketHook = [basket, setBasket]
@@ -19,6 +19,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/catalogue" element={<PlantsMenu />} />
           <Route path="/basket" element={<PlantsBasket />} />
+          <Route path="/wishlist" element={<PlantsWishlist />} />
         </Routes>
       </BrowserRouter>
     </BasketContext.Provider>
