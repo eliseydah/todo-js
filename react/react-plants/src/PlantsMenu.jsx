@@ -25,7 +25,7 @@ function PlantsMenu() {
         {plants.map((plant) => (
           <PlantCard
             key={plant.id}
-            link="#"
+            link={`/catalogue/${plant.id}`}
             name={plant.name}
             id={plant.id}
             price={plant.price}
