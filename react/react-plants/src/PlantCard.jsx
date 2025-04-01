@@ -28,37 +28,55 @@ function PlantCard(props) {
             width="250px"
             height="250px"
           />
-          <label className="custom-checkbox">
-            <input
-              type="checkbox"
-              className={checkboxClass}
-              onChange={toWishlist}
-            />
-            <span className="checkbox-icon"></span>
-          </label>
+          {props.isBasket ? (
+            <span></span>
+          ) : (
+            <label className="custom-checkbox">
+              <input
+                type="checkbox"
+                className={checkboxClass}
+                onChange={toWishlist}
+              />
+              <span className="checkbox-icon"></span>
+            </label>
+          )}
           <h3>{props.name}</h3>
           <p>Price: {props.price}$</p>
-          <div className="icons">
-            <div className="rating">
-              <img
-                src="../images/star.svg"
-                alt="logo"
-                height="30px"
-                width="30px"
-                className="star-svg"
-              />
-              <span> {props.rating} </span>
+
+          {props.isBasket ? (
+            <div>
+              <button className="remove-from-busket">
+                <img
+                  className="cross"
+                  src="../images/cross.svg"
+                  width="30px"
+                  height="30px"
+                />
+              </button>
             </div>
-            <button onClick={props.addToBasket}>
-              <img
-                src="../images/newBasket.svg"
-                alt="logo"
-                height="30px"
-                width="30px"
-                className="basket-svg"
-              />
-            </button>
-          </div>
+          ) : (
+            <div className="icons">
+              <div className="rating">
+                <img
+                  src="../images/star.svg"
+                  alt="logo"
+                  height="30px"
+                  width="30px"
+                  className="star-svg"
+                />
+                <span> {props.rating} </span>
+              </div>
+              <button onClick={props.addToBasket}>
+                <img
+                  src="../images/newBasket.svg"
+                  alt="logo"
+                  height="30px"
+                  width="30px"
+                  className="basket-svg"
+                />
+              </button>
+            </div>
+          )}
         </div>
       </a>
     </div>
