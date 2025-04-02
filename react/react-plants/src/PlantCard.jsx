@@ -41,7 +41,10 @@ function PlantCard(props) {
             </label>
           )}
           <h3>{props.name}</h3>
-          <p>Price: {props.price}$</p>
+          <div className="price-and-description">
+            <p>Price: {props.price}$</p>
+            <button className="to-plant-info">Read More</button>
+          </div>
 
           {props.isBasket ? (
             <div>
@@ -55,26 +58,28 @@ function PlantCard(props) {
               </button>
             </div>
           ) : (
-            <div className="icons">
-              <div className="rating">
-                <img
-                  src="../images/star.svg"
-                  alt="logo"
-                  height="30px"
-                  width="30px"
-                  className="star-svg"
-                />
-                <span> {props.rating} </span>
+            <div>
+              <div className="icons">
+                <div className="rating">
+                  <img
+                    src="../images/star.svg"
+                    alt="logo"
+                    height="30px"
+                    width="30px"
+                    className="star-svg"
+                  />
+                  <span> {props.rating} </span>
+                </div>
+                <button onClick={props.addToBasket}>
+                  <img
+                    src="../images/newBasket.svg"
+                    alt="logo"
+                    height="30px"
+                    width="30px"
+                    className="basket-svg"
+                  />
+                </button>
               </div>
-              <button onClick={props.addToBasket}>
-                <img
-                  src="../images/newBasket.svg"
-                  alt="logo"
-                  height="30px"
-                  width="30px"
-                  className="basket-svg"
-                />
-              </button>
             </div>
           )}
         </div>

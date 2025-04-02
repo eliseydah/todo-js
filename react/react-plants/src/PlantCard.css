@@ -25,7 +25,9 @@ input[type="checkbox"]{
     width: 35px;
     height: 35px;
 }
-
+p{
+    font-size: rem;
+}
 .checkbox {
     position: absolute;
     top: 0;
@@ -79,4 +81,23 @@ input[type="checkbox"]{
 }
 .star-svg{
     filter: brightness(0) saturate(100%) invert(75%) sepia(50%) saturate(320%) hue-rotate(10deg);
+}
+.to-plant-info{
+    background-color: #d4e4d2;
+    color: black;
+    border: none;
+    padding: 0.4rem 0.4rem;
+    font-size: 1rem;
+    font-family: 'Roboto', sans-serif;
+    cursor: pointer;
+    width: 40%;
+    border-radius: 40px;
+}
+.to-plant-info:hover{
+    background-color: #9fb19c;
+}
+.price-and-description{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }

@@ -1,0 +1,55 @@
+.view-container{
+    display: flex;
+    flex-direction: row;
+    gap: 5rem; 
+    flex-wrap: nowrap;
+    margin: 3rem  5rem;
+}
+.rating{
+    display: flex;
+    font-size: 1.2rem;
+    align-items: center;
+    justify-content: flex-start;
+}
+.star-svg{
+    filter: brightness(0) saturate(100%) invert(75%) sepia(50%) saturate(320%) hue-rotate(10deg);
+}
+.plant-info{
+    display: flex;
+    flex-direction: column;
+    /* border: 1px solid #e0e0e0;
+    box-shadow: 4px 4px 20px rgb(61, 59, 59); */
+    box-shadow: 0 0 55px rgba(66, 65, 65, 0.2);
+    border-radius: 8px; /* опционально */
+    border: 1px solid #f0f0f0;
+    width: 60%;
+    padding: 2rem;
+}
+h2{
+    align-self: center;
+}
+.color-signs{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+.color-signs div{
+    width: 8rem;
+    border-radius: 10rem;
+   
+   text-align: center;
+}
+.pet-dangerous{
+    background-color: #d34f4fb7;
+}
+.pet-friendly{
+    background-color:    #9fb19c;
+}
+.pet-section{
+    display: flex;
+    flex-direction: row;
+    margin:0;
+    padding: 0%;
+    align-items: center;
+}

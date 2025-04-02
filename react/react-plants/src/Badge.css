@@ -1,0 +1,17 @@
+.red{
+    background-color: #d34f4fb7;
+}
+.green{
+    background-color:    #9fb19c;
+}
+.yellow{
+    background-color: #f7f4a2;
+}
+.pet-section{
+    display: flex;
+    flex-direction: row;
+    margin:0;
+    padding: 0%;
+    align-items: center;
+    text-align: center;
+}
