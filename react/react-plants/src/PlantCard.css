@@ -16,7 +16,7 @@ button{
 .plant-card{
     display: flex;
     flex-direction: column;
-    line-height: 0.5px;
+    /* line-height: 0.5px; */
     position: relative;
 }
 input[type="checkbox"]{

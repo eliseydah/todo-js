@@ -1,3 +1,9 @@
+export const DIFFICULTY = {
+  EASY: "Easy Care",
+  INTERMEDIATE: "Intermediate",
+  CHALLENGING: "Challenging",
+};
+
 export const plants = [
   {
     name: "Fikus Elastica",
@@ -8,7 +14,7 @@ export const plants = [
     description:
       "Ficus Elastica (Rubber Plant) – Elegant & Low-Maintenance Greenery. Bring a touch of nature into your home with the Ficus Elastica, also known as the Rubber Plant. This stunning indoor plant features large, glossy leaves that add a bold, tropical feel to any space. Easy to care for, it thrives in bright, indirect light and requires only occasional watering. Not only is it a stylish decor choice, but it also helps purify the air for a healthier home environment. Perfect for plant lovers of all levels, the Rubber Plant is a timeless addition to any interior!",
     type: "Decorative foliage plant",
-    difficulty: "Beginner-friendly",
+    difficulty: DIFFICULTY.EASY,
     light: "Bright indirect light (tolerates partial shade)",
     watering: "Moderate",
     petFriendly: false,
@@ -22,7 +28,7 @@ export const plants = [
     description:
       "The Aglaonema, also known as the Chinese Evergreen, is a beautiful and low-maintenance houseplant perfect for any home or office. With its vibrant, patterned leaves in shades of green, silver, and red, it adds an elegant touch to any space. This plant thrives in low to medium light and requires minimal watering, making it ideal for beginners. Aglaonema is also known for its air-purifying qualities, helping to create a fresher indoor environment. Add a touch of natural beauty to your space with this resilient and stylish plant!",
     type: "Decorative foliage plant",
-    difficulty: "Beginner-friendly",
+    difficulty: DIFFICULTY.EASY,
     light: "Low-light",
     watering: " Moderate ",
     bonus: "Air-purifying plant",
@@ -37,7 +43,7 @@ export const plants = [
     description:
       "The Fittonia, also known as the Nerve Plant, is a striking indoor plant with vibrant, veined leaves in shades of green, pink, red, and white. Its compact size makes it perfect for terrariums, desktops, or small spaces. Fittonia thrives in humid environments and prefers indirect light, making it ideal for bathrooms or kitchens. With its unique foliage and delicate appearance, this plant adds a refreshing touch to any home. Bring color and life to your space with the beautiful Fittonia!",
     type: "Decorative foliage plant",
-    difficulty: "Intermediate",
+    difficulty: DIFFICULTY.INTERMEDIATE,
     light: "Low-light",
     watering: "Regular",
     petFriendly: true,
@@ -51,7 +57,7 @@ export const plants = [
     description:
       "The Cactus is a hardy and versatile plant known for its unique shapes and minimal care requirements. It thrives in bright light and dry conditions, making it perfect for busy plant lovers. With its striking appearance and slow growth, a cactus adds a modern and stylish touch to any space. Available in a variety of sizes and forms, it suits both small desks and larger decorative displays. Add a touch of nature to your home with an easy-to-care-for cactus!",
     type: "Succulent plant",
-    difficulty: "Beginner-friendly",
+    difficulty: DIFFICULTY.EASY,
     light: "Bright direct light",
     watering: "Drought-tolerant",
     petFriendly: true,
@@ -64,7 +70,7 @@ export const plants = [
     id: 5,
     description: "",
     type: "Succulent plant",
-    difficulty: "Beginner-friendly",
+    difficulty: DIFFICULTY.EASY,
     light: "Bright indirect light",
     watering: "Moderate",
   },
@@ -77,7 +83,7 @@ export const plants = [
     descripton:
       "The Money Tree (Pachira aquatica) is a popular houseplant known for its elegant braided trunk and lush green leaves. It is believed to bring good luck and prosperity, making it a favorite choice for homes and offices. This low-maintenance plant thrives in indirect light and moderate watering, making it perfect for beginners. With its air-purifying qualities, the Money Tree adds a fresh and vibrant touch to any space. Bring positive energy and natural beauty into your home with this stylish and meaningful plant!",
     type: "Decorative foliage plant",
-    difficulty: "Beginner-friendly",
+    difficulty: DIFFICULTY.EASY,
     light: "Bright indirect light",
     watering: "droght-tolerant",
     bonus: "Pet-friendly",
@@ -92,7 +98,7 @@ export const plants = [
     description:
       "The Spathiphyllum, or Peace Lily, is a stunning indoor plant known for its graceful white blooms and lush green foliage. It is an excellent air purifier, helping to remove toxins from the air and improve indoor air quality. This low-maintenance plant thrives in low to moderate light and only needs occasional watering, making it perfect for busy plant lovers. The Peace Lily symbolizes peace, tranquility, and harmony, adding a soothing touch to any home or office. Bring elegance and freshness to your space with this beautiful and easy-care plant!",
     type: "Flowering foliage plant",
-    difficulty: " Beginner-friendly ",
+    difficulty: DIFFICULTY.EASY,
     light: "Low-light",
     watering: "Regular",
     bonus: "Air-purifying plant",
@@ -107,7 +113,7 @@ export const plants = [
     description:
       "The Sansevieria, or Snake Plant, is a stylish and resilient indoor plant, perfect for beginners and busy plant owners. Known for its tall, sword-like leaves with striking patterns, it adds a modern touch to any space. This low-maintenance plant thrives in low light conditions and requires minimal watering, making it one of the easiest houseplants to care for. It is also an excellent air purifier, helping to remove toxins and improve indoor air quality. Bring home a durable and elegant plant that enhances both décor and well-being!",
     type: "Succulent plant",
-    difficulty: "Beginner-friendly",
+    difficulty: DIFFICULTY.EASY,
     light: "Low-light",
     watering: "Drought-tolerant",
     bonus: "Air-purifying plant",
@@ -122,7 +128,7 @@ export const plants = [
     description:
       "The Zamioculcas, or ZZ Plant, is a low-maintenance and stylish houseplant, perfect for any indoor space. With its glossy, dark green leaves, it brings a modern and elegant touch to homes and offices. This hardy plant thrives in low light and requires minimal watering, making it ideal for beginners or those with a busy lifestyle. It is also known for its air-purifying properties, helping to improve indoor air quality. Add a touch of greenery with minimal effort by choosing the beautiful and resilient ZZ Plant!",
     type: "Succulent plant",
-    difficulty: "Beginner-friendly",
+    difficulty: DIFFICULTY.EASY,
     light: "Low-light",
     watering: "Drought-tolerant ",
     bonus: "Air-purifying",
@@ -137,7 +143,7 @@ export const plants = [
     description:
       "Trailing vine with heart-shaped leaves in green, golden, or marble patterns.",
     type: "Vining plant",
-    difficulty: "Beginner-friendly",
+    difficulty: DIFFICULTY.EASY,
     light: "Low-light",
     watering: "Moderate ",
     bonus: "Fast-growing",
@@ -152,7 +158,7 @@ export const plants = [
     description:
       "Delicate trailing vine with heart-shaped, silver-patterned leaves and occasional pink flowers.",
     type: "Vining plant (succulent)",
-    difficulty: "Beginner-friendly",
+    difficulty: DIFFICULTY.EASY,
     light: "Bright indirect light",
     watering: "Drought-tolerant ",
     bonus: "Fast-growing",
@@ -167,7 +173,7 @@ export const plants = [
     description:
       "Striking foliage with vibrant patterns of pink, white, or silver veins. Leaves fold upward at night like praying hands.",
     type: "Tropical foliage plant",
-    difficulty: "Challenging",
+    difficulty: DIFFICULTY.CHALLENGING,
     light: " Bright indirect light",
     watering: "Moderate",
     bonus: "Air-purifying",
@@ -182,7 +188,7 @@ export const plants = [
     description:
       "Dramatic arrow-shaped leaves with bold white veins and glossy, dark green surfaces. Compact variety of Alocasia.",
     type: "Tropical foliage plant",
-    difficulty: "Intermediate",
+    difficulty: DIFFICULTY.INTERMEDIATE,
     light: "Bright indirect light",
     watering: "Moderate",
     petFriendly: false,

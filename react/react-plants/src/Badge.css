@@ -1,23 +1,26 @@
-.red{
-    background-color: #d34f4fb7;
+.red {
+  background-color: #d34f4fb7;
 }
-.green{
-    background-color:    #9fb19c;
+.green {
+  background-color: #9fb19c;
 }
-.yellow{
-    background-color: #f6f275;
+.yellow {
+  background-color: #f6f275;
 }
-.blue{
-    background-color: #a2c7f4;
+.blue {
+  background-color: #a2c7f4;
 }
-.pet-section{
-    display: flex;
-    flex-direction: row;
-    margin:0;
-    padding: 0%;
-    align-items: center;
-    text-align: center;
+.badge {
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+  align-items: center;
+  text-align: center;
+  min-width: 8rem;
+  border-radius: 10rem;
+  padding: 0.25rem 0.25rem;
+  text-align: center;
 }
-.badge-text{
-    margin-left: 0.2rem;
+.badge-text {
+  margin-left: 0rem;
 }

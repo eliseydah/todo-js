@@ -42,8 +42,7 @@ function PlantCard(props) {
           )}
           <h3>{props.name}</h3>
           <div className="price-and-description">
-            <p>Price: {props.price}$</p>
-            <button className="to-plant-info">Read More</button>
+            <div>Price: {props.price}$</div>
           </div>
 
           {props.isBasket ? (
@@ -70,6 +69,8 @@ function PlantCard(props) {
                   />
                   <span> {props.rating} </span>
                 </div>
+                <button className="to-plant-info">Read More</button>
+
                 <button onClick={props.addToBasket}>
                   <img
                     src="../images/newBasket.svg"
