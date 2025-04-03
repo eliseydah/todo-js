@@ -27,3 +27,12 @@ justify-content: space-between;
 .category-button:hover{
     background-color: #9fb19c;
 }
+@media (max-width: 576px) {
+    .item-container{
+       justify-content: space-around;
+       gap: 0rem;
+    }
+    .filter-container{
+       margin: 0;
+    }
+}

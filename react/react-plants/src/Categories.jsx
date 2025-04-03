@@ -12,7 +12,7 @@ function Categories() {
     { title: "Air-purifying", image: "../images/sansevieria.jpeg", link: "" },
   ];
   return (
-    <div>
+    <>
       <div className="item-container">
         {categories.map((item) => (
           <CategoryItem
@@ -26,7 +26,7 @@ function Categories() {
       <div className="category-button-container">
         {/* <button className="category-button">View All Plants</button> */}
       </div>
-    </div>
+    </>
   );
 }
 export default Categories;

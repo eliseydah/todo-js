@@ -14,14 +14,18 @@ function Home() {
     <div className="home-container">
       <div className="intro">
         <h2>Welcome to Plant Shop</h2>
-        <p className="description">Find the perfect plant for your home</p>
-        <p className="description">
-          We help create a cozy space for living and relaxation.
-        </p>
+        <div className="header-description-container">
+          <p className="description">Find the perfect plant for your home</p>
+          <p className="description">
+            We help create a cozy space for living and relaxation.
+          </p>
+        </div>
         <Link className="catalogue-link" to="/catalogue">
           open catalogue
         </Link>
-        <Categories />
+        <div className="filter-container">
+          <Categories />
+        </div>
       </div>
     </div>
   );
