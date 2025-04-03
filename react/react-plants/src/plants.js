@@ -6,7 +6,7 @@ export const plants = [
     rating: 4.1,
     id: 1,
     description:
-      "Ficus elastica is a popular houseplant with large glossy leaves in dark green or variegated patterns. Known for its air-purifying qualities, it grows slowly but can reach 2-3 meters in height.",
+      "Ficus Elastica (Rubber Plant) – Elegant & Low-Maintenance Greenery. Bring a touch of nature into your home with the Ficus Elastica, also known as the Rubber Plant. This stunning indoor plant features large, glossy leaves that add a bold, tropical feel to any space. Easy to care for, it thrives in bright, indirect light and requires only occasional watering. Not only is it a stylish decor choice, but it also helps purify the air for a healthier home environment. Perfect for plant lovers of all levels, the Rubber Plant is a timeless addition to any interior!",
     type: "Decorative foliage plant",
     difficulty: "Beginner-friendly",
     light: "Bright indirect light (tolerates partial shade)",
@@ -20,7 +20,7 @@ export const plants = [
     rating: 4.2,
     id: 2,
     description:
-      "Aglaonema is a stunning tropical plant with striking patterned leaves in silver, red, or green variations. It's highly adaptable and known for its excellent air-purifying abilities. Grows compactly, typically reaching 30-60cm indoors",
+      "The Aglaonema, also known as the Chinese Evergreen, is a beautiful and low-maintenance houseplant perfect for any home or office. With its vibrant, patterned leaves in shades of green, silver, and red, it adds an elegant touch to any space. This plant thrives in low to medium light and requires minimal watering, making it ideal for beginners. Aglaonema is also known for its air-purifying qualities, helping to create a fresher indoor environment. Add a touch of natural beauty to your space with this resilient and stylish plant!",
     type: "Decorative foliage plant",
     difficulty: "Beginner-friendly",
     light: "Low-light",
@@ -35,7 +35,7 @@ export const plants = [
     rating: 4.3,
     id: 3,
     description:
-      "Aglaonema is a stunning tropical plant with striking patterned leaves in silver, red, or green variations. It's highly adaptable and known for its excellent air-purifying abilities. Grows compactly, typically reaching 30-60cm indoors",
+      "The Fittonia, also known as the Nerve Plant, is a striking indoor plant with vibrant, veined leaves in shades of green, pink, red, and white. Its compact size makes it perfect for terrariums, desktops, or small spaces. Fittonia thrives in humid environments and prefers indirect light, making it ideal for bathrooms or kitchens. With its unique foliage and delicate appearance, this plant adds a refreshing touch to any home. Bring color and life to your space with the beautiful Fittonia!",
     type: "Decorative foliage plant",
     difficulty: "Intermediate",
     light: "Low-light",
@@ -48,7 +48,8 @@ export const plants = [
     image: "../images/cactus.jpeg",
     rating: 4.0,
     id: 4,
-    description: "",
+    description:
+      "The Cactus is a hardy and versatile plant known for its unique shapes and minimal care requirements. It thrives in bright light and dry conditions, making it perfect for busy plant lovers. With its striking appearance and slow growth, a cactus adds a modern and stylish touch to any space. Available in a variety of sizes and forms, it suits both small desks and larger decorative displays. Add a touch of nature to your home with an easy-to-care-for cactus!",
     type: "Succulent plant",
     difficulty: "Beginner-friendly",
     light: "Bright direct light",
@@ -73,6 +74,8 @@ export const plants = [
     image: "../images/tolstyanka.jpeg",
     rating: 4.1,
     id: 6,
+    descripton:
+      "The Money Tree (Pachira aquatica) is a popular houseplant known for its elegant braided trunk and lush green leaves. It is believed to bring good luck and prosperity, making it a favorite choice for homes and offices. This low-maintenance plant thrives in indirect light and moderate watering, making it perfect for beginners. With its air-purifying qualities, the Money Tree adds a fresh and vibrant touch to any space. Bring positive energy and natural beauty into your home with this stylish and meaningful plant!",
     type: "Decorative foliage plant",
     difficulty: "Beginner-friendly",
     light: "Bright indirect light",
@@ -86,7 +89,8 @@ export const plants = [
     image: "../images/spatifillum.png",
     rating: 3.9,
     id: 7,
-    description: "",
+    description:
+      "The Spathiphyllum, or Peace Lily, is a stunning indoor plant known for its graceful white blooms and lush green foliage. It is an excellent air purifier, helping to remove toxins from the air and improve indoor air quality. This low-maintenance plant thrives in low to moderate light and only needs occasional watering, making it perfect for busy plant lovers. The Peace Lily symbolizes peace, tranquility, and harmony, adding a soothing touch to any home or office. Bring elegance and freshness to your space with this beautiful and easy-care plant!",
     type: "Flowering foliage plant",
     difficulty: " Beginner-friendly ",
     light: "Low-light",
@@ -100,7 +104,8 @@ export const plants = [
     image: "../images/sansevieria.jpeg",
     rating: 4.2,
     id: 8,
-    description: "",
+    description:
+      "The Sansevieria, or Snake Plant, is a stylish and resilient indoor plant, perfect for beginners and busy plant owners. Known for its tall, sword-like leaves with striking patterns, it adds a modern touch to any space. This low-maintenance plant thrives in low light conditions and requires minimal watering, making it one of the easiest houseplants to care for. It is also an excellent air purifier, helping to remove toxins and improve indoor air quality. Bring home a durable and elegant plant that enhances both décor and well-being!",
     type: "Succulent plant",
     difficulty: "Beginner-friendly",
     light: "Low-light",
@@ -114,7 +119,8 @@ export const plants = [
     image: "../images/zamiokulkas.jpeg",
     rating: 4.0,
     id: 9,
-    description: "Shiny, waxy leaves on arching stems that thrive on neglect.",
+    description:
+      "The Zamioculcas, or ZZ Plant, is a low-maintenance and stylish houseplant, perfect for any indoor space. With its glossy, dark green leaves, it brings a modern and elegant touch to homes and offices. This hardy plant thrives in low light and requires minimal watering, making it ideal for beginners or those with a busy lifestyle. It is also known for its air-purifying properties, helping to improve indoor air quality. Add a touch of greenery with minimal effort by choosing the beautiful and resilient ZZ Plant!",
     type: "Succulent plant",
     difficulty: "Beginner-friendly",
     light: "Low-light",

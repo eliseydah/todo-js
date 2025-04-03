@@ -22,22 +22,38 @@
     box-shadow: 0 0 55px rgba(66, 65, 65, 0.2);
     border-radius: 8px; /* опционально */
     border: 1px solid #f0f0f0;
-    width: 60%;
+    width: 50%;
     padding: 2rem;
+    height: 60%;
+}
+.price{
+    font-weight: bold;
+    margin-left: 1rem;
+    margin-right: 1rem;
 }
 h2{
     align-self: center;
+    color: rgb(44, 54, 40);
+}
+.plant-type{
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: rgb(68, 66, 66);
+    margin: 2rem 0 0 0;
+}
+.plant-description{
+    font-size: 1.2rem;
+    color: rgb(47, 46, 46);
 }
 .color-signs{
     display: flex;
     flex-direction: row;
-    gap: 1rem;
     margin-top: 1rem;
 }
 .color-signs div{
-    width: 8rem;
+   min-width: 8rem;
     border-radius: 10rem;
-   
+    padding: 0.5rem 1rem;
    text-align: center;
 }
 .pet-dangerous{

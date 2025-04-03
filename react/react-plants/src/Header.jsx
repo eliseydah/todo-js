@@ -20,7 +20,7 @@ function Header() {
               height="25px"
               width="25px"
             />
-            <span>Home</span>
+            <span className="header-text">Home</span>
           </Link>
         </li>
         <li>
@@ -31,7 +31,7 @@ function Header() {
               height="25px"
               width="25px"
             />
-            <span>Catalogue</span>
+            <span className="header-text">Catalogue</span>
           </Link>
         </li>
         <li>
@@ -42,7 +42,7 @@ function Header() {
               height="25px"
               width="25px"
             />
-            <span>Wishlist</span>
+            <span className="header-text">Wishlist</span>
           </Link>
         </li>
         <li>
@@ -53,7 +53,7 @@ function Header() {
               height="25px"
               width="25px"
             />
-            <span> Cart {basket.length}</span>
+            <span className="header-text"> Cart {basket.length}</span>
           </Link>
         </li>
       </ul>

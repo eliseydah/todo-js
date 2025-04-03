@@ -12,7 +12,7 @@ function ModalComponent(props) {
           />
         </button>
         <div className="modalWindow">
-          <p> Do You want to buy the plants? </p>
+          <p className="modal-paragraph"> Do You want to buy the plants? </p>
         </div>
         <div className="button-container">
           <button className="order-button"> Order Now</button>

@@ -5,7 +5,10 @@
     background-color:    #9fb19c;
 }
 .yellow{
-    background-color: #f7f4a2;
+    background-color: #f6f275;
+}
+.blue{
+    background-color: #a2c7f4;
 }
 .pet-section{
     display: flex;
@@ -14,4 +17,7 @@
     padding: 0%;
     align-items: center;
     text-align: center;
+}
+.badge-text{
+    margin-left: 0.2rem;
 }
