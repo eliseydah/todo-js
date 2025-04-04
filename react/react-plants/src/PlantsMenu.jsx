@@ -3,8 +3,22 @@ import "./PlantsMenu.css";
 import { BasketContext } from "./contexts";
 import { plants } from "./plants";
 import { useContext } from "react";
+import { useSearchParams } from "react-router";
 function PlantsMenu() {
   const [basket, setBasket] = useContext(BasketContext);
+  const [searchParams] = useSearchParams();
+  const filter = searchParams.get("filter");
+  const filteredPlants = filter
+    ? plants.filter(
+        (plant) =>
+          plant.difficulty === filter ||
+          plant.light === filter ||
+          plant.type === filter ||
+          plant.watering === filter ||
+          plant.bonus === filter ||
+          plant.size === filter
+      )
+    : plants;
   function addToBasket(plant) {
     setBasket([
       ...basket,
@@ -22,7 +36,7 @@ function PlantsMenu() {
     <div>
       <h2>Plants Catalogue</h2>
       <div className="plants-menu">
-        {plants.map((plant) => (
+        {filteredPlants.map((plant) => (
           <PlantCard
             key={plant.id}
             link={`/catalogue/${plant.id}`}

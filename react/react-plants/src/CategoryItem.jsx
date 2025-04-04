@@ -1,7 +1,8 @@
+import { Link } from "react-router";
 function CategoryItem(props) {
   return (
     <div>
-      <a href={props.link}>
+      <Link to={props.link}>
         <div className="category-item">
           <img
             src={props.image}
@@ -11,7 +12,7 @@ function CategoryItem(props) {
           />
           <p className="plant-title">{props.title}</p>
         </div>
-      </a>
+      </Link>
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams } from "react-router";
-import { DIFFICULTY, plants } from "./plants";
+import { DIFFICULTY, LIGHT, plants, WATERING } from "./plants";
 import Badge from "./Badge";
 import "./PlantView.css";
 function PlantView() {
@@ -19,9 +19,9 @@ function PlantView() {
   }
 
   function getWateringColor(watering) {
-    if (watering === "Regular") {
+    if (watering === WATERING.REGULAR) {
       return "blue";
-    } else if (watering === "Moderate") {
+    } else if (watering === WATERING.MODERATE) {
       return "green";
     } else {
       return "yellow";
@@ -56,7 +56,7 @@ function PlantView() {
             text={plant.difficulty}
             image="../images/plant.svg"
           />
-          {plant.light === "Low-light" ? (
+          {plant.light === LIGHT.LOW ? (
             <Badge
               color="blue"
               image="../images/half-sun.svg"
