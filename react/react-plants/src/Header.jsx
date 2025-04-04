@@ -9,11 +9,11 @@ function Header() {
     <header className="container">
       <div className="logo">
         <img src="../images/plant.svg" alt="logo" height="40px" width="40px" />
-        <p> Plant Shop </p>
+        <p className="logo-text"> Plant Shop </p>
       </div>
       <ul className="navigation-bar">
         <li>
-          <Link to="/">
+          <Link to="/" className="header-link">
             <img
               src="../images/home.svg"
               alt="logo"

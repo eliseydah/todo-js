@@ -20,71 +20,65 @@ function PlantCard(props) {
   }
   return (
     <div>
-      <a href={props.link}>
-        <div className="plant-card">
-          <img
-            src={props.image}
-            alt={props.name}
-            width="250px"
-            height="250px"
-          />
-          {props.isBasket ? (
-            <span></span>
-          ) : (
-            <label className="custom-checkbox">
-              <input
-                type="checkbox"
-                className={checkboxClass}
-                onChange={toWishlist}
-              />
-              <span className="checkbox-icon"></span>
-            </label>
-          )}
-          <h3>{props.name}</h3>
-          <div className="price-and-description">
-            <div>Price: {props.price}$</div>
-          </div>
+      <div className="plant-card">
+        <img src={props.image} alt={props.name} width="250px" height="250px" />
+        {props.isBasket ? (
+          <span></span>
+        ) : (
+          <label className="custom-checkbox">
+            <input
+              type="checkbox"
+              className={checkboxClass}
+              onChange={toWishlist}
+            />
+            <span className="checkbox-icon"></span>
+          </label>
+        )}
+        <h3>{props.name}</h3>
+        <div className="price-and-description">
+          <div>Price: {props.price}$</div>
+        </div>
 
-          {props.isBasket ? (
-            <div>
-              <button className="remove-from-busket">
+        {props.isBasket ? (
+          <div>
+            <button className="remove-from-busket">
+              <img
+                className="cross"
+                src="../images/cross.svg"
+                width="30px"
+                height="30px"
+              />
+            </button>
+          </div>
+        ) : (
+          <div>
+            <div className="icons">
+              <div className="rating">
                 <img
-                  className="cross"
-                  src="../images/cross.svg"
-                  width="30px"
+                  src="../images/star.svg"
+                  alt="logo"
                   height="30px"
+                  width="30px"
+                  className="star-svg"
+                />
+                <span> {props.rating} </span>
+              </div>
+              <a href={props.link}>
+                <button className="to-plant-info">Read More</button>
+              </a>
+              <button onClick={props.addToBasket}>
+                <img
+                  src="../images/newBasket.svg"
+                  alt="logo"
+                  height="30px"
+                  width="30px"
+                  className="basket-svg"
                 />
               </button>
             </div>
-          ) : (
-            <div>
-              <div className="icons">
-                <div className="rating">
-                  <img
-                    src="../images/star.svg"
-                    alt="logo"
-                    height="30px"
-                    width="30px"
-                    className="star-svg"
-                  />
-                  <span> {props.rating} </span>
-                </div>
-                <button className="to-plant-info">Read More</button>
-
-                <button onClick={props.addToBasket}>
-                  <img
-                    src="../images/newBasket.svg"
-                    alt="logo"
-                    height="30px"
-                    width="30px"
-                    className="basket-svg"
-                  />
-                </button>
-              </div>
-            </div>
-          )}
-        </div>
-      </a>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
