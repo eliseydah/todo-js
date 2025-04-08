@@ -1,11 +1,8 @@
 import PlantCard from "./PlantCard";
 import "./PlantsMenu.css";
-import { BasketContext } from "./contexts";
 import { plants } from "./plants";
-import { useContext } from "react";
 import { useSearchParams } from "react-router";
 function PlantsMenu() {
-  const [basket, setBasket] = useContext(BasketContext);
   const [searchParams] = useSearchParams();
   const filter = searchParams.get("filter");
   const filteredPlants = filter
@@ -20,18 +17,6 @@ function PlantsMenu() {
       )
     : plants;
   const plantsTitle = filter ? `${filter} plants` : "Plants catalogue";
-  function addToBasket(plant) {
-    setBasket([
-      ...basket,
-      {
-        name: plant.name,
-        price: plant.price,
-        image: plant.image,
-        rating: plant.rating,
-      },
-    ]);
-    console.log(basket);
-  }
 
   return (
     <div>
@@ -48,9 +33,6 @@ function PlantsMenu() {
             rating={plant.rating}
             toBuy={plant.toBuy}
             toWishlist={plant.toWishlist}
-            addToBasket={() => {
-              addToBasket(plant);
-            }}
           />
         ))}
       </div>

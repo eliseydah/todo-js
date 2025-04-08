@@ -1,11 +1,29 @@
 import "./PlantCard.css";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { BasketContext } from "./contexts";
 function PlantCard(props) {
+  const [basket, setBasket] = useContext(BasketContext); // basketHook = [basket, setBasket]
   const [wishlist, setWishlist] = useState(() => {
     // Проверяем, есть ли элемент в localStorage при загрузке
     return localStorage.getItem(props.name) !== null;
   });
-
+  function removeFromBasket() {
+    setBasket(basket.filter((item) => item.name !== props.name));
+    console.log(basket);
+  }
+  function addToBasket() {
+    console.log(props.plant);
+    setBasket([
+      ...basket,
+      {
+        name: props.name,
+        price: props.price,
+        image: props.image,
+        rating: props.rating,
+      },
+    ]);
+    console.log(basket);
+  }
   const checkboxClass = wishlist ? "checkbox" : "checkbox";
 
   function toWishlist() {
@@ -38,20 +56,21 @@ function PlantCard(props) {
         <h3>{props.name}</h3>
         <div className="price-and-description">
           <div>Price: {props.price}$</div>
+          {props.isBasket ? (
+            <div>
+              <button onClick={removeFromBasket} className="remove-from-basket">
+                <img
+                  className="cross"
+                  src="../images/cross.svg"
+                  width="30px"
+                  height="30px"
+                />
+              </button>
+            </div>
+          ) : null}
         </div>
 
-        {props.isBasket ? (
-          <div>
-            <button className="remove-from-busket">
-              <img
-                className="cross"
-                src="../images/cross.svg"
-                width="30px"
-                height="30px"
-              />
-            </button>
-          </div>
-        ) : (
+        {props.isBasket ? null : (
           <div>
             <div className="icons">
               <div className="rating">
@@ -67,7 +86,7 @@ function PlantCard(props) {
               <a href={props.link}>
                 <button className="to-plant-info">Read More</button>
               </a>
-              <button onClick={props.addToBasket}>
+              <button onClick={addToBasket}>
                 <img
                   src="../images/newBasket.svg"
                   alt="logo"
