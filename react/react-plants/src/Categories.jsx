@@ -22,7 +22,7 @@ function Categories() {
     {
       title: "Succulents",
       image: "../images/succulent.jpeg",
-      link: "/catalogue?filter=Succulent plant",
+      link: "/catalogue?filter=Succulent",
     },
     {
       title: "Moisture-loving",
@@ -42,7 +42,7 @@ function Categories() {
     {
       title: "Air-purifying",
       image: "../images/sansevieria.jpeg",
-      link: "/catalogue?filter=Air-purifying plant",
+      link: "/catalogue?filter=Air-purifying",
     },
   ];
   return (

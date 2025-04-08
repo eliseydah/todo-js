@@ -42,7 +42,7 @@ export const plants = [
     difficulty: DIFFICULTY.EASY,
     light: LIGHT.LOW,
     watering: WATERING.MODERATE,
-    bonus: "Air-purifying plant",
+    bonus: "Air-purifying",
     petFriendly: false,
   },
   {
@@ -69,7 +69,7 @@ export const plants = [
     size: "Small",
     description:
       "The Cactus is a hardy and versatile plant known for its unique shapes and minimal care requirements. It thrives in bright light and dry conditions, making it perfect for busy plant lovers. With its striking appearance and slow growth, a cactus adds a modern and stylish touch to any space. Available in a variety of sizes and forms, it suits both small desks and larger decorative displays. Add a touch of nature to your home with an easy-to-care-for cactus!",
-    type: "Succulent plant",
+    type: "Succulent",
     difficulty: DIFFICULTY.EASY,
     light: LIGHT.BRIGHT,
     watering: WATERING.DROUGHT,
@@ -84,7 +84,7 @@ export const plants = [
     size: "Small",
     description:
       "Echeveria is a stunning, low-maintenance succulent known for its rosette-shaped leaves and vibrant colors. This drought-tolerant plant thrives in bright, indirect sunlight and requires minimal watering. Perfect for indoor and outdoor spaces, Echeveria adds a touch of elegance to any plant collection. Its compact size makes it ideal for small pots, terrariums, or decorative arrangements. Easy to care for and visually striking, Echeveria is a must-have for any plant lover.",
-    type: "Succulent plant",
+    type: "Succulent",
     difficulty: DIFFICULTY.EASY,
     light: LIGHT.BRIGHT,
     watering: WATERING.DROUGHT,
@@ -97,7 +97,7 @@ export const plants = [
     rating: 4.1,
     id: 6,
     descripton:
-      "The Money Tree (Pachira aquatica) is a popular houseplant known for its elegant braided trunk and lush green leaves. It is believed to bring good luck and prosperity, making it a favorite choice for homes and offices. This low-maintenance plant thrives in indirect light and moderate watering, making it perfect for beginners. With its air-purifying qualities, the Money Tree adds a fresh and vibrant touch to any space. Bring positive energy and natural beauty into your home with this stylish and meaningful plant!",
+      "The Money Tree (Pachira aquatica) is a popular houseplant believed to bring good luck and prosperity. Its braided trunk and lush green leaves make it a stylish addition to any space. Low-maintenance and adaptable, it thrives in bright, indirect light with occasional watering.",
     type: "Decorative foliage plant",
     difficulty: DIFFICULTY.EASY,
     light: LIGHT.BRIGHT,
@@ -118,7 +118,7 @@ export const plants = [
     difficulty: DIFFICULTY.EASY,
     light: LIGHT.LOW,
     watering: WATERING.REGULAR,
-    bonus: "Air-purifying plant",
+    bonus: "Air-purifying",
     petFriendly: false,
   },
   {
@@ -130,11 +130,11 @@ export const plants = [
     id: 8,
     description:
       "The Sansevieria, or Snake Plant, is a stylish and resilient indoor plant, perfect for beginners and busy plant owners. Known for its tall, sword-like leaves with striking patterns, it adds a modern touch to any space. This low-maintenance plant thrives in low light conditions and requires minimal watering, making it one of the easiest houseplants to care for. It is also an excellent air purifier, helping to remove toxins and improve indoor air quality. Bring home a durable and elegant plant that enhances both décor and well-being!",
-    type: "Succulent plant",
+    type: "Succulent",
     difficulty: DIFFICULTY.EASY,
     light: LIGHT.LOW,
     watering: WATERING.DROUGHT,
-    bonus: "Air-purifying plant",
+    bonus: "Air-purifying",
     petFriendly: false,
   },
   {
@@ -146,7 +146,7 @@ export const plants = [
     id: 9,
     description:
       "The Zamioculcas, or ZZ Plant, is a low-maintenance and stylish houseplant, perfect for any indoor space. With its glossy, dark green leaves, it brings a modern and elegant touch to homes and offices. This hardy plant thrives in low light and requires minimal watering, making it ideal for beginners or those with a busy lifestyle. It is also known for its air-purifying properties, helping to improve indoor air quality. Add a touch of greenery with minimal effort by choosing the beautiful and resilient ZZ Plant!",
-    type: "Succulent plant",
+    type: "Succulent",
     difficulty: DIFFICULTY.EASY,
     light: LIGHT.LOW,
     watering: WATERING.DROUGHT,
@@ -205,7 +205,7 @@ export const plants = [
     rating: 4.0,
     id: 13,
     description:
-      "Dramatic arrow-shaped leaves with bold white veins and glossy, dark green surfaces. Compact variety of Alocasia.",
+      "The Alocasia Polly, also known as African Mask Plant, is a striking houseplant with deep green, arrow-shaped leaves and bold white veins. It thrives in bright, indirect light and loves humidity. This compact plant adds an exotic touch to any space, making it a favorite for plant enthusiasts.",
     type: "Tropical foliage plant",
     difficulty: DIFFICULTY.INTERMEDIATE,
     light: LIGHT.BRIGHT,

@@ -19,6 +19,7 @@ function PlantsMenu() {
           plant.size === filter
       )
     : plants;
+  const plantsTitle = filter ? `${filter} plants` : "Plants catalogue";
   function addToBasket(plant) {
     setBasket([
       ...basket,
@@ -34,7 +35,7 @@ function PlantsMenu() {
 
   return (
     <div>
-      <h2>Plants Catalogue</h2>
+      <h2>{plantsTitle}</h2>
       <div className="plants-menu">
         {filteredPlants.map((plant) => (
           <PlantCard
