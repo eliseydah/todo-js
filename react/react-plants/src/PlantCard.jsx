@@ -1,22 +1,22 @@
 import "./PlantCard.css";
 import { useState } from "react";
 function PlantCard(props) {
-  const [wishlist, addToWishlist] = useState();
-  let checkboxClass = "checkbox";
+  const [wishlist, setWishlist] = useState(() => {
+    // Проверяем, есть ли элемент в localStorage при загрузке
+    return localStorage.getItem(props.name) !== null;
+  });
+
+  const checkboxClass = wishlist ? "checkbox" : "checkbox";
 
   function toWishlist() {
     if (wishlist) {
-      addToWishlist(false);
+      setWishlist(false);
       window.localStorage.removeItem(`${props.name}`);
-      checkboxClass = "checkbox:checked::after";
     } else {
-      addToWishlist(true);
+      setWishlist(true);
       window.localStorage.setItem(`${props.name}`, `${props.id}`);
-      checkboxClass = "checkbox::after";
     }
-    console.log("added to Wislist");
-    console.log(wishlist);
-    console.log(window.localStorage.getItem(`${props.name}`));
+    console.log(`Wishlist state: ${wishlist}`);
   }
   return (
     <div>
@@ -28,6 +28,7 @@ function PlantCard(props) {
           <label className="custom-checkbox">
             <input
               type="checkbox"
+              checked={wishlist}
               className={checkboxClass}
               onChange={toWishlist}
             />
