@@ -83,7 +83,7 @@ function PlantCard(props) {
                 />
                 <span> {props.rating} </span>
               </div>
-              <a href={props.link}>
+              <a href={`/catalogue/${props.id}`}>
                 <button className="to-plant-info">Read More</button>
               </a>
               <button onClick={addToBasket}>
